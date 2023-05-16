@@ -60,16 +60,20 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'utentelivello1' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Utentelivello1::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'utentelivello2' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Utentelivello2::class,
+        ],
+        'utentelivello3' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Utentelivello3::class,
+        ],
     ],
+    
 
     /*
     |--------------------------------------------------------------------------
