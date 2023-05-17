@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\UtenteLivello1;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -25,16 +26,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('isAdmin', function ($user) {
-            return $user->hasRole('admin');
+        Gate::define('view-level2-navbar', function ($user) {
+            return $user instanceof UtenteLivello2;
+        });
+        Gate::define('view-level3-navbar', function ($user) {
+            return $user instanceof UtenteLivello3;
         });
 
-        Gate::define('isUser', function ($user) {
-            return $user->hasRole('user');
-        });
-
-        Gate::define('show-discount', function ($user) {
-            return $user->hasRole(['user', 'admin']);
-        });
+       
     }
 }
