@@ -182,6 +182,27 @@
   .CercaUtenti-bottone:hover{
     background-color: #9e9b9b;
   }
+  .Operatore {
+    text-align: center;
+    width: 100%;
+    position: relative;
+  }
+  
+  /*colora il pallino e la scritta insieme*/
+  .Operatore table{
+    text-align: left;
+    margin: 0 auto;
+    width: 200px;
+    margin-bottom: 301px;
+  }
+  .Operatore table tr{
+    border:3px;
+    font-size: large;
+  }
+  .Operatore table tr td{
+    border-left: 2px;
+    text-align: center;
+  }
 
   .footer {
     background-color: #3e3e3e;
