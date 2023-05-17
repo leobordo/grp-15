@@ -203,7 +203,48 @@
     border-left: 2px;
     text-align: center;
   }
-
+  .Allinea_bottoni{
+  }
+  .Bottone_elimina{
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+    position: sticky;
+    bottom: 20px;
+    border: 2px solid rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .Bottone_elimina:hover{
+    background-color: rgb(196, 98, 98);
+    color:  rgb(190, 0, 0) ;
+  }
+  .Bottone_elimina a{
+    text-decoration: none;
+    color:inherit;
+  }
+  .Bottone_edit{
+    text-align: right;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: right;
+    position: sticky;
+    bottom: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .Bottone_edit:hover{
+    background-color:#3e3e3e;
+    color:  rgb(0, 0, 0) ;
+  }
+  .Bottone_edit a{
+    text-decoration: none;
+    color:inherit;
+  }
   .footer {
     background-color: #3e3e3e;
     width: 100%;
