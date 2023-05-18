@@ -194,14 +194,19 @@
     margin: 0 auto;
     width: 200px;
     margin-bottom: 301px;
+    
   }
   .Operatore table tr{
     border:3px;
-    font-size: large;
+    font-size:x-large
   }
   .Operatore table tr td{
     border-left: 2px;
     text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .Allinea_bottoni{
   }
