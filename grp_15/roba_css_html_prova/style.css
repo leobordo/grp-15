@@ -208,8 +208,28 @@
     padding-left: 20px;
     padding-right: 20px;
   }
-  .Allinea_bottoni{
+  .Form_modifica{
+      margin-bottom: 10px;
   }
+    
+    .Form_modifica label {
+      display: block;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+    .Form_modifica select{
+      padding-left: 5px;
+      padding-right: 5px;
+      display: block;
+      margin: 0 auto;
+    }
+    .Form_modifica select:hover{
+      border: 2px solid black;
+    }
+    .Form_modifica input:hover{
+      border: 2px solid black;
+    }
+  
   .Bottone_elimina{
     text-align: left;
     margin-top: 5px;
@@ -242,6 +262,7 @@
     padding: 10px;
     border-radius: 10px;
   }
+  
   .Bottone_edit:hover{
     background-color:#3e3e3e;
     color:  rgb(0, 0, 0) ;
@@ -249,6 +270,20 @@
   .Bottone_edit a{
     text-decoration: none;
     color:inherit;
+  }
+  .Bottone_salva{
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 5px;
+    position: sticky;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .Bottone_salva:hover{
+    background-color:#3e3e3e;
+    color:  rgb(0, 0, 0) ;
   }
   .footer {
     background-color: #3e3e3e;
