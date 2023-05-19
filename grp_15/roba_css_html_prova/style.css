@@ -186,6 +186,13 @@
     text-align: center;
     width: 100%;
     position: relative;
+    flex-direction: column;
+  }
+  .Operatore2 {
+    text-align: center;
+    width: 100%;
+    position: relative;
+
   }
   
   /*colora il pallino e la scritta insieme*/
@@ -211,6 +218,7 @@
   .Form_modifica{
       margin-bottom: 10px;
   }
+  
     
     .Form_modifica label {
       display: block;
@@ -262,6 +270,8 @@
     padding: 10px;
     border-radius: 10px;
   }
+  
+  
   
   .Bottone_edit:hover{
     background-color:#3e3e3e;
@@ -345,4 +355,12 @@
   overflow-x: hidden; /* Nasconde la barra di scorrimento orizzontale */
   padding: 20px;
 }
-
+.ContenitoreProfilo{
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-group-in{
+  
+}
