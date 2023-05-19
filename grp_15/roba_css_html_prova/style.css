@@ -293,4 +293,56 @@
   .footer p{
     color: #d9d9d9;
   }
- 
+ .ContenitoreAccesso{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;   
+ }
+ .form-group{
+  margin-bottom: 5px;
+  
+ }
+ .bel{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+ }
+.sepLogin
+{
+  display: flex;
+    
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+
+.ContenitoreFaqCompleto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ContenitoreLegenda{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ContenitoreFaq {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 800px; /* Imposta la larghezza del contenitore */
+  height: 600px; /* Imposta l'altezza del contenitore basata sulla dimensione verticale della finestra del browser */
+  overflow: auto; /* Aggiungi scorrimento automatico */
+  overflow-x: hidden; /* Nasconde la barra di scorrimento orizzontale */
+  padding: 20px;
+}
+

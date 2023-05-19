@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            function mostraIscrizione() {
+                document.getElementById("accesso-form").style.display = "none";
+                document.getElementById("iscrizione-form").style.display = "block";
+                }
+
+            function mostraAccesso() {
+                document.getElementById("accesso-form").style.display = "block";
+                document.getElementById("iscrizione-form").style.display = "none";
+                }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <ul>    
+                <li>
+                    <div class="homeButton">
+                        <img src="nikeLogo.png" alt="logo" width="100" >
+                    </div>
+                </li>
+              <li><a href="#"></a></li>
+              <li><a href="#">chi siamo</a></li>
+              
+            </ul>
+        </nav>
+        <div id="accesso-form">
+            <form class="ContenitoreAccesso">
+                
+                <div >
+                    <h2>Accesso</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label>Username</label>
+                </div>
+                <div class="form-group">
+                    <input type="text">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                </div>
+                <div class="form-group">
+                    <input  type="password">
+                </div>
+                <div class="form-group">
+                    <a>Password dimenticata?</a>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="accedi">
+                </div>
+                
+                
+            </form>
+            <hr>
+            <div class="sepLogin">
+                <div >
+                    <h2>Iscrizione</h2>
+                </div>
+                
+                <div>
+                    <button onclick="mostraIscrizione()">Iscriviti</button>
+                </div>
+            </div>
+            
+            
+          </div>
+          
+          
+          
+          <div id="iscrizione-form" style="display: none;">
+            <div class="sepLogin">
+                <div>
+                    <h2>Accesso</h2>
+                </div>
+                <div>
+                    <button onclick="mostraAccesso()">Accedi</button>
+                </div>
+                
+                
+            </div>
+           <hr>
+           
+            <form class="ContenitoreAccesso">
+                <div>
+                    <label>
+                        <h2>Iscrizione</h2>
+                    </label>
+                </div>
+                
+                
+                
+
+                <div class="form-group">
+                    <label>Nome</label>
+                </div>
+                <div class="form-group">
+                    <input type="text">
+                </div>
+                <div class="form-group">
+                    <label>Cognome</label>
+                </div>
+                <div class="form-group">
+                    <input type="text">
+                </div>
+                <div>
+                    <label> Genere</label>
+                </div>
+                
+                <div> 
+                
+                <label>
+                    <input type="radio" name="gender" value="maschio">
+                    Maschio
+                </label>
+                </div>
+                <div>
+                <label>
+                    <input type="radio" name="gender" value="femmina">
+                    Femmina
+                </label>
+                </div>
+                <div>
+                    <label for="data">Data di nascita</label>
+                </div>
+                <div>
+                
+                <input type="date" id="data" name="data">
+                </div>
+                
+        
+                <div class="form-group">
+                    <label>Username</label>
+                </div>
+                <div class="form-group">
+                    <input type="text">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                </div>
+                <div class="form-group">
+                    <input type="password">
+                </div>
+                <div class="form-group">
+                    <label>Telefono</label>
+                </div>
+                <div class="form-group">
+                    <input type="text">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="text">
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" value="Registrati">
+                </div>
+                
+            </form>
+            
+            
+          </div>
+        
+    </body>
+</html>
+
