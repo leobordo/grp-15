@@ -11,8 +11,8 @@
     @isset($operatori)
     <ul>
         @foreach($operatori as $operatore)
-                <li><a href="{{ route('operatore', [$operatore->NomeUtente]) }}">Operatore: {{ $operatore->NomeUtente }}</a></li> //uso una query string nell'url per passare l'username
-        @endforeach
+                <li><a href="{{ route('operatore', [$operatore->NomeUtente]) }}">Operatore: {{ $operatore->NomeUtente }}</a></li> 
+                <!-- passa il valore NoomeUtente alla funzione indicata nella route nominata operatore -->
     </ul>
     @endisset
     <div class="Bottone_aggiungi">

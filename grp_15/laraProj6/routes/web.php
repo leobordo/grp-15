@@ -44,10 +44,12 @@ Route::get('/operatore', [PublicController::class, 'showOperatore'])
         e nomina la route 'operatore' così da poterla richiamare con
         route('operatore')
         */
+Route::get('/listaOperatori', [PublicController::class, 'deleteOperatore'])
+        ->name('deleteoperatore');
 Route::get('/cliente', [PublicController::class, 'showCliente'])
         ->name('cliente');
-        /*come sopra
-        */
+Route::get('listaClienti', [PublicController::class, 'deleteCliente'])
+        ->name('deletecliente');
 Route::view('/where', 'where')
         ->name('where');
 

@@ -37,4 +37,22 @@ class PublicController extends Controller
             vedi sopra
         */
     }
+    public function deleteOperatore($chiave)
+    {
+        UtenteLivello2::where('NomeUtente', $chiave)->delete();
+        return view('gestioneOperatori');
+        /*
+         elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
+         ha il valore $chiave
+        */
+    }
+    public function deleteCliente($chiave)
+    {
+        UtenteLivello1::where('NomeUtente', $chiave)->delete();
+        return view('gestioneClienti');
+        /*
+         elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
+         ha il valore $chiave
+        */
+    }
 }
