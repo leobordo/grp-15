@@ -16,7 +16,7 @@
     </ul>
     @endisset
     <div class="Bottone_aggiungi">
-        <a href="form_operatore.blade.php???">Aggiungi operatore</a>
+        <a href="{{ route('aggiungioperatore') }}">Aggiungi operatore</a>
     </div>
     <br>
     <br> 

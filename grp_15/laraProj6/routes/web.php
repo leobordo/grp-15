@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Utente3Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,19 +38,21 @@ Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
 Route::get('/user', [UserController::class, 'index'])
         ->name('user')->middleware('can:isUser');
 
-Route::get('/operatore', [PublicController::class, 'showOperatore'])
+Route::get('/operatore', [Utente3Controller::class, 'showOperatore'])
         ->name('operatore'); 
         /*route di tipo get 
         che chiama il metodo showOperatore di UserController
         e nomina la route 'operatore' così da poterla richiamare con
         route('operatore')
         */
-Route::get('/listaOperatori', [PublicController::class, 'deleteOperatore'])
+Route::get('/listaOperatori', [Utente3Controller::class, 'deleteOperatore'])
         ->name('deleteoperatore');
-Route::get('/cliente', [PublicController::class, 'showCliente'])
+Route::get('/cliente', [Utente3Controller::class, 'showCliente'])
         ->name('cliente');
-Route::get('listaClienti', [PublicController::class, 'deleteCliente'])
+Route::get('/listaClienti', [Utente3Controller::class, 'deleteCliente'])
         ->name('deletecliente');
+Route::get('/listaOperatori',[Utente3Controller::class, 'aggiungiOperatore'])
+        ->name('aggiungioperatore');
 Route::view('/where', 'where')
         ->name('where');
 
