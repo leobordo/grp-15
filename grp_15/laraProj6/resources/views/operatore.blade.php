@@ -1,7 +1,5 @@
 @extends('iscritti.gestione')
 
-{{$op= Utentelivello2::find(request()->query(NomeUtente))}}
-
 @section('title', 'Operatore')
 
 @section('content')
@@ -12,15 +10,15 @@
 <br>
 
 <p>Nome:</p>
-<p>{{ $op->Nome }}</p>
+<p>{{ $Operatoree->Nome }}</p> <!-- tutto quello dentro le graffe significa che viene passato il valore dell'attr Nome di $Operatoree -->
 <p>Cognome:</p>
-<p>{{ $op->cognome }}</p>
+<p>{{ $Operatoree->cognome }}</p>
 <p>E-mail:</p>
-<p>{{ $op->E-mail }}</p>
+<p>{{ $Operatoree->Email }}</p>
 <p>Telefono:</p>
-<p>{{ $op->Telefono }}</p>
+<p>{{ $Operatoree->Telefono }}</p>
 <p>Genere:</p>
-<p>{{ $op->Genere }}</p>
+<p>{{ $Operatoree->Genere }}</p>
 
 <br>
 <div class="Bottone_elimina">

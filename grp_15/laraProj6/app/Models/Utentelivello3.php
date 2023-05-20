@@ -14,7 +14,7 @@ class UtenteLivello3 extends Authenticatable
         'Password',
         'Nome',
         'cognome',
-        'E-mail',
+        'Email',
         'Telefono',
         'Genere',
     ];

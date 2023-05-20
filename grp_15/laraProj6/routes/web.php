@@ -37,7 +37,17 @@ Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
 Route::get('/user', [UserController::class, 'index'])
         ->name('user')->middleware('can:isUser');
 
-
+Route::get('/operatore', [PublicController::class, 'showOperatore'])
+        ->name('operatore'); 
+        /*route di tipo get 
+        che chiama il metodo showOperatore di UserController
+        e nomina la route 'operatore' così da poterla richiamare con
+        route('operatore')
+        */
+Route::get('/cliente', [PublicController::class, 'showCliente'])
+        ->name('cliente');
+        /*come sopra
+        */
 Route::view('/where', 'where')
         ->name('where');
 

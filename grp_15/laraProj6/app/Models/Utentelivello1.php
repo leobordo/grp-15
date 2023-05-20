@@ -14,7 +14,7 @@ class UtenteLivello1 extends Authenticatable
         'Password',
         'Nome',
         'cognome',
-        'E-mail',
+        'Email',
         'Telefono',
         'Genere',
         'NumeroCouponTotali',

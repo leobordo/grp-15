@@ -11,7 +11,7 @@
     @isset($operatori)
     <ul>
         @foreach($operatori as $operatore)
-                <li><a href="operatore.blade.php?username={{ $operatore->NomeUtente }}">Operatore: {{ $operatore->NomeUtente }}</a></li> //uso una query string nell'url per passare l'username
+                <li><a href="{{ route('operatore', [$operatore->NomeUtente]) }}">Operatore: {{ $operatore->NomeUtente }}</a></li> //uso una query string nell'url per passare l'username
         @endforeach
     </ul>
     @endisset
