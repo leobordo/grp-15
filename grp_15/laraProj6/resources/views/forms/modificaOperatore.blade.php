@@ -1,6 +1,6 @@
 @extends('layouts.gestione')
 
-@section('title', 'Aggiungi Operatore')
+@section('title', 'Modifica Operatore')
 
 <!-- @@section('scripts')
 
@@ -26,10 +26,10 @@ $(function () {
 @@endsection
 -->
 @section('content')
-    <h1>AGGIUNGI OPERATORE</h1>
+    <h1>MODIFICA OPERATORE</h1>
     <br>
     <br>
-    {{ Form::open(array('route' => 'aggiungioperatore', 'id' => 'Form_aggiungi_op', 'class' => 'Form_modifica')) }} <!--passa al metodo aggOp del controller Utente3, id è per JS  -->
+    {{ Form::model($record,array('route' => 'salvaoperatore', 'id' => 'Form_modifica_op', 'class' => 'Form_modifica')) }} <!--passa al metodo modOp del controller Utente3, id è per JS  -->
         {{ Form::label('Nome', 'Nome') }}
         {{ Form::text('Nome','')}} <!-- il primo param è il nome per associare il label(come for in html), il seconod param è il placeholder -->
 
@@ -62,7 +62,7 @@ $(function () {
 @endif
 
 
-        {{ Form::submit('Salva Operatore', ['class' => 'Bottone_salva']) }}
+        {{ Form::submit('Salva modifiche', ['class' => 'Bottone_salva']) }}
 
         {{Form::close()}}
         <!-- mancano i controlli degli errori $messaggi -->

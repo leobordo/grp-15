@@ -38,7 +38,7 @@ Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
 Route::get('/user', [UserController::class, 'index'])
         ->name('user')->middleware('can:isUser');
 
-Route::get('/operatore', [Utente3Controller::class, 'showOperatore'])
+Route::get('/operatore', [Utente3Controller::class, 'getOperatore'])
         ->name('operatore'); 
         /*route di tipo get 
         che chiama il metodo showOperatore di UserController
@@ -47,12 +47,16 @@ Route::get('/operatore', [Utente3Controller::class, 'showOperatore'])
         */
 Route::get('/listaOperatori', [Utente3Controller::class, 'deleteOperatore'])
         ->name('deleteoperatore');
-Route::get('/cliente', [Utente3Controller::class, 'showCliente'])
+Route::get('/cliente', [Utente3Controller::class, 'getCliente'])
         ->name('cliente');
 Route::get('/listaClienti', [Utente3Controller::class, 'deleteCliente'])
         ->name('deletecliente');
-Route::post('/listaOperatori',[Utente3Controller::class, 'aggiungiOperatore'])
+Route::post('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'aggiungiOperatore'])
         ->name('aggiungioperatore');
+Route::post('/listaOperatori/modificaOperatore',[Utente3Controller::class, 'modificaOperatore'])
+        ->name('modificaoperatore');
+Route::get('listaOperatori/modificaOperatore',[Utente3Controller::class, 'salvaModifiche'])
+        ->name('salvamodifiche');
 Route::view('/where', 'where')
         ->name('where');
 
