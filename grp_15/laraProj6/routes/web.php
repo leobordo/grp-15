@@ -51,7 +51,7 @@ Route::get('/cliente', [Utente3Controller::class, 'showCliente'])
         ->name('cliente');
 Route::get('/listaClienti', [Utente3Controller::class, 'deleteCliente'])
         ->name('deletecliente');
-Route::get('/listaOperatori',[Utente3Controller::class, 'aggiungiOperatore'])
+Route::post('/listaOperatori',[Utente3Controller::class, 'aggiungiOperatore'])
         ->name('aggiungioperatore');
 Route::view('/where', 'where')
         ->name('where');
