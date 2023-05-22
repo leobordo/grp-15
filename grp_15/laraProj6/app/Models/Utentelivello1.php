@@ -20,12 +20,12 @@ class UtenteLivello1 extends Authenticatable
         'NumeroCouponTotali',
     ];
     protected $hidden = [
-        'NomeUtente',
+        
         'Password',
         'remember_token',
     ];
     protected $primaryKey = 'NomeUtente';
-    protected $table = 'utentilivello1';
+    protected $table = 'utentelivello1';
     public function numeroCoupon()
 {
     return $this->hasMany(Coupon::class)->count();

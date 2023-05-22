@@ -13,7 +13,8 @@ class Utente3Controller extends Controller
 {
     public function showOperatori()
     {
-        return view('gestioneOperatori');
+        $op=UtenteLivello2::get();
+        return view('gestioneOperatori',['operatori'=>$op]);
     }
     public function getOperatore($chiave)
     {

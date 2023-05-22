@@ -20,9 +20,9 @@ class UtenteLivello2 extends Authenticatable
         
     ];
     protected $primaryKey = 'NomeUtente';
-    protected $table = 'utentilivello2';
+    protected $table = 'utentelivello2';
     protected $hidden = [
-        'NomeUtente',
+        
         'Password',
         'remember_token',
     ];
