@@ -398,15 +398,22 @@
 }
 .ContenitoreFaq {
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
   flex-direction: column;
   width: 800px; /* Imposta la larghezza del contenitore */
-  height: 600px; /* Imposta l'altezza del contenitore basata sulla dimensione verticale della finestra del browser */
+  height: 500px; /* Imposta l'altezza del contenitore basata sulla dimensione verticale della finestra del browser */
   overflow: auto; /* Aggiungi scorrimento automatico */
   overflow-x: hidden; /* Nasconde la barra di scorrimento orizzontale */
   padding: 20px;
 }
+.domanda {
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .ContenitoreProfilo{
  
   display: flex;
