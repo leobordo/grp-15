@@ -25,7 +25,7 @@
     <a href="{{ route('deleteoperatore' ,[$Operatoree->NomeUtente]) }}">Elimina operatore</a>
 </div>
 <div class="Bottone_edit">
-    <a href="funzione che modifica l'operatore">Modifica operatore</a>
+    <a href="{{ route('modificaoperatore', [$Operatoree->NomeUtente]) }}">Modifica operatore</a>
 </div>
 <br>
 <br>
