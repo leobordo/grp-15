@@ -9,8 +9,12 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class PublicController extends Controller
+class Utente3Controller extends Controller
 {
+    public function showOperatori()
+    {
+        return view('gestioneOperatori');
+    }
     public function getOperatore($chiave)
     {
         $op=UtenteLivello2::where('NomeUtente', $chiave)->first();
