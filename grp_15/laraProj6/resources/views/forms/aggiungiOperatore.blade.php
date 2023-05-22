@@ -29,7 +29,7 @@ $(function () {
     <h1>AGGIUNGI OPERATORE</h1>
     <br>
     <br>
-    {{ Form::open(array('route' => 'aggiungioperatore', 'id' => 'Form_aggiungi_op', 'class' => 'Form_modifica')) }} <!--passa al metodo aggOp del controller Utente3, id è per JS  -->
+    {{ Form::open(['route' => 'aggiungioperatore2', 'method' => 'POST', 'id' => 'Form_aggiungi_op', 'class' => 'Form_modifica']) }} <!--passa al metodo aggOp del controller Utente3, id è per JS  -->
         {{ Form::label('Nome', 'Nome') }}
         {{ Form::text('Nome','')}} <!-- il primo param è il nome per associare il label(come for in html), il seconod param è il placeholder -->
 

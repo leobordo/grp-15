@@ -18,7 +18,7 @@ use App\Http\Controllers\Utente3Controller;
 */
 Route::get('/promotions', 'PromotionController@showPromotions')->name('promotions'); /* rotta per la visualizzazione delle promozioni */
 
-Route::get('/', [Utente3Controller::class, 'showOperatori'])
+Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
         ->name('showOperatore');
 
 Route::get('/selTopCat/{topCatId}', [PublicController::class, 'showCatalog2'])
@@ -39,24 +39,26 @@ Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
 Route::get('/user', [UserController::class, 'index'])
         ->name('user')->middleware('can:isUser');
 
-Route::get('/operatore', [Utente3Controller::class, 'getOperatore'])
+Route::get('/listaOperatori/Utente:{chiave}', [Utente3Controller::class, 'getOperatore'])
         ->name('operatore'); 
         /*route di tipo get 
         che chiama il metodo showOperatore di UserController
         e nomina la route 'operatore' così da poterla richiamare con
         route('operatore')
         */
-Route::get('/listaOperatori', [Utente3Controller::class, 'deleteOperatore'])
+Route::get('/listaOperatori/{chiave}/delete', [Utente3Controller::class, 'deleteOperatore'])
         ->name('deleteoperatore');
 Route::get('/cliente', [Utente3Controller::class, 'getCliente'])
         ->name('cliente');
 Route::get('/listaClienti', [Utente3Controller::class, 'deleteCliente'])
         ->name('deletecliente');
-Route::post('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'aggiungiOperatore'])
+Route::get('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'showFormOperatore'])
         ->name('aggiungioperatore');
-Route::post('/listaOperatori/modificaOperatore',[Utente3Controller::class, 'modificaOperatore'])
+Route::post('/listaOperatori/aggiungiOperatore/redirecting',[Utente3Controller::class, 'aggiungiOperatore'])
+        ->name('aggiungioperatore2');
+Route::post('/listaOperatori/modificaOperatore:{chiave}',[Utente3Controller::class, 'modificaOperatore'])
         ->name('modificaoperatore');
-Route::get('listaOperatori/modificaOperatore',[Utente3Controller::class, 'salvaModifiche'])
+Route::post('/listaOperatori/modificaOperatore/salva',[Utente3Controller::class, 'salvaOperatore'])
         ->name('salvamodifiche');
 Route::view('/where', 'where')
         ->name('where');

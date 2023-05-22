@@ -19,7 +19,7 @@ class UtenteLivello2 extends Authenticatable
         'Genere',
         
     ];
-    protected $primaryKey = 'NomeUtente';
+    //protected $primaryKey = 'NomeUtente';
     protected $table = 'utentelivello2';
     protected $hidden = [
         

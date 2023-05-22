@@ -1,4 +1,4 @@
-@extends('iscritti.gestione')
+@extends('layouts.iscritti')
 
 @section('title', 'Operatore')
 

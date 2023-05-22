@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Validator;
 
 class Utente3Controller extends Controller
 {
+    public function __construct()
+{
+    $this->middleware('web');
+}
+
     public function showOperatori()
     {
         $op=UtenteLivello2::get();
@@ -46,7 +51,7 @@ class Utente3Controller extends Controller
     public function deleteOperatore($chiave)
     {
         UtenteLivello2::where('NomeUtente', $chiave)->delete();
-        return view('gestioneOperatori');
+        return redirect('/listaOperatori');
         /*
          elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
          ha il valore $chiave
@@ -61,6 +66,9 @@ class Utente3Controller extends Controller
          ha il valore $chiave
         */
     }
+    public function showFormOperatore(){
+        return view('forms.aggiungiOperatore');
+    }
     public function aggiungiOperatore(Request $request)
     {
         $attributi=[
@@ -68,7 +76,7 @@ class Utente3Controller extends Controller
             'cognome' => 'required|string|max:255',
             'Email' => 'required|email|unique:Utentelivello2|max:255',
             'Telefono' => 'required|string|max:20',
-            'Genere' => 'required|in:Maschio,Femmina,Altro',
+            'Genere' => 'required',
             'NomeUtente' => 'required|string|unique:Utentelivello2|max:255',
             'Password' => 'required|string|min:6',
         ];
@@ -116,14 +124,15 @@ class Utente3Controller extends Controller
         $operatore-> NomeUtente = $usern;
         $operatore-> Password = $psw;
         $operatore->save();
-    return view('gestioneOperatori');
+        return redirect('/listaOperatori');
+    ;
 } 
     public function modificaOperatore($chiave)
     {
         $record = UtenteLivello2::where('NomeUtente', $chiave)->first();; // Recupera il record dal database
 
     // Passa il record alla view utilizzando il metodo with
-    return view('modificaOperatore')
+    return view('forms.modificaOperatore')
         ->with('record', $record);
     }
     public function salvaOperatore(Request $request)
