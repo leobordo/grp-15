@@ -16,9 +16,10 @@ use App\Http\Controllers\Utente3Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/promotions', 'PromotionController@showPromotions')->name('promotions'); /* rotta per la visualizzazione delle promozioni */
 
 Route::get('/', [PublicController::class, 'showCatalog1'])
-        ->name('catalog1');
+        ->name('login');
 
 Route::get('/selTopCat/{topCatId}', [PublicController::class, 'showCatalog2'])
         ->name('catalog2');
@@ -62,6 +63,7 @@ Route::view('/where', 'where')
 
 Route::view('/who', 'who')
         ->name('who');
+
 
 /*  Rotte aggiunte da Breeze
 
