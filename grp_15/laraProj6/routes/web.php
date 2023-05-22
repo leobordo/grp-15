@@ -18,8 +18,8 @@ use App\Http\Controllers\Utente3Controller;
 */
 Route::get('/promotions', 'PromotionController@showPromotions')->name('promotions'); /* rotta per la visualizzazione delle promozioni */
 
-Route::get('/', [PublicController::class, 'showCatalog1'])
-        ->name('login');
+Route::get('/', [Utente3Controller::class, 'showOperatori'])
+        ->name('showOperatore');
 
 Route::get('/selTopCat/{topCatId}', [PublicController::class, 'showCatalog2'])
         ->name('catalog2');

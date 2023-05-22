@@ -4,9 +4,9 @@
             <img src="ImMaGiNe LoGo" alt="logo" width="100" >
         </div>
     </li>
-  <li><a href="{{ route('home') }}" title="Home">Home</a></li>
-  <li><a href="{{ route('chisiamo') }}" title="Conoscici meglio">Chi siamo</a></li>
-  <li><a href="{{ route('faq') }}" title="FAQ sul sito">FAQ</a></li>
+  <li><a href="{{ route('who') }}" title="Home">Home</a></li>
+  <li><a href="{{ route('who') }}" title="Conoscici meglio">Chi siamo</a></li>
+  <li><a href="{{ route('who') }}" title="FAQ sul sito">FAQ</a></li>
   @can('view-level2-navbar', Utentelivello2::class)
   <li><a href="{{ route('gestionepromo') }}" title="Gestisci promozioni del sito">Gestione Promozioni</a></li>
   @endcan

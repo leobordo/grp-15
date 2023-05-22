@@ -13,6 +13,7 @@
         @foreach($operatori as $operatore)
                 <li><a href="{{ route('operatore', [$operatore->NomeUtente]) }}">Operatore: {{ $operatore->NomeUtente }}</a></li> 
                 <!-- passa il valore NoomeUtente alla funzione indicata nella route nominata operatore -->
+        @endforeach
     </ul>
     @endisset
     <div class="Bottone_aggiungi">
