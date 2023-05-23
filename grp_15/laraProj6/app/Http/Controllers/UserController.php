@@ -2,6 +2,6 @@
 
 namespace App\Http\Controllers;
 
-class userController extends Controller {
+class UserController extends Controller {
 
 }

@@ -6,7 +6,7 @@
     </li>
   <li><a href="{{ route('who') }}" title="Home">Home</a></li>
   <li><a href="{{ route('who') }}" title="Conoscici meglio">Chi siamo</a></li>
-  <li><a href="{{ route('who') }}" title="FAQ sul sito">FAQ</a></li>
+  <li><a href="{{ route('faq') }}" title="FAQ sul sito">FAQ</a></li>
   @can('view-level2-navbar', Utentelivello2::class)
   <li><a href="{{ route('gestionepromo') }}" title="Gestisci promozioni del sito">Gestione Promozioni</a></li>
   @endcan
@@ -23,7 +23,7 @@
         </form>
     @endauth 
   @guest
-  <li><a href="{{ route('login') }}" title="Iscriviti se non lo hai fatto">Iscriviti</a></li>
+  <li><a href="{{ route('register') }}" title="Iscriviti se non lo hai fatto">Iscriviti</a></li>
   <li><a href="{{ route('login') }}" title="Accedi al tuo account">Accedi</a></li>
   @endguest
 </ul>

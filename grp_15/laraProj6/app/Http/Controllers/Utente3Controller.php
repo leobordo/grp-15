@@ -192,4 +192,7 @@ class Utente3Controller extends Controller
         $operatore->save();
         return view('gestioneOperatori');
     }
+    public function showFaq(){
+        return view("faq");
+    }
 }

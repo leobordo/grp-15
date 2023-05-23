@@ -21,6 +21,9 @@ Route::get('/promotions', 'PromotionController@showPromotions')->name('promotion
 Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
         ->name('showOperatore');
 
+Route::get('/faq', [PublicController::class, 'showFaq'])
+        ->name('faq');
+
 Route::get('/selTopCat/{topCatId}', [PublicController::class, 'showCatalog2'])
         ->name('catalog2');
 

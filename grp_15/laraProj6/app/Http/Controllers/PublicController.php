@@ -10,5 +10,8 @@ use Illuminate\Support\Facades\Log;
 
 class PublicController extends Controller
 {
+    public function showFaq(){
+        return view("faq");
+    }
     
 }
