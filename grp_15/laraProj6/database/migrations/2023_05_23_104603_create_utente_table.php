@@ -23,7 +23,7 @@ class CreateUtenteTable extends Migration
             $table->string('Telefono');
             $table->string('Genere');
             $table->integer('Livello');
-            $table->integer('NumeroCouponTotali');
+            $table->integer('NumeroCouponTotali')->nullable();
             $table->timestamps();
 
         });
