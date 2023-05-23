@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class UtenteLivello2 extends Authenticatable
+class Utente extends Authenticatable
 {
     use Notifiable;
 
     protected $fillable = [
+        'id',
         'NomeUtente',
         'Password',
         'Nome',
@@ -17,15 +18,18 @@ class UtenteLivello2 extends Authenticatable
         'Email',
         'Telefono',
         'Genere',
-        
+        'NumeroCouponTotali',
     ];
-    //protected $primaryKey = 'NomeUtente';
-    protected $table = 'utentelivello2';
     protected $hidden = [
         
         'Password',
         'remember_token',
     ];
-  
+    protected $primaryKey = 'id';
+    protected $table = 'utente';
+    public function numeroCoupon()
+{
+    return $this->hasMany(Coupon::class)->count();
+}
 
 }

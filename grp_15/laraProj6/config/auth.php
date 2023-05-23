@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'utentelivello2',
+            'provider' => 'utente',
         ],
     ],
 
@@ -62,16 +62,9 @@ return [
     'providers' => [
         'utentelivello1' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Utentelivello1::class,
+            'model' => App\Models\Utente::class,
         ],
-        'utentelivello2' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Utentelivello2::class,
-        ],
-        'utentelivello3' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Utentelivello3::class,
-        ],
+        
     ],
     
 

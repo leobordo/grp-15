@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Catalog;
 use App\Models\UtenteLivello1;
-use App\Models\UtenteLivello2;
+use App\Models\Utente;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,12 +18,12 @@ class Utente3Controller extends Controller
 
     public function showOperatori()
     {
-        $op=UtenteLivello2::get();
+        $op=Utente::where('Livello','2')->get();
         return view('gestioneOperatori',['operatori'=>$op]);
     }
     public function getOperatore($chiave)
     {
-        $op=UtenteLivello2::where('NomeUtente', $chiave)->first();
+        $op=Utente::where('NomeUtente', $chiave)->first();
         /*
             where è un metodo di Eloquent, cerca l'attributo NomeUtente
             con il valore di $chiave(vedi gestioneOperatori.blade.php).
@@ -38,7 +38,7 @@ class Utente3Controller extends Controller
     }
     public function getCliente($chiave)
     {
-        $cl=UtenteLivello1::where('NomeUtente', $chiave)->first();
+        $cl=Utente::where('NomeUtente', $chiave)->first();
         /*
             vedi sopra
         */
@@ -50,7 +50,7 @@ class Utente3Controller extends Controller
     }
     public function deleteOperatore($chiave)
     {
-        UtenteLivello2::where('NomeUtente', $chiave)->delete();
+        Utente::where('NomeUtente', $chiave)->delete();
         return redirect('/listaOperatori');
         /*
          elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
@@ -59,7 +59,7 @@ class Utente3Controller extends Controller
     }
     public function deleteCliente($chiave)
     {
-        UtenteLivello1::where('NomeUtente', $chiave)->delete();
+        Utente::where('NomeUtente', $chiave)->delete();
         return view('gestioneClienti');
         /*
          elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
@@ -74,10 +74,11 @@ class Utente3Controller extends Controller
         $attributi=[
             'Nome' => 'required|string|max:255',
             'cognome' => 'required|string|max:255',
-            'Email' => 'required|email|unique:Utentelivello2|max:255',
+            'Email' => 'required|email|unique:Utente|max:255',
             'Telefono' => 'required|string|max:20',
             'Genere' => 'required',
-            'NomeUtente' => 'required|string|unique:Utentelivello2|max:255',
+            'Livello'=>'required|integer|min:1|max:3',
+            'NomeUtente' => 'required|string|unique:Utente|max:255',
             'Password' => 'required|string|min:6',
         ];
         $messaggi=[
@@ -95,6 +96,10 @@ class Utente3Controller extends Controller
             'Telefono.string' => 'Il Telefono deve essere una stringa',
             'Telefono.max' => 'Il Nome supera i 20 caratteri',
             'Genere.required' => 'Il Genere è obbligatorio',
+            'Livello.required' => 'Specifica il livello',
+            'Livello.integer' => 'Devi inserire un intero compreso tra 1 e 3',
+            'Livello.min' => 'Devi inserire un intero compreso tra 1 e 3',
+            'Livello.max' => 'Devi inserire un intero compreso tra 1 e 3',
             'NomeUtente.required' => 'Il Nomeutente è obbligatorio',
             'NomeUtente.string' => 'Il Nomeutente deve essere una stringa',
             'NomeUtente.max' => 'Il Nomeutente supera i 255 caratteri',
@@ -108,12 +113,13 @@ class Utente3Controller extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();//eventualmente ritorna al form con i messaggi di errore del validator e lascia nel form gli input
         }
-        $operatore= new UtenteLivello2();
+        $operatore= new Utente();
         $nome=request('Nome');
         $cogn=request('cognome');
         $email=request('Email');
         $tel=request('Telefono');
         $gen=request('Genere');
+        $liv=request('Livello');
         $usern=request('NomeUtente');
         $psw=request('Password');
         $operatore->Nome = $nome;
@@ -121,6 +127,7 @@ class Utente3Controller extends Controller
         $operatore-> Email = $email;
         $operatore-> Telefono = $tel;
         $operatore-> Genere = $gen;
+        $operatore-> Livello = $liv;
         $operatore-> NomeUtente = $usern;
         $operatore-> Password = $psw;
         $operatore->save();
@@ -129,20 +136,21 @@ class Utente3Controller extends Controller
 } 
     public function modificaOperatore($chiave)
     {
-        $record = UtenteLivello2::where('NomeUtente', $chiave)->first();; // Recupera il record dal database
+        $record = Utente::where('NomeUtente', $chiave)->first();; // Recupera il record dal database
 
     // Passa il record alla view utilizzando il metodo with
     return view('forms.modificaOperatore')
         ->with('record', $record);
     }
-    public function salvaOperatore(Request $request)
-    {
+    public function salvaOperatore(Request $request, $chiave)
+    {   $usern_vecchio=Utente::where('NomeUtente', $chiave);
         $attributi=[
             'Nome' => 'required|string|max:255',
             'cognome' => 'required|string|max:255',
             'Email' => 'required|email|unique:Utentelivello2|max:255',
             'Telefono' => 'required|string|max:20',
             'Genere' => 'required|in:Maschio,Femmina,Altro',
+            'Livello'=>'required|integer|min:1|max:3',
             'NomeUtente' => 'required|string|unique:Utentelivello2|max:255',
             'Password' => 'required|string|min:6',
         ];
@@ -161,6 +169,10 @@ class Utente3Controller extends Controller
             'Telefono.string' => 'Il Telefono deve essere una stringa',
             'Telefono.max' => 'Il Nome supera i 20 caratteri',
             'Genere.required' => 'Il Genere è obbligatorio',
+            'Livello.required' => 'Specifica il livello',
+            'Livello.integer' => 'Devi inserire un intero compreso tra 1 e 3',
+            'Livello.min' => 'Devi inserire un intero compreso tra 1 e 3',
+            'Livello.max' => 'Devi inserire un intero compreso tra 1 e 3',
             'NomeUtente.required' => 'Il Nomeutente è obbligatorio',
             'NomeUtente.string' => 'Il Nomeutente deve essere una stringa',
             'NomeUtente.max' => 'Il Nomeutente supera i 255 caratteri',
@@ -179,14 +191,16 @@ class Utente3Controller extends Controller
         $email=request('Email');
         $tel=request('Telefono');
         $gen=request('Genere');
+        $liv=request('Livello');
         $usern=request('NomeUtente');
         $psw=request('Password');
-        $operatore=UtenteLivello2::find($usern);
+        $operatore=Utente::find($usern_vecchio);
         $operatore->Nome = $nome;
         $operatore->cognome = $cogn;
         $operatore-> Email = $email;
         $operatore-> Telefono = $tel;
         $operatore-> Genere = $gen;
+        $operatore-> Livello = $liv;
         $operatore-> NomeUtente = $usern;
         $operatore-> Password = $psw;
         $operatore->save();

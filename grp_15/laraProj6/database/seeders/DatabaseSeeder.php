@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder {
         DB::table('utentelivello2')->insert([
             ['NomeUtente' => 'Alex', 'Password' => 'Verdi', 'Nome' => 'alexalex',
              'cognome' => 'user','created_at' => date("Y-m-d H:i:s"), 'Email' => 'alex@verdi.it', 'Telefono' => '1234567890', 
-             'Genere' => 'Maschio',
-                'updated_at' => date("Y-m-d H:i:s")],
+             'Genere' => 'Maschio', 'Livello' => '2','updated_at' => date("Y-m-d H:i:s")
+        ]
         ]);
     }
 
