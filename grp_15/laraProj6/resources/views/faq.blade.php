@@ -3,6 +3,17 @@
 @section('title','FAQ')
 
 @section('content')
+        <script>
+            function mostraNascondiRisposta(numero) {
+                
+                var risposta = document.getElementById("risposta"+numero);
+                if (risposta.style.display === "none") {
+                    risposta.style.display = "block";
+                } else {
+                    risposta.style.display = "none";
+                }
+            }
+        </script>
 <div class="ContenitoreFaqCompleto">
             <div class="ContenitoreLegenda">
                 <h1>legenda</h1>
