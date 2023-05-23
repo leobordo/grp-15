@@ -3,8 +3,8 @@
 @section('title','Gestione Operatori')
 
 @section('content')
-    <form class="CercaUtenti-form">
-        <input type="text" placeholder="Cerca operatore" class="CercaUtenti-input">
+    <form class="CercaUtenti-form"  action={{ route('showRisultatiOp') }} method='GET'>
+        <input type="text" placeholder="Cerca operatore" name='CercaUtenti-input' class="CercaUtenti-input">
         <button type="submit" class="CercaUtenti-bottone">Cerca</button>
       </form>
     <h1>LISTA OPERATORI</h1>

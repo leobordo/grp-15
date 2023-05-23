@@ -29,27 +29,28 @@ $(function () {
     <h1>MODIFICA OPERATORE</h1>
     <br>
     <br>
-    {{ Form::model($record,array('route' => 'salvaoperatore','method' => 'POST', 'id' => 'Form_modifica_op', 'class' => 'Form_modifica')) }} <!--passa al metodo modOp del controller Utente3, id è per JS  -->
+    {{ Form::model($record, ['route' => ['salvamodifiche','chiave' =>$record->NomeUtente] ,'method' => 'POST', 'id' => 'Form_modifica_op', 'class' => 'Form_modifica']) }}
+     <!--passa al metodo modOp del controller Utente3, id è per JS  -->
         {{ Form::label('Nome', 'Nome') }}
-        {{ Form::text('Nome','')}} <!-- il primo param è il nome per associare il label(come for in html), il seconod param è il placeholder -->
+        {{ Form::text('Nome',$record->Nome)}} <!-- il primo param è il nome per associare il label(come for in html), il seconod param è il placeholder -->
 
         {{ Form::label('cognome','Cognome')}}
-        {{ Form::text('cognome','')}}
+        {{ Form::text('cognome',$record->cognome)}}
 
         {{ Form::label('Email','Email')}}
-        {{ Form::text('Email','')}}
+        {{ Form::text('Email',$record->Email)}}
 
         {{ Form::label('Telefono','Telefono')}}
-        {{ Form::text('Telefono','')}}
+        {{ Form::text('Telefono',$record->Telefono)}}
 
         {{ Form::label('Genere', 'Genere') }}
-        {{ Form::select('Genere',['Opzione1' => 'Maschio', 'Opzione2' => 'Femmina', 'Opzione3' => 'Altro'], '') }}
+        {{ Form::select('Genere',['Maschio' => 'Maschio', 'Femmina' => 'Femmina', 'Altro' => 'Altro'], $record->Genere) }}
 
         {{ Form::label('NomeUtente','Nome utente')}}
-        {{ Form::text('NomeUtente','')}}
+        {{ Form::text('NomeUtente',$record->NomeUtente)}}
 
         {{ Form::label('Password','Password')}}
-        {{ Form::text('Password','')}}
+        {{ Form::text('Password',$record->Password)}}
 
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
     <div class="errori">

@@ -60,7 +60,7 @@ return [
     */
 
     'providers' => [
-        'utentelivello1' => [
+        'utente' => [
             'driver' => 'eloquent',
             'model' => App\Models\Utente::class,
         ],

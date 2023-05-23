@@ -43,7 +43,7 @@ $(function () {
         {{ Form::text('Telefono','')}}
 
         {{ Form::label('Genere', 'Genere') }}
-        {{ Form::select('Genere',['Opzione1' => 'Maschio', 'Opzione2' => 'Femmina', 'Opzione3' => 'Altro'], '') }}
+        {{ Form::select('Genere',['Maschio' => 'Maschio', 'Femmina' => 'Femmina', 'Altro' => 'Altro'], '') }}
 
         {{ Form::label('NomeUtente','Nome utente')}}
         {{ Form::text('NomeUtente','')}}

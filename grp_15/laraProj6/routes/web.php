@@ -21,6 +21,15 @@ Route::get('/promotions', 'PromotionController@showPromotions')->name('promotion
 Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
         ->name('showOperatore');
 
+Route::get('/listaClienti', [Utente3Controller::class, 'showClienti'])
+        ->name('showCliente');
+
+Route::get('/listaOperatori/cerca', [PublicController::class, 'showRisultatiOp'])
+        ->name('showRisultatiOp');
+        
+Route::get('/listaClienti/cerca', [PublicController::class, 'showRisultatiCl'])
+        ->name('showRisultatiCl');        
+
 Route::get('/faq', [PublicController::class, 'showFaq'])
         ->name('faq');
 
@@ -42,27 +51,47 @@ Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
 Route::get('/user', [UserController::class, 'index'])
         ->name('user')->middleware('can:isUser');
 
-Route::get('/listaOperatori/Utente:{chiave}', [Utente3Controller::class, 'getOperatore'])
-        ->name('operatore'); 
-        /*route di tipo get 
+Route::get('/listaOperatori/{chiave}', [Utente3Controller::class, 'getOperatore'])
+        ->name('operatore');
+          /*route di tipo get 
         che chiama il metodo showOperatore di UserController
         e nomina la route 'operatore' così da poterla richiamare con
         route('operatore')
         */
+
+Route::get('/listaClienti/{chiave}', [Utente3Controller::class, 'getCliente'])
+        ->name('cliente'); 
+      
 Route::get('/listaOperatori/{chiave}/delete', [Utente3Controller::class, 'deleteOperatore'])
         ->name('deleteoperatore');
-Route::get('/cliente', [Utente3Controller::class, 'getCliente'])
-        ->name('cliente');
-Route::get('/listaClienti', [Utente3Controller::class, 'deleteCliente'])
+
+Route::get('/listaClienti/{chiave}/delete', [Utente3Controller::class, 'deleteCliente'])
         ->name('deletecliente');
+
 Route::get('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'showFormOperatore'])
         ->name('aggiungioperatore');
+
+Route::get('/listaClienti/aggiungiCliente',[Utente3Controller::class, 'showFormCliente'])
+        ->name('aggiungicliente');
+
 Route::post('/listaOperatori/aggiungiOperatore/redirecting',[Utente3Controller::class, 'aggiungiOperatore'])
         ->name('aggiungioperatore2');
-Route::post('/listaOperatori/modificaOperatore:{chiave}',[Utente3Controller::class, 'modificaOperatore'])
+
+Route::post('/listaClienti/aggiungCliente/redirecting',[Utente3Controller::class, 'aggiungiCliente'])
+        ->name('aggiungicliente2');
+
+Route::get('/listaOperatori/{chiave}/modificaOperatore',[Utente3Controller::class, 'modificaOperatore'])
         ->name('modificaoperatore');
-Route::post('/listaOperatori/modificaOperatore/salva',[Utente3Controller::class, 'salvaOperatore'])
+
+Route::get('/listaClienti/{chiave}/modificaCliente',[Utente3Controller::class, 'modificaCliente'])
+        ->name('modificacliente'); 
+
+Route::post('/listaOperatori/{chiave}/modificaOperatore/salva',[Utente3Controller::class, 'salvaOperatore'])
         ->name('salvamodifiche');
+
+Route::post('/listaClienti/{chiave}/modificaCliente/salva',[Utente3Controller::class, 'salvaCliente'])
+        ->name('salvacliente');
+
 Route::view('/where', 'where')
         ->name('where');
 

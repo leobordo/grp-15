@@ -147,11 +147,11 @@ class Utente3Controller extends Controller
         $attributi=[
             'Nome' => 'required|string|max:255',
             'cognome' => 'required|string|max:255',
-            'Email' => 'required|email|unique:Utentelivello2|max:255',
+            'Email' => 'required|email|unique:Utente|max:255',
             'Telefono' => 'required|string|max:20',
             'Genere' => 'required|in:Maschio,Femmina,Altro',
             'Livello'=>'required|integer|min:1|max:3',
-            'NomeUtente' => 'required|string|unique:Utentelivello2|max:255',
+            'NomeUtente' => 'required|string|unique:Utente|max:255',
             'Password' => 'required|string|min:6',
         ];
         $messaggi=[

@@ -18,6 +18,14 @@ class DatabaseSeeder extends Seeder {
             ['NomeUtente' => 'Alex', 'Password' => 'Verdi', 'Nome' => 'alexalex',
              'cognome' => 'user','created_at' => date("Y-m-d H:i:s"), 'Email' => 'alex@verdi.it', 'Telefono' => '1234567890', 
              'Genere' => 'Maschio', 'Livello' => '2','updated_at' => date("Y-m-d H:i:s")
+        ],
+        ['NomeUtente' => 'Ale', 'Password' => 'Verdid', 'Nome' => 'alealex',
+             'cognome' => 'user','created_at' => date("Y-m-d H:i:s"), 'Email' => 'aleex@verdi.it', 'Telefono' => '1234567890', 
+             'Genere' => 'Maschio', 'Livello' => '1','updated_at' => date("Y-m-d H:i:s")
+    ],
+        ['NomeUtente' => 'Allex', 'Password' => 'Veerdi', 'Nome' => 'aleeeexalex',
+             'cognome' => 'user','created_at' => date("Y-m-d H:i:s"), 'Email' => 'aleeeeex@verdi.it', 'Telefono' => '1234567890', 
+             'Genere' => 'Maschio', 'Livello' => '1','updated_at' => date("Y-m-d H:i:s")
         ]
         ]);
     }

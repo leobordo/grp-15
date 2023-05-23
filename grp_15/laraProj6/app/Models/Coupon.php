@@ -12,7 +12,7 @@ class Coupon extends Model
 
     public function utente()
 {
-    return $this->belongsTo(Utente1::class, 'inserire chiave utente1' );
+    return $this->belongsTo(Utente::class, 'inserire chiave utente1' );
 }
 public function azienda2()
 {

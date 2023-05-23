@@ -1,4 +1,4 @@
-@extends('iscritti.gestione')
+@extends('layouts.gestione')
 
 @section('title', 'Cliente')
 
@@ -10,7 +10,7 @@
 <br>
 
 <p>Nome:</p>
-<p>{{ $CLientee->Nome }}</p> <!-- tutto quello dentro le graffe significa che viene passato il valore dell'attr Nome di $Clientee -->
+<p>{{ $Clientee->Nome }}</p> <!-- tutto quello dentro le graffe significa che viene passato il valore dell'attr Nome di $Clientee -->
 <p>Cognome:</p>
 <p>{{ $Clientee->cognome }}</p>
 <p>E-mail:</p>
@@ -22,7 +22,7 @@
 
 <br>
 <div class="Bottone_elimina">
-    <a href="{{ route('deletecliente', [$Clientee->NomeUtente]) }}">Elimina operatore</a>
+    <a href="{{ route('deletecliente', [$Clientee->NomeUtente]) }}">Elimina cliente</a>
 </div>
 <br>
 <br>
