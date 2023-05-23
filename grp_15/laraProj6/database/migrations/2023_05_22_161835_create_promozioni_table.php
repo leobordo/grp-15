@@ -20,6 +20,7 @@ class CreatePromozioniTable extends Migration
             $table->string('DescrizioneSconto');
             $table->float('PercentualeSconto');
             $table->date('Scadenza');
+            $table->string('Immagine')->nullable();
             $table->timestamps();
         });
     }

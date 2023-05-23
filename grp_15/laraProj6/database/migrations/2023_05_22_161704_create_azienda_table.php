@@ -19,6 +19,7 @@ class CreateAziendaTable extends Migration
             $table->string('Localizzazione');
             $table->string('RagioneSociale');
             $table->string('Descrizione');
+            $table->string('Immagine')->nullable();
             $table->timestamps();
         });
     }

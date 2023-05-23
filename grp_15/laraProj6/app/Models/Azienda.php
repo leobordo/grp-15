@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Azienda extends Model
 {
     protected $table = 'azienda';
-    protected $fillable = ['Nome', 'Tipologia', 'Localizzazione', 'RagioneSociale', 'Descrizione'];
+    protected $fillable = ['Nome', 'Tipologia', 'Localizzazione', 'RagioneSociale', 'Descrizione', 'Immagine'];
     protected $primaryKey = 'Nome';
 
     public function promozioni()
