@@ -14,7 +14,7 @@ class CreateUtenteTable extends Migration
     public function up()
     {
         Schema::create('utente', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id(); //il metodo id() setta già id come primary key
             $table->string('NomeUtente');
             $table->string('Password');
             $table->string('Nome');

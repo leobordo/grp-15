@@ -15,8 +15,8 @@ class CreateCouponTable extends Migration
     {
         Schema::create('coupon', function (Blueprint $table) {
             $table->string('CodiceCoupon')->primary();
-            $table->string('Utente');
-            $table->foreign('Utente')->references('NomeUtente')->on('utente')->onDelete('cascade');
+            $table->unsignedBigInteger('Utente');
+            $table->foreign('Utente')->references('Id')->on('utente')->onDelete('cascade');
             $table->string('Promozione');
             $table->foreign('Promozione')->references('NomePromo')->on('promozioni')->onDelete('cascade');
             $table->date('Data');
