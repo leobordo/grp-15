@@ -49,6 +49,9 @@ Route::get('/faq', [PublicController::class, 'showFaq'])
 Route::get('/promozione/{PromozioneId}', [PublicController::class, 'showPromozione'])
         ->name('promozione');
 
+Route::get('/coupon/{CouponId}', [PublicController::class, 'showCoupon'])
+        ->name('coupon');
+
 Route::get('/selTopCat/{topCatId}', [PublicController::class, 'showCatalog2'])
         ->name('catalog2');
 

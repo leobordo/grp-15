@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\Promozione;
+use App\Models\Coupon;
 
 
 class PublicController extends Controller
@@ -60,6 +61,11 @@ public function showRisultatiOp(Request $request)
     public function showPromozione(Request $request){
         $promozione=Promozione::find($request->PromozioneId);
         return view("promozione", ['promozione'=>$promozione]);
+    }
+
+    public function showCoupon(Request $request){
+        $coupon=Coupon::find($request->CouponId);
+        return view("coupon", ['coupon'=>$coupon]);
     }
 
     public function storePromozione(promozione $request) {

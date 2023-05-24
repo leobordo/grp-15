@@ -9,6 +9,7 @@ class Coupon extends Model
     protected $table = 'coupon';
     protected $fillable = ['CodiceCoupon', 'Utente', 'Promozione', 'Data', 'Ora'];
     protected $primaryKey = 'CodiceCoupon';
+    protected $keyType='string';
 
     public function utente()
 {

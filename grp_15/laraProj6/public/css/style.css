@@ -1,4 +1,12 @@
 
+.promo-container {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
 .uppersection{
     border: solid 1px;
     display: flex;
