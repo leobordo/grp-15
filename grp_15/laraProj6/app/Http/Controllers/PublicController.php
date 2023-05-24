@@ -26,6 +26,19 @@ public function showRisultatiCl(Request $request)
     return view('risultati_ricerca_clienti', ['results' => $results]);
 }
 
+public function showRisultatiPromo(Request $request)
+{
+    $cercato ='%'. $request->input('CercaPromo-input').'%';
+    
+    // Esegui la query per cercare i dati corrispondenti al testo di ricerca nella tua tabella
+    $results = DB::table('promozioni')
+                ->where('NomePromo', 'LIKE',  $cercato ) 
+                ->orWhere('Azienda', 'LIKE', $cercato)
+                ->get();
+    
+    // Passa i risultati alla vista per visualizzarli
+    return view('risultati_ricerca_promozioni', ['results' => $results]);
+}
 public function showRisultatiOp(Request $request)
 {
     $cercato ='%'. $request->input('CercaUtenti-input').'%';
