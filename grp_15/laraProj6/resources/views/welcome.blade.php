@@ -6,9 +6,8 @@
           <form class="CercaUtenti-form"  action={{ route('showRisultatiPromo') }} method='GET'>
             <input type="text" placeholder="Cerca promozioni" name='CercaPromo-input' class="CercaPromo-input">
             <button type="submit" class="CercaUtenti-bottone">Cerca</button>
-          </form>
-        
-                <h2>Promozioni</h2>
+          </form>    
+          <h2>Promozioni</h2>
 
                 <div class="grid-container">
                     @foreach ($promozioni as $promozione)
