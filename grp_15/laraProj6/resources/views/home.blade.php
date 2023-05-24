@@ -1,38 +1,25 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_','-',app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <title> @yield('title','Home')</title>
-    </head>
-    <body>
-            <nav class="navbar">
-                @include('layouts/_navpublic')
-            </nav>
-        
-            <div id="header"></div>
 
-            <div class="search-bar">
-                <div>
-                    <input aria-label="search text" class="searchbar-input sc-ion-searchbar-md" inputmode="search" placeholder="Cerca su  my little coupony" type="search"
-                        autocomplete="off" autocorrect="off" wtx-context="14F1BC83-4A5A-444C-A0A9-BB910524D3AE" >
-                </div>
-                
-            </div>
-           
-            
-           <div class="containerCoupon">
-                    @section('content')
-                    <h2>Promozioni</h2>
-                
-                        @foreach ($promozioni as $promozione)
-                        <li>promo: {{ $promozione->NomePromo }}</li>
-                        @endforeach
-                    @endsection
-           </div>php
-            <div class="footer">
-                @include('layouts/_footer')
-            </div>
-        </div>
+@extends('layouts.gestione')
+
+@section('title','home')
+@section('content')
+          <div class="search-bar">
+              <div>
+                  <input aria-label="search text" class="searchbar-input sc-ion-searchbar-md" inputmode="search" placeholder="Cerca su  my little coupony" type="search"
+                      autocomplete="off" autocorrect="off" wtx-context="14F1BC83-4A5A-444C-A0A9-BB910524D3AE" >
+              </div>
+              
+          </div>
+         
+          
+         
+                 
+                  <h2>Promozioni</h2>
+              
+                      @foreach ($promozioni as $promozione)
+                      <li><a href="{{ route('promozione', [$promozione->NomePromo]) }}">promo: {{ $promozione->Azienda }}</a></li>
+                      @endforeach
+                      <p>{{$promozione->Azienda}}</p>
         
+         
+@endsection

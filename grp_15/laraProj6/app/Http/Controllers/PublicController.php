@@ -71,11 +71,11 @@ public function showRisultatiOp(Request $request)
         return response()->json(['redirect' => route('admin')]);
         ;
     }
-    public function home()
+    public function showHome()
 {
-    $pr=Promozione::all()->get();
+    $pr=Promozione::where('Azienda','nike')->get();
     return view("home",["promozioni"=>$pr]);
-    return view ('home');
+   
 }
 
     
