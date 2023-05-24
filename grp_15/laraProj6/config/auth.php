@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'utente',
     ],
 
     /*
@@ -64,8 +64,8 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Utente::class,
         ],
-        
     ],
+    
     
 
     /*
@@ -84,8 +84,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'utente' => [
+            'provider' => 'utente',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

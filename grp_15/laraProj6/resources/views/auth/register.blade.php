@@ -1,88 +1,105 @@
-@extends('layouts.public')
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+            <a href="/">
+                <img src="prova">
+            </a>
+        </x-slot>
 
-@section('title', 'Registrazione')
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-@section('content')
-<div class="static">
-    <h3>Registrazione</h3>
-    <p>Utilizza questa form per registrarti al sito</p>
+            <!-- NomeUtente -->
+            <div>
+                <x-input-label for="NomeUtente" :value="__('Nomeutente')" />
 
-    <div class="container-contact">
-        <div class="wrap-contact1">
-            {{ Form::open(array('route' => 'register', 'class' => 'contact-form')) }}
+                <x-text-input id="NomeUtente" class="block mt-1 w-full" type="text" name="NomeUtente" :value="old('NomeUtente')" required autofocus />
 
-            <div  class="wrap-input">
-                {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-                {{ Form::text('name', '', ['class' => 'input', 'id' => 'name']) }}
-                @if ($errors->first('name'))
-                <ul class="errors">
-                    @foreach ($errors->get('name') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
+                <x-input-error :messages="$errors->get('NomeUtente')" class="mt-2" />
             </div>
 
-            <div  class="wrap-input">
-                {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
-                {{ Form::text('surname', '', ['class' => 'input', 'id' => 'surname']) }}
-                @if ($errors->first('surname'))
-                <ul class="errors">
-                    @foreach ($errors->get('surname') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
+            <!-- Password -->
+            <div class="mt-4">
+                <x-input-label for="Password" :value="__('Password')" />
+
+                <x-text-input id="Password" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="new-password" />
+
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
-            
-             <div  class="wrap-input">
-                {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
-                {{ Form::text('email', '', ['class' => 'input','id' => 'email']) }}
-                @if ($errors->first('email'))
-                <ul class="errors">
-                    @foreach ($errors->get('email') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            
-             <div  class="wrap-input">
-                {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
-                {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
-                @if ($errors->first('username'))
-                <ul class="errors">
-                    @foreach ($errors->get('username') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            
-             <div  class="wrap-input">
-                {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
-                {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
-                @if ($errors->first('password'))
-                <ul class="errors">
-                    @foreach ($errors->get('password') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
+             
+           <!-- Confirm Password -->
+            <div class="mt-4">
+                <x-input-label for="password_confirmation" :value="__('Conferma password')" />
+
+                <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                                type="password"
+                                name="password_confirmation" required />
+
+                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
-            <div  class="wrap-input">
-                {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
-                {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
-            </div>
-            
-            <div class="container-form-btn">                
-                {{ Form::submit('Registra', ['class' => 'form-btn1']) }}
-            </div>
-            
-            {{ Form::close() }}
-        </div>
-    </div>
 
-</div>
-@endsection
+            <!-- Nome -->
+            <div class="mt-4">
+                <x-input-label for="Nome" :value="__('Nome')" />
+
+                <x-text-input id="Nome" class="block mt-1 w-full" type="text" name="Nome" :value="old('Nome')" required />
+
+                <x-input-error :messages="$errors->get('Nome')" class="mt-2" />
+            </div>
+
+            <!-- Cognome -->
+            <div class="mt-4">
+                <x-input-label for="Cognome" :value="__('Cognome')" />
+
+                <x-text-input id="Cognome" class="block mt-1 w-full" type="text" name="Cognome" :value="old('Cognome')" required />
+
+                <x-input-error :messages="$errors->get('Cognome')" class="mt-2" />
+            </div>
+
+            <!-- Email -->
+            <div class="mt-4">
+                <x-input-label for="Email" :value="__('Email')" />
+
+                <x-text-input id="Email" class="block mt-1 w-full" type="email" name="Email" :value="old('Email')" required />
+
+                <x-input-error :messages="$errors->get('Email')" class="mt-2" />
+            </div>
+
+            <!-- Telefono -->
+            <div class="mt-4">
+                <x-input-label for="Telefono" :value="__('Telefono')" />
+
+                <x-text-input id="Telefono" class="block mt-1 w-full" type="text" name="Telefono" :value="old('Telefono')" required />
+
+                <x-input-error :messages="$errors->get('Telefono')" class="mt-2" />
+            </div>
+
+            <!-- Genere -->
+            <div class="mt-4">
+                <x-input-label for="Genere" :value="__('Genere')" />
+
+                <select id="Genere" name="Genere" class="block mt-1 w-full" required>
+                    <option value="Maschio">Maschio</option>
+                    <option value="Femmina">Femmina</option>
+                    <option value="Altro">Altro</option>
+                </select>
+
+                <x-input-error :messages="$errors->get('Genere')" class="mt-2" />
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    {{ __('Già registrato?') }}
+                </a>
+
+                <x-primary-button class="ml-4">
+                    {{ __('Registrati') }}
+                </x-primary-button>
+            </div>
+        </form>
+    </x-auth-card>
+</x-guest-layout>

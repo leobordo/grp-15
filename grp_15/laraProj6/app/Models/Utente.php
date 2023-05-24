@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
 
 class Utente extends Authenticatable
 {
@@ -31,5 +33,11 @@ class Utente extends Authenticatable
 {
     return $this->hasMany(Coupon::class)->count();
 }
+public function getAuthPassword()
+{
+    return $this->Password;
+}
+
+
 
 }

@@ -1,9 +1,7 @@
 <?php
-
-use App\Http\Controllers\AziendeController;
-use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\AziendeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Utente3Controller;
@@ -134,16 +132,12 @@ Route::resource('aziende',AziendeController::class)
                 'update' => 'modificaAzienda2',
                 'destroy' => 'eliminaAzienda'
         ]);
-        
 
 Route::view('/where', 'where')
         ->name('where');
 
 Route::view('/who', 'who')
         ->name('who');
-
-
-/*  Rotte aggiunte da Breeze
 
 Route::get('/', function () {
     return view('welcome');
@@ -153,5 +147,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-*/
+
+
 require __DIR__.'/auth.php';

@@ -1,50 +1,43 @@
-@extends('layouts.public')
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+            <a href="/">
+                <img src="prova">
+            </a>
+        </x-slot>
 
-@section('title', 'Registrazione')
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-@section('content')
-<div class="static">
-    <h3>Login</h3>
-    <p>Utilizza questa form per autenticarti al sito</p>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-    <div class="container-contact">
-        <div class="wrap-contact1">
-            {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
-            
-             <div  class="wrap-input">
-                 <p> Se non hai già un account <a  href="{{ route('register') }}">registrati</a></p>
-             </div>            
-             <div  class="wrap-input">
-                {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
-                {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
-                @if ($errors->first('username'))
-                <ul class="errors">
-                    @foreach ($errors->get('username') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
+            <!-- Email Address -->
+            <div>
+                <x-input-label for="NomeUtente" :value="__('Nomeutente')" />
+
+                <x-text-input id="NomeUtente" class="block mt-1 w-full" type="string" name="NomeUtente" :value="old('NomeUtente')" required autofocus />
+
+                <x-input-error :messages="$errors->get('NomeUtente')" class="mt-2" />
             </div>
-            
-             <div  class="wrap-input">
-                {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
-                {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
-                @if ($errors->first('password'))
-                <ul class="errors">
-                    @foreach ($errors->get('password') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            
-            <div class="container-form-btn">                
-                {{ Form::submit('Login', ['class' => 'form-btn1']) }}
-            </div>
-            
-            {{ Form::close() }}
-        </div>
-    </div>
 
-</div>
-@endsection
+            <!-- Password -->
+            <div class="mt-4">
+                <x-input-label for="password" :value="__('Password')" />
+
+                <x-text-input id="password" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="current-password" />
+
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
+            <br>
+            <div style="text-align: center">
+                <x-primary-button class="ml-3" style="margin-left: auto; margin-right: auto  ">
+                    {{ __('Log in') }}
+                </x-primary-button>
+            </div>
+        </form>
+    </x-auth-card>
+</x-guest-layout>

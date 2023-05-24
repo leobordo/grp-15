@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Utente;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -34,19 +35,24 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => ['required', 'string', 'min:8', 'unique:users'],
+            'NomeUtente' => ['required', 'string', 'max:255'],
+            'Email' => ['required', 'string', 'email', 'max:255', 'unique:Utente'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'Nome'=>['required', 'string', 'max:255'],
+            'Cognome'=>['required', 'string', 'max:255'],
+            'Telefono'=>['required','string','max:20'],
+            'Genere'=>['required','in:Maschio,Femmina,Altro']
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'surname' => $request->surname,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
+        $user = Utente::create([
+            'NomeUtente' => $request->NomeUtente,
+            'Email' => $request->Email,
+            'Password' => Hash::make($request->password),
+            'Nome' => $request->Nome,
+            'cognome' => $request->Cognome,
+            'Telefono' => $request->Telefono,
+            'Genere' => $request->Genere,
+            'Livello'=> 1
         ]);
 
         event(new Registered($user));
