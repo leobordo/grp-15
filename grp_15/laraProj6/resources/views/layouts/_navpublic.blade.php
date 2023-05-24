@@ -4,7 +4,7 @@
             <img src="ImMaGiNe LoGo" alt="logo" width="100" >
         </div>
     </li>
-  <li><a href="{{ route('who') }}" title="Home">Home</a></li>
+  <li><a href="{{ route('home') }}" title="Home">Home</a></li>
   <li><a href="{{ route('who') }}" title="Conoscici meglio">Chi siamo</a></li>
   <li><a href="{{ route('faq') }}" title="FAQ sul sito">FAQ</a></li>
   @can('view-level2-navbar', Utente::class)

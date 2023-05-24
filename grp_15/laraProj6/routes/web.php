@@ -20,6 +20,10 @@ use App\Http\Controllers\Utente3Controller;
 */
 Route::get('/',[PublicController::class, 'showHome'])
 ->name('home'); /* rotta per la visualizzazione delle promozioni */
+
+Route::get('/who',[PublicController::class, 'showWho'])
+->name('who');
+
 Route::get('/promotions', 'PromotionController@showPromotions')->name('promotions'); /* rotta per la visualizzazione delle promozioni */
 
 Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])

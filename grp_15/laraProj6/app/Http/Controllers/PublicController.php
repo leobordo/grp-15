@@ -58,6 +58,10 @@ public function showRisultatiOp(Request $request)
         return view("faq");
     }
 
+    public function showWho(){
+        return view("who");
+    }
+
     public function showPromozione(Request $request){
         $promozione=Promozione::find($request->PromozioneId);
         return view("promozione", ['promozione'=>$promozione]);
