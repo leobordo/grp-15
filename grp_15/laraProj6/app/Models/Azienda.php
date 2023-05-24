@@ -9,6 +9,7 @@ class Azienda extends Model
     protected $table = 'azienda';
     protected $fillable = ['Nome', 'Tipologia', 'Localizzazione', 'RagioneSociale', 'Descrizione', 'Immagine'];
     protected $primaryKey = 'Nome';
+    protected $keyType='string';
 
     public function promozioni()
 {

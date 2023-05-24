@@ -8,23 +8,20 @@
         </h1>
         <br>
         <h2>
-            {{$promozione->DescrizioneSconto}}
+            {{$promozione->Azienda}}
         </h2>
         <br>
         <h3>
-            Descrizione Sconto
+            {{$promozione->DescrizioneSconto}}
         </h3>
         <br>
         <h4>
-            Percentuale Sconto
+            {{$promozione->PercentualeSconto}}
         </h4>
         <br>
         <p>
-            Scadenza
+            {{$promozione->Scadenza}}
         </p>
         <br>
-        <p>
-            Le modalità di fruizione
-        </p>
         <br>
 @endsection
