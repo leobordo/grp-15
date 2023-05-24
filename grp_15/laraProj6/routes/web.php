@@ -31,6 +31,9 @@ Route::get('/listaClienti', [Utente3Controller::class, 'showClienti'])
 Route::get('/listaPromozioni', [Utente3Controller::class, 'showPromozioni'])
         ->name('showPromozione');
 
+Route::get('/listaPromozioni/{PromozioneId}', [PublicController::class, 'showPromozione'])
+        ->name('promozione');
+
 Route::get('/listaOperatori/cerca', [PublicController::class, 'showRisultatiOp'])
         ->name('showRisultatiOp');
         

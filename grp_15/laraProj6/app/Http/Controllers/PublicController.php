@@ -73,7 +73,7 @@ public function showRisultatiOp(Request $request)
     }
     public function showHome()
 {
-    $pr=Promozione::where('Azienda','nike')->get();
+    $pr=Promozione::all();
     return view("home",["promozioni"=>$pr]);
    
 }
