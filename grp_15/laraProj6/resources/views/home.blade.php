@@ -20,27 +20,17 @@
                 </div>
                 
             </div>
-            <div class="container">
-                <div class="scrollBanner" id="mybanner">
-                    
-                
-                    <img src="banner3.png" alt="img" id="img">
-                    <img src="banner3.png" alt="img" id="img">
-                    <img src="banner3.png" alt="img" id="img">
-                    <img src="banner3.png" alt="img" id="img">
-                </div>
-            </div>
+           
             
            <div class="containerCoupon">
-                <div class="scrollCoupon">
-                    
-                    <img src="banner3.png" alt="img" id="img">
-                    <img src="banner3.png" alt="img" id="img">
-                    <img src="banner3.png" alt="img" id="img">
-                    <img src="banner3.png" alt="img" id="img">
-    
-                </div>
-           </div>
+                    @section('content')
+                    <h2>Promozioni</h2>
+                
+                        @foreach ($promozioni as $promozione)
+                        <li>promo: {{ $promozione->NomePromo }}</li>
+                        @endforeach
+                    @endsection
+           </div>php
             <div class="footer">
                 @include('layouts/_footer')
             </div>

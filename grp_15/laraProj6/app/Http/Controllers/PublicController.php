@@ -71,6 +71,12 @@ public function showRisultatiOp(Request $request)
         return response()->json(['redirect' => route('admin')]);
         ;
     }
+    public function home()
+{
+    $pr=Promozione::all()->get();
+    return view("home",["promozioni"=>$pr]);
+    return view ('home');
+}
 
     
 }

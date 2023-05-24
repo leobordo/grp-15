@@ -16,6 +16,8 @@ use App\Http\Controllers\Utente3Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',[PublicController::class, 'showHome'])
+->name('home'); /* rotta per la visualizzazione delle promozioni */
 Route::get('/promotions', 'PromotionController@showPromotions')->name('promotions'); /* rotta per la visualizzazione delle promozioni */
 
 Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
