@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AziendeController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
@@ -96,6 +98,18 @@ Route::post('/listaOperatori/{chiave}/modificaOperatore/salva',[Utente3Controlle
 
 Route::post('/listaClienti/{chiave}/modificaCliente/salva',[Utente3Controller::class, 'salvaCliente'])
         ->name('salvacliente');
+
+Route::resource('aziende',AziendeController::class)
+        ->names([
+                'index' => 'gestioneAziende',
+                'show' => 'showAzienda',
+                'create' => 'aggiungiAzienda',
+                'edit' => 'modificaAzienda',
+                'store' =>'aggiungiAzienda2',
+                'update' => 'modificaAzienda2',
+                'destroy' => 'eliminaAzienda'
+        ]);
+        
 
 Route::view('/where', 'where')
         ->name('where');
