@@ -33,6 +33,9 @@ Route::get('/listaClienti/cerca', [PublicController::class, 'showRisultatiCl'])
 Route::get('/faq', [PublicController::class, 'showFaq'])
         ->name('faq');
 
+Route::get('/promozione/{PromozioneId}', [PublicController::class, 'showPromozione'])
+        ->name('promozione');
+
 Route::get('/selTopCat/{topCatId}', [PublicController::class, 'showCatalog2'])
         ->name('catalog2');
 
