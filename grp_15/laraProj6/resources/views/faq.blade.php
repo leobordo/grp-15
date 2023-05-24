@@ -14,7 +14,7 @@
                 }
             }
         </script>
-<div class="ContenitoreFaqCompleto">
+        <div class="ContenitoreFaqCompleto">
             <div class="ContenitoreLegenda">
                 <h1>legenda</h1>
                 <a href="#">argomento 1</a>

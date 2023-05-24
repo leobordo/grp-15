@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalog;
 use App\Models\UtenteLivello1;
 use App\Models\Utente;
+use App\Models\Promozione;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
@@ -26,6 +27,11 @@ class Utente3Controller extends Controller
     {
         $cl=Utente::where('Livello','1')->get();
         return view('gestioneClienti',['clienti'=>$cl]);
+    }
+    public function showPromozioni()
+    {
+        $pr=Promozione::all();
+        return view('gestionePromozioni',['promozioni'=>$pr]);
     }
     public function getOperatore($chiave)
     {
@@ -56,6 +62,24 @@ class Utente3Controller extends Controller
         /*
             vedi sopra
         */
+    }
+    public function getPromozione($chiave)
+    {
+        $pr=Promozione::where('NomePromo', $chiave)->first();
+        /*
+            where è un metodo di Eloquent, cerca l'attributo NomeUtente
+            con il valore di $chiave(vedi gestioneOperatori.blade.php).
+            first() restituisce il primo valore utile
+        */
+        if($pr){
+        return view('promozione')
+                    ->with('Promozionee', $pr);
+        /*
+            ritorna la view operatore.blade.php dove la variabile $op viene
+            passata nella vista così -> $Promozionee
+        */
+        }
+        else return view('forms.aggiungiPromozione');
     }
     public function deleteOperatore($chiave)
     {
@@ -223,4 +247,49 @@ class Utente3Controller extends Controller
     public function showFaq(){
         return view("faq");
     }
+
+    public function showFormPromozione(){
+        return view('forms.aggiungiPromozione');
+    }
+
+    public function aggiungiPromozione(Request $request)
+    {
+        $attributi=[
+            'NomePromo' => 'required|string|max:255',
+            'Azienda',
+            'DescrizioneSconto' => 'required|string|max:255',
+            'PercentualeSconto' => 'required|double',
+            'Scadenza' => 'required|date'
+        ];
+        $messaggi=[
+            'NomePromo.required' => 'Il Nome promozione è obbligatorio',
+            'NomePromo.string' => 'Il Nome promozione deve essere una stringa',
+            'NomePromo.max' => 'Il Nome promozione supera i 255 caratteri',
+            'DescrizioneSconto.required' => 'ls descrizione sconto è obbligatoria',
+            'DescrizioneSconto.string' => 'Non hai inserito la descrizione sconto nel formato tradzionale',
+            'DescrizioneSconto.max' => 'la descrizione sconto supera i 255 caratteri',
+            'PercentualeSconto.required' => 'La percentuale sconto è obbligatoria',
+            'PercentualeSconto.double' => 'La percentuale sconto deve essere un float',
+            'Scadenza.required' => 'La scadenza è obbligatoria',
+        ];
+        $validator = Validator::make($request->all(),$attributi,$messaggi);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();//eventualmente ritorna al form con i messaggi di errore del validator e lascia nel form gli input
+        }
+        $promozione = new Promozione();
+        $nomePro=request('NomePromo');
+        $azi=request('Azienda');
+        $desc=request('DescrizioneSconto');
+        $perc=request('PercentualeSconto');
+        $scad=request('Scadenza');
+        $promozione->Nome = $nomePro;
+        $promozione->Azienda = $azi;
+        $promozione->DescrizioneSconto = $desc;
+        $promozione->PercentualeSconto = $perc;
+        $promozione->Scadenza = $scad;
+        $promozione->save();
+        return redirect('/listaPromozioni');
+    ;
+} 
 }

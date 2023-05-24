@@ -28,6 +28,9 @@ Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
 Route::get('/listaClienti', [Utente3Controller::class, 'showClienti'])
         ->name('showCliente');
 
+Route::get('/listaPromozioni', [Utente3Controller::class, 'showPromozioni'])
+        ->name('showPromozione');
+
 Route::get('/listaOperatori/cerca', [PublicController::class, 'showRisultatiOp'])
         ->name('showRisultatiOp');
         
@@ -68,6 +71,9 @@ Route::get('/listaOperatori/{chiave}', [Utente3Controller::class, 'getOperatore'
 
 Route::get('/listaClienti/{chiave}', [Utente3Controller::class, 'getCliente'])
         ->name('cliente'); 
+
+Route::get('/listaPromozioni/{chiave}', [Utente3Controller::class, 'getPromozione'])
+        ->name('promozione');
       
 Route::get('/listaOperatori/{chiave}/delete', [Utente3Controller::class, 'deleteOperatore'])
         ->name('deleteoperatore');
@@ -81,11 +87,17 @@ Route::get('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'showF
 Route::get('/listaClienti/aggiungiCliente',[Utente3Controller::class, 'showFormCliente'])
         ->name('aggiungicliente');
 
+Route::get('/listaPromozioni/aggiungiPromozione',[Utente3Controller::class, 'showFormPromozione'])
+        ->name('aggiungipromozione');
+
 Route::post('/listaOperatori/aggiungiOperatore/redirecting',[Utente3Controller::class, 'aggiungiOperatore'])
         ->name('aggiungioperatore2');
 
 Route::post('/listaClienti/aggiungCliente/redirecting',[Utente3Controller::class, 'aggiungiCliente'])
         ->name('aggiungicliente2');
+
+Route::post('/listaPromozioni/aggiungiPromozione/redirecting',[Utente3Controller::class, 'aggiungiPromozione'])
+        ->name('aggiungipromozione2');
 
 Route::get('/listaOperatori/{chiave}/modificaOperatore',[Utente3Controller::class, 'modificaOperatore'])
         ->name('modificaoperatore');

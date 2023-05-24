@@ -8,19 +8,22 @@
         </h1>
         <br>
         <h2>
-            {{$promozione->Azienda}}
+            Azienda: {{$promozione->Azienda}}
         </h2>
         <br>
+        <h3>
+            Descrizione Sconto
+        </h3>
         <h3>
             {{$promozione->DescrizioneSconto}}
         </h3>
         <br>
         <h4>
-            {{$promozione->PercentualeSconto}}
+            Percentuale sconto: {{$promozione->PercentualeSconto}}%
         </h4>
         <br>
         <p>
-            {{$promozione->Scadenza}}
+            Data di scadenza: {{$promozione->Scadenza}}
         </p>
         <br>
         <br>
