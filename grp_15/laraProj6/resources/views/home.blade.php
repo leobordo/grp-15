@@ -14,17 +14,19 @@
           
          
                  
-                  <h2>Promozioni</h2>
-              
-                      @foreach ($promozioni as $promozione)
-                      <div>
-                        <li><a href="{{ route('promozione', [$promozione->NomePromo]) }}">
-                            <h2>promo: {{ $promozione->NomePromo }}</h2>
-                            {{$promozione->Azienda}}
-                        </a></li>
-                      </div>
+                    <h2>Promozioni</h2>
+
+                    <div id="grid-container">
+                        @foreach ($promozioni as $promozione)
+                        <div class='promo-container'>
+                            <li><a href="{{ route('promozione', [$promozione->NomePromo]) }}">
+                                <h2>promo: {{ $promozione->NomePromo }}</h2>
+                                {{$promozione->Azienda}}
+                            </a></li>
+                        </div>
+                        @endforeach
+                    </div>
                       
-                      @endforeach
         
          
 @endsection
