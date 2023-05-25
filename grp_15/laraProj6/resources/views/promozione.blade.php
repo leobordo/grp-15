@@ -29,5 +29,12 @@
             Data di scadenza: {{$promozione->Scadenza}}
         </p>
         <br>
+        <div class="Bottone_elimina">
+            <a href="{{ route('deletepromo' ,[$promozione->id]) }}">Elimina promozione</a>
+        </div>
+        <div class="Bottone_edit">
+            <a href="{{ route('modificapromo', [$promozione->id]) }}">Modifica promozione</a>
+        </div>
+        <br>
         <br>
 @endsection

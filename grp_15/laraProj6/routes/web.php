@@ -16,113 +16,53 @@ use App\Http\Controllers\Utente3Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',[PublicController::class, 'showHome'])
-->name('home'); /* rotta per la visualizzazione delle promozioni */
+Route::middleware(['livello:2'])->group(function (){
 
-Route::get('/who',[PublicController::class, 'showWho'])
-->name('who');
-
-Route::get('/promotions', 'PromotionController@showPromotions')->name('promotions'); /* rotta per la visualizzazione delle promozioni */
-
-Route::get('/listaPromozioni/aggiungiPromozione', [Utente3Controller::class, 'showFormPromozione'])
+        Route::get('/listaPromozioni/aggiungiPromozione', [Utente3Controller::class, 'showFormPromozione'])
         ->name('aggiungipromozione');
-
-Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
-        ->name('showOperatore');
-
-Route::get('/listaClienti', [Utente3Controller::class, 'showClienti'])
-        ->name('showCliente');
-
-Route::get('/listaPromozioni', [Utente3Controller::class, 'showPromozioni'])
+        Route::get('/listaPromozioni', [Utente3Controller::class, 'showPromozioni'])
         ->name('showPromozione');
-
-Route::get('/listaPromozioni/{PromozioneId}', [PublicController::class, 'showPromozione'])
+        Route::get('/listaPromozioni/{chiave}', [Utente3Controller::class, 'getPromozione'])
         ->name('promozione');
-
-Route::get('/cerca', [PublicController::class, 'showRisultatiPromo'])
-        ->name('showRisultatiPromo');        
-
-Route::get('/listaOperatori/cerca', [PublicController::class, 'showRisultatiOp'])
-        ->name('showRisultatiOp');
-        
-Route::get('/listaClienti/cerca', [PublicController::class, 'showRisultatiCl'])
-        ->name('showRisultatiCl');        
-
-Route::get('/faq', [PublicController::class, 'showFaq'])
-        ->name('faq');
-
-Route::get('/promozione/{PromozioneId}', [PublicController::class, 'showPromozione'])
-        ->name('promozione');
-
-Route::get('/coupon/{CouponId}', [PublicController::class, 'showCoupon'])
-        ->name('coupon');
-
-Route::get('/selTopCat/{topCatId}', [PublicController::class, 'showCatalog2'])
-        ->name('catalog2');
-
-Route::get('/selTopCat/{topCatId}/selCat/{catId}', [PublicController::class, 'showCatalog3'])
-        ->name('catalog3');
-
-Route::get('/admin', [AdminController::class, 'index'])
-        ->name('admin');
-
-Route::get('/admin/newproduct', [AdminController::class, 'addProduct'])
-        ->name('newproduct');
-
-Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
-        ->name('newproduct.store');
-
-Route::get('/user', [UserController::class, 'index'])
-        ->name('user')->middleware('can:isUser');
-
-Route::get('/listaOperatori/{chiave}', [Utente3Controller::class, 'getOperatore'])
-        ->name('operatore');
-          /*route di tipo get 
-        che chiama il metodo showOperatore di UserController
-        e nomina la route 'operatore' così da poterla richiamare con
-        route('operatore')
-        */
-
-Route::get('/listaClienti/{chiave}', [Utente3Controller::class, 'getCliente'])
-        ->name('cliente'); 
-
-Route::get('/listaPromozioni/{chiave}', [Utente3Controller::class, 'getPromozione'])
-        ->name('promozione');
-      
-Route::get('/listaOperatori/{chiave}/delete', [Utente3Controller::class, 'deleteOperatore'])
-        ->name('deleteoperatore');
-
-Route::get('/listaClienti/{chiave}/delete', [Utente3Controller::class, 'deleteCliente'])
-        ->name('deletecliente');
-
-Route::get('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'showFormOperatore'])
-        ->name('aggiungioperatore');
-
-Route::get('/listaClienti/aggiungiCliente',[Utente3Controller::class, 'showFormCliente'])
-        ->name('aggiungicliente');    
-
-Route::post('/listaOperatori/aggiungiOperatore/redirecting',[Utente3Controller::class, 'aggiungiOperatore'])
-        ->name('aggiungioperatore2');
-
-Route::post('/listaClienti/aggiungCliente/redirecting',[Utente3Controller::class, 'aggiungiCliente'])
-        ->name('aggiungicliente2');
-
-Route::post('/listaPromozioni/aggiungiPromozione/redirecting',[Utente3Controller::class, 'aggiungiPromozione'])
+        Route::get('/listaPromozioni/{chiave}/delete', [Utente3Controller::class, 'deletePromozione'])
+        ->name('deletepromo');
+        Route::get('/listaPromozioni/{chiave}/modificaPromozione', [Utente3Controller::class, 'modificaPromozione'])
+        ->name('modificapromo');
+        Route::post('/listaPromozioni/{chiave}/modificaPromozione/salva', [Utente3Controller::class, 'salvamodifichePromo'])
+        ->name('salvamodifichePromo');
+        Route::post('/listaPromozioni/aggiungiPromozione/redirecting',[Utente3Controller::class, 'aggiungiPromozione'])
         ->name('aggiungipromozione2');
 
-Route::get('/listaOperatori/{chiave}/modificaOperatore',[Utente3Controller::class, 'modificaOperatore'])
+
+});
+
+Route::middleware(['livello:3'])->group(function (){
+
+        Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
+        ->name('showOperatore');
+        Route::get('/listaClienti', [Utente3Controller::class, 'showClienti'])
+        ->name('showCliente');
+        Route::get('/listaOperatori/cerca', [PublicController::class, 'showRisultatiOp'])
+        ->name('showRisultatiOp');
+        Route::get('/listaClienti/cerca', [PublicController::class, 'showRisultatiCl'])
+        ->name('showRisultatiCl');
+        Route::get('/listaOperatori/{chiave}', [Utente3Controller::class, 'getOperatore'])
+        ->name('operatore');
+        Route::get('/listaClienti/{chiave}', [Utente3Controller::class, 'getCliente'])
+        ->name('cliente');
+        Route::get('/listaOperatori/{chiave}/delete', [Utente3Controller::class, 'deleteOperatore'])
+        ->name('deleteoperatore');
+        Route::get('/listaClienti/{chiave}/delete', [Utente3Controller::class, 'deleteCliente'])
+        ->name('deletecliente');
+        Route::get('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'showFormOperatore'])
+        ->name('aggiungioperatore');
+        Route::post('/listaOperatori/aggiungiOperatore/redirecting',[Utente3Controller::class, 'aggiungiOperatore'])
+        ->name('aggiungioperatore2');
+        Route::get('/listaOperatori/{chiave}/modificaOperatore',[Utente3Controller::class, 'modificaOperatore'])
         ->name('modificaoperatore');
-
-Route::get('/listaClienti/{chiave}/modificaCliente',[Utente3Controller::class, 'modificaCliente'])
-        ->name('modificacliente'); 
-
-Route::post('/listaOperatori/{chiave}/modificaOperatore/salva',[Utente3Controller::class, 'salvaOperatore'])
+        Route::post('/listaOperatori/{chiave}/modificaOperatore/salva',[Utente3Controller::class, 'salvaOperatore'])
         ->name('salvamodifiche');
-
-Route::post('/listaClienti/{chiave}/modificaCliente/salva',[Utente3Controller::class, 'salvaCliente'])
-        ->name('salvacliente');
-
-Route::resource('aziende',AziendeController::class)
+        Route::resource('aziende',AziendeController::class)
         ->names([
                 'index' => 'gestioneAziende',
                 'show' => 'showAzienda',
@@ -132,14 +72,25 @@ Route::resource('aziende',AziendeController::class)
                 'update' => 'modificaAzienda2',
                 'destroy' => 'eliminaAzienda'
         ]);
+});
 
-Route::view('/where', 'where')
-        ->name('where');
+Route::get('/',[PublicController::class, 'showHome'])
+->name('home'); /* rotta per la visualizzazione delle promozioni */
 
-Route::view('/who', 'who')
-        ->name('who');
+Route::get('/ChiSiamo',[PublicController::class, 'showWho'])
+->name('who');
 
-        /*
+Route::get('/cerca', [PublicController::class, 'showRisultatiPromo'])
+        ->name('showRisultatiPromo');        
+
+Route::get('/faq', [PublicController::class, 'showFaq'])
+        ->name('faq');
+
+Route::get('/Promozioni/{chiave}', [Utente3Controller::class, 'getPromozione'])
+        ->name('promozione_guest');
+      
+
+        /*ROTTE BREEZE
 Route::get('/', function () {
     return view('welcome');
 });

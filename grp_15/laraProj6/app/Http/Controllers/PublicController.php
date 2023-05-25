@@ -61,39 +61,6 @@ public function showRisultatiOp(Request $request)
     public function showWho(){
         return view("who");
     }
-
-    public function showPromozione(Request $request){
-        $promozione=Promozione::find($request->PromozioneId);
-        return view("promozione", ['promozione'=>$promozione]);
-    }
-
-    public function showCoupon(Request $request){
-        $coupon=Coupon::find($request->CouponId);
-        return view("coupon", ['coupon'=>$coupon]);
-    }
-
-    public function storePromozione(promozione $request) {
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-        } else {
-            $imageName = NULL;
-        }
-
-        $product = new Product;
-        $product->fill($request->validated());
-        $product->image = $imageName;
-        $product->save();
-
-        if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images/products';
-            $image->move($destinationPath, $imageName);
-        };
-
-        return response()->json(['redirect' => route('admin')]);
-        ;
-    }
     public function showHome()
 {
     $pr=Promozione::all();

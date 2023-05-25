@@ -10,7 +10,7 @@
           <h2>Promozioni</h2>
 
                     @foreach ($promozioni as $promozione)
-                        <li><a href="{{ route('promozione', [$promozione->id]) }}">
+                        <li><a href="{{ route('promozione_guest', [$promozione->id]) }}">
                             <h2>promo: {{ $promozione->NomePromo }}</h2>
                         </a></li>
                         {{$promozione->Azienda}}

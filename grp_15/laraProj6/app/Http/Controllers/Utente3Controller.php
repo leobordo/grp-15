@@ -80,7 +80,7 @@ class Utente3Controller extends Controller
     }
     public function deleteOperatore($chiave)
     {
-        Utente::where('NomeUtente', $chiave)->delete();
+        Utente::where('id', $chiave)->delete();
         return redirect('/listaOperatori');
         /*
          elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
@@ -89,8 +89,17 @@ class Utente3Controller extends Controller
     }
     public function deleteCliente($chiave)
     {
-        Utente::where('NomeUtente', $chiave)->delete();
+        Utente::where('id', $chiave)->delete();
         return redirect('/listaClienti');
+        /*
+         elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
+         ha il valore $chiave
+        */
+    }
+    public function deletePromozione($chiave)
+    {
+        Promozione::where('id', $chiave)->delete();
+        return redirect('/listaPromozioni');
         /*
          elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
          ha il valore $chiave
@@ -243,6 +252,62 @@ class Utente3Controller extends Controller
         $oper->save();
         return redirect('/listaOperatori');
     }
+    public function modificaPromozione($chiave)
+    {
+        $record = Promozione::where('id', $chiave)->first();; // Recupera il record dal database
+        
+    // Passa il record alla view utilizzando il metodo with
+    return view('forms.modificaPromozione')
+        ->with('record', $record);
+        
+    }
+    public function salvamodifichePromo(Request $request,$chiave)
+    {   
+        
+        $promo=Promozione::where('id',$chiave)->firstorfail();
+       
+        $attributi=[
+            'NomePromo' => 'required|string|max:255',
+            'Azienda' => [
+                'required',
+                Rule::exists('azienda', 'Nome'),
+            ],
+            'DescrizioneSconto' => 'required|string|max:255',
+            'PercentualeSconto' => 'required|numeric',
+            'Scadenza' => 'required|date'
+        ];
+        $messaggi=[
+            'NomePromo.required' => 'Il Nome promozione è obbligatorio',
+            'NomePromo.string' => 'Il Nome promozione deve essere una stringa',
+            'NomePromo.max' => 'Il Nome promozione supera i 255 caratteri',
+            'Azienda.exists'=>'Un\' Azienda deve esistere nel database',
+            'DescrizioneSconto.required' => 'ls descrizione sconto è obbligatoria',
+            'DescrizioneSconto.string' => 'Non hai inserito la descrizione sconto nel formato tradzionale',
+            'DescrizioneSconto.max' => 'la descrizione sconto supera i 255 caratteri',
+            'PercentualeSconto.required' => 'La percentuale sconto è obbligatoria',
+            'PercentualeSconto.double' => 'La percentuale sconto deve essere un float',
+            'Scadenza.required' => 'La scadenza è obbligatoria',
+        ];
+        $validator = Validator::make($request->all(),$attributi,$messaggi);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();//eventualmente ritorna al form con i messaggi di errore del validator e lascia nel form gli input
+        }
+        $nomePro=request('NomePromo');
+        $azi=request('Azienda');
+        $desc=request('DescrizioneSconto');
+        $perc=request('PercentualeSconto');
+        $scad=request('Scadenza');
+        $azi_completo=Azienda::where('Nome',$azi)->firstorfail();
+        $promo->NomePromo = $nomePro;
+        $promo->Azienda = $azi_completo->id;
+        $promo->DescrizioneSconto = $desc;
+        $promo->PercentualeSconto = $perc;
+        $promo->Scadenza = $scad;
+        $promo->save();
+        return redirect('/listaPromozioni');
+    }
+
     public function showFaq(){
         return view("faq");
     }
