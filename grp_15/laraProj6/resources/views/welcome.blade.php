@@ -1,5 +1,5 @@
 
-@extends('layouts.public')
+@extends('layouts.gestione')
 
 @section('title','home')
 @section('content')

@@ -15,13 +15,13 @@
   @endcan
   @auth
     @if(auth()->user()->Livello == 2)
-        <li><a href="{{ route('gestionepromo') }}" title="Gestisci promozioni del sito">Gestione Promozioni</a></li>
+        <li><a href="{{ route('showPromozione') }}" title="Gestisci promozioni del sito">Gestione Promozioni</a></li>
     @endif
     @if(auth()->user()->Livello == 3)
-        <li><a href="{{ route('gestioneclienti') }}" title="Gestisci clienti sito">Gestione Clienti</a></li>
-        <li><a href="{{ route('gestionestaff') }}" title="Gestisci staff sito">Gestione Staff</a></li>
-        <li><a href="{{ route('gestioneaziende') }}" title="Gestisci aziende del sito">Gestione Aziende</a></li>
-        <li><a href="{{ route('stats') }}" title="Statistiche sito">Statistiche</a></li>
+        <li><a href="{{ route('showOperatore') }}" title="Gestisci clienti sito">Gestione Clienti</a></li>
+        <li><a href="{{ route('showCliente') }}" title="Gestisci staff sito">Gestione Staff</a></li>
+        <li><a href="{{ route('gestioneAziende') }}" title="Gestisci aziende del sito">Gestione Aziende</a></li>
+        <li><a href="{{ route('showOperatore') }}" title="Statistiche sito">Statistiche</a></li>
     @endif
     <li><a href="" title="Esci dall'account" class="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
