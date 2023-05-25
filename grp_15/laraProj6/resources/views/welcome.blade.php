@@ -9,16 +9,11 @@
           </form>    
           <h2>Promozioni</h2>
 
-                <div class="grid-container">
                     @foreach ($promozioni as $promozione)
-                    <div class='promo-container'>
-                        <li><a href="{{ route('promozione', [$promozione->NomePromo]) }}">
+                        <li><a href="{{ route('promozione', [$promozione->id]) }}">
                             <h2>promo: {{ $promozione->NomePromo }}</h2>
                         </a></li>
                         {{$promozione->Azienda}}
                         <p>Sconti del {{$promozione->PercentualeSconto}}%</p>
-                    </div>
-                    @endforeach
-                </div>
-                      
+                    @endforeach                              
 @endsection
