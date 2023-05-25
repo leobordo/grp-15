@@ -32,7 +32,7 @@
                   
                   <div class="Bottone_elimina">
                     <a href="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}"
-                        onclick="event.preventDefault(); document.getElementById('elimina-form-{{$azienda->Nome}}').submit();">
+                        onclick="event.preventDefault(); document.getElementById('elimina-form-{{$azienda->Nome}}').submit(); return confermaEliminazioneAz()">
                         Elimina azienda
                     </a>
                     <form id="elimina-form-{{$azienda->Nome}}" action="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}" method="POST" style="display: none;">
@@ -40,7 +40,13 @@
                         @method('DELETE')
                     </form>
                 </div>
-                
+                <script>
+                    function confermaEliminazioneAz() {
+                    var nomeSito = "My little coupony";
+                    var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare l\'azienda?');
+                    return conferma;
+                    }
+                    </script>
         @endsection
 </body>
 </html>

@@ -30,11 +30,18 @@
         </p>
         <br>
         <div class="Bottone_elimina">
-            <a href="{{ route('deletepromo' ,[$promozione->id]) }}">Elimina promozione</a>
+            <a href="{{ route('deletepromo' ,[$promozione->id]) }}" onclick="return confermaEliminazionePr()">Elimina promozione</a>
         </div>
         <div class="Bottone_edit">
             <a href="{{ route('modificapromo', [$promozione->id]) }}">Modifica promozione</a>
         </div>
         <br>
         <br>
+        <script>
+               function confermaEliminazionePr() {
+                var nomeSito = "My little coupony";
+                var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare la promozione?');
+                return conferma;
+                }
+        </script>
 @endsection

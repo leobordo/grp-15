@@ -22,11 +22,18 @@
 
 <br>
 <div class="Bottone_elimina">
-    <a href="{{ route('deleteoperatore' ,[$Operatoree->id]) }}">Elimina operatore</a>
+    <a href="{{ route('deleteoperatore' ,[$Operatoree->id]) }}" onclick=" return confermaEliminazioneOp()">Elimina operatore</a>
 </div>
 <div class="Bottone_edit">
     <a href="{{ route('modificaoperatore', [$Operatoree->id]) }}">Modifica operatore</a>
 </div>
 <br>
 <br>
+<script>
+   function confermaEliminazioneOp() {
+    var nomeSito = "My little coupony";
+    var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare l\'operatore?');
+    return conferma;
+}
+</script>
 @endsection

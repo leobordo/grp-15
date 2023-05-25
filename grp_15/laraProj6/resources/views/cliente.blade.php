@@ -22,8 +22,15 @@
 
 <br>
 <div class="Bottone_elimina">
-    <a href="{{ route('deletecliente', [$Clientee->NomeUtente]) }}">Elimina cliente</a>
+    <a href="{{ route('deletecliente', [$Clientee->NomeUtente]) }}" onclick="return confermaEliminazioneCl()">Elimina cliente</a>
 </div>
 <br>
 <br>
+<script>
+       function confermaEliminazioneCl() {
+    var nomeSito = "My little coupony";
+    var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare il cliente?');
+    return conferma;
+}
+</script>
 @endsection
