@@ -30,6 +30,7 @@ $(function () {
     <br>
     <br>
     {{ Form::open(['route' => 'aggiungipromozione2', 'method' => 'POST', 'id' => 'Form_aggiungi_pr', 'class' => 'Form_modifica']) }} <!--passa al metodo aggOp del controller Utente3, id è per JS  -->
+    @csrf
         {{ Form::label('NomePromo', 'NomePromo') }}
         {{ Form::text('NomePromo','')}} <!-- il primo param è il nome per associare il label(come for in html), il seconod param è il placeholder -->
 
@@ -41,9 +42,12 @@ $(function () {
 
         {{ Form::label('PercentualeSconto','PercentualeSconto')}}
         {{ Form::text('PercentualeSconto','')}}
-
+        
         {{ Form::label('Scadenza', 'Scadenza') }}
-        {{ Form::select('Scadenza', '') }}
+        {{ Form::date('Scadenza', \Carbon\Carbon::now()) }}
+            
+        
+        
 
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
     <div class="errori">

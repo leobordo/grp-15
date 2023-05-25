@@ -29,7 +29,7 @@ $(function () {
     <h1>MODIFICA OPERATORE</h1>
     <br>
     <br>
-    {{ Form::model($record, ['route' => ['salvamodifiche','chiave' =>$record->NomeUtente] ,'method' => 'POST', 'id' => 'Form_modifica_op', 'class' => 'Form_modifica']) }}
+    {{ Form::model($record, ['route' => ['salvamodifiche','chiave' =>$record->id] ,'method' => 'POST', 'id' => 'Form_modifica_op', 'class' => 'Form_modifica']) }}
      <!--passa al metodo modOp del controller Utente3, id è per JS  -->
         {{ Form::label('Nome', 'Nome') }}
         {{ Form::text('Nome',$record->Nome)}} <!-- il primo param è il nome per associare il label(come for in html), il seconod param è il placeholder -->

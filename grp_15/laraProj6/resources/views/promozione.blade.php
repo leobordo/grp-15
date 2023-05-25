@@ -1,14 +1,17 @@
+
+
 @extends('layouts.gestione')
 
 @section('title','Promozione')
 
 @section('content')
         <h1>
+           
             {{$promozione->NomePromo}}
         </h1>
         <br>
         <h2>
-            Azienda: {{$promozione->Azienda}}
+            Azienda: {{$promozione->azienda->Nome}}
         </h2>
         <br>
         <h3>

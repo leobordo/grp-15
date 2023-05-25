@@ -14,11 +14,12 @@ class CreateCouponTable extends Migration
     public function up()
     {
         Schema::create('coupon', function (Blueprint $table) {
-            $table->string('CodiceCoupon')->primary();
+            $table->id();
+            $table->string('CodiceCoupon');
             $table->unsignedBigInteger('Utente');
-            $table->foreign('Utente')->references('Id')->on('utente')->onDelete('cascade');
-            $table->string('Promozione');
-            $table->foreign('Promozione')->references('NomePromo')->on('promozioni')->onDelete('cascade');
+            $table->foreign('Utente')->references('id')->on('utente')->onDelete('cascade');
+            $table->unsignedBigInteger('Promozione');
+            $table->foreign('Promozione')->references('id')->on('promozioni')->onDelete('cascade');
             $table->date('Data');
             $table->time('Ora');
             $table->timestamps();

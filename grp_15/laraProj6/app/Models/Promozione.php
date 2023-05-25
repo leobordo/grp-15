@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Promozione extends Model
 {
     protected $table = 'promozioni';
-    protected $fillable = ['NomePromo', 'Azienda', 'DescrizioneSconto', 'PercentualeSconto', 'Scadenza', 'Immagine'];
-    protected $primaryKey = 'NomePromo';
-    protected $keyType='string';
+    protected $fillable = ['Id','NomePromo', 'Azienda', 'DescrizioneSconto', 'PercentualeSconto', 'Scadenza', 'Immagine'];
+    protected $primaryKey = 'id';
+    //protected $keyType='string';
 
     public function azienda()
 {
-    return $this->belongsTo(Azienda::class, 'Nome');
+    return $this->belongsTo(Azienda::class, 'Azienda');
 }
 
 

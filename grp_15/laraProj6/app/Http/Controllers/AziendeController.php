@@ -51,7 +51,8 @@ class AziendeController extends Controller
  
         public function show($azienda)
         {
-            $company = Azienda::findOrFail($azienda);
+            
+            $company = Azienda::where('id',$azienda)->firstorfail();
         
             return view('azienda', [
                 'azienda' => $company
@@ -62,7 +63,7 @@ class AziendeController extends Controller
     public function edit($azienda)
     {
         return view('forms.modificaAzienda',[
-            'azienda'=>Azienda::where('Nome',$azienda)->firstorfail()
+            'azienda'=>Azienda::where('id',$azienda)->firstorfail()
         ]);
     }
 
@@ -75,16 +76,17 @@ class AziendeController extends Controller
             'ragioneSociale' => 'required',
             'descrizione'=>'required',
             ]);
-           $to_update = Azienda::where('Nome',$azienda)->firstorfail();
-           
+            
+           $to_update = Azienda::where('id',$azienda)->firstorfail();
            $to_update->Nome = $request->input('nome');
            $to_update->Tipologia = $request->input('tipologia');
            $to_update->Localizzazione = $request->input('localizzazione');
            $to_update->RagioneSociale = $request->input('ragioneSociale');
            $to_update->Descrizione = $request->input('descrizione');
            $to_update->save();
+           
         
-           return redirect()->route('showAzienda',['aziende'=>$to_update->Nome]);
+           return redirect()->route('gestioneAziende');
     
            /*
            manca l'immagine!
@@ -101,7 +103,7 @@ class AziendeController extends Controller
 {
     // Trova l'azienda nel database
     
-    $az = Azienda::where('Nome', $azienda)->first();
+    $az = Azienda::where('id', $azienda)->first();
     $az->delete();
     return redirect()->route('gestioneAziende');
 }

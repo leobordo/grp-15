@@ -13,7 +13,7 @@
              <h1>modifica azienda</h1>
             </div>
             <div>
-                <form action="{{ route('modificaAzienda2',['aziende' => $azienda->Nome]) }}" method="POST">
+                <form action="{{ route('modificaAzienda2',['aziende' => $azienda->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <label for="nome">Nome:</label> 

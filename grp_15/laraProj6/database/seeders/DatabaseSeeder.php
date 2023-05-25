@@ -15,18 +15,11 @@ class DatabaseSeeder extends Seeder {
 
     
         DB::table('utente')->insert([
-            ['NomeUtente' => 'Alex', 'Password' => 'Verdi', 'Nome' => 'alexalex',
+            ['NomeUtente' => 'admin', 'Password' => '$2y$10$zvAnFFxItu.b.R7brEsbO.Qrt.u/Zjh/LnSGn0RLsr5Xvmts9C1JS', 'Nome' => 'alexalex',
              'cognome' => 'user','created_at' => date("Y-m-d H:i:s"), 'Email' => 'alex@verdi.it', 'Telefono' => '1234567890', 
-             'Genere' => 'Maschio', 'Livello' => '2','updated_at' => date("Y-m-d H:i:s")
+             'Genere' => 'Maschio', 'Livello' => '3','updated_at' => date("Y-m-d H:i:s")
         ],
-        ['NomeUtente' => 'Ale', 'Password' => 'Verdid', 'Nome' => 'alealex',
-             'cognome' => 'user','created_at' => date("Y-m-d H:i:s"), 'Email' => 'aleex@verdi.it', 'Telefono' => '1234567890', 
-             'Genere' => 'Maschio', 'Livello' => '1','updated_at' => date("Y-m-d H:i:s")
-    ],
-        ['NomeUtente' => 'Allex', 'Password' => 'Veerdi', 'Nome' => 'aleeeexalex',
-             'cognome' => 'user','created_at' => date("Y-m-d H:i:s"), 'Email' => 'aleeeeex@verdi.it', 'Telefono' => '1234567890', 
-             'Genere' => 'Maschio', 'Livello' => '1','updated_at' => date("Y-m-d H:i:s")
-        ]
+        
         ]);
     }
 

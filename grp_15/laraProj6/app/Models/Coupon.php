@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Coupon extends Model
 {
     protected $table = 'coupon';
-    protected $fillable = ['CodiceCoupon', 'Utente', 'Promozione', 'Data', 'Ora'];
-    protected $primaryKey = 'CodiceCoupon';
-    protected $keyType='string';
+    protected $fillable = ['Id','CodiceCoupon', 'Utente', 'Promozione', 'Data', 'Ora'];
+    protected $primaryKey = 'id';
+    //protected $keyType='string';
 
     public function utente()
 {

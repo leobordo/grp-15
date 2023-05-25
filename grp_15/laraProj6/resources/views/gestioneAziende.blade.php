@@ -19,7 +19,7 @@
             @if (count($aziende) > 0)
             <ul>   
             @foreach ($aziende as $azienda)
-            <li><a href="{{route('showAzienda', ['aziende'=> $azienda['Nome']]) }}">Azienda:{{$azienda['Nome']}}</a></li>
+            <li><a href="{{route('showAzienda', ['aziende'=> $azienda['id']]) }}">Azienda:{{$azienda['Nome']}}</a></li>
             @endforeach
         </ul>
         @else 

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Azienda;
 use App\Models\Catalog;
 use App\Models\UtenteLivello1;
 use App\Models\Utente;
 use App\Models\Promozione;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
@@ -35,7 +37,7 @@ class Utente3Controller extends Controller
     }
     public function getOperatore($chiave)
     {
-        $op=Utente::where('NomeUtente', $chiave)->first();
+        $op=Utente::where('id', $chiave)->first();
         /*
             where è un metodo di Eloquent, cerca l'attributo NomeUtente
             con il valore di $chiave(vedi gestioneOperatori.blade.php).
@@ -53,7 +55,7 @@ class Utente3Controller extends Controller
     }
     public function getCliente($chiave)
     {
-        $cl=Utente::where('NomeUtente', $chiave)->first();
+        $cl=Utente::where('id', $chiave)->first();
         /*
             vedi sopra
         */
@@ -65,21 +67,16 @@ class Utente3Controller extends Controller
     }
     public function getPromozione($chiave)
     {
-        $pr=Promozione::where('NomePromo', $chiave)->first();
+        $pr=Promozione::where('id', $chiave)->first();
         /*
             where è un metodo di Eloquent, cerca l'attributo NomeUtente
             con il valore di $chiave(vedi gestioneOperatori.blade.php).
             first() restituisce il primo valore utile
         */
-        if($pr){
+       
         return view('promozione')
-                    ->with('Promozionee', $pr);
-        /*
-            ritorna la view operatore.blade.php dove la variabile $op viene
-            passata nella vista così -> $Promozionee
-        */
-        }
-        else return view('forms.aggiungiPromozione');
+                    ->with('promozione', $pr);
+        
     }
     public function deleteOperatore($chiave)
     {
@@ -151,6 +148,7 @@ class Utente3Controller extends Controller
         $liv=2;
         $usern=request('NomeUtente');
         $psw=request('Password');
+        $psw_hash=Hash::make($psw);
         $operatore->Nome = $nome;
         $operatore->cognome = $cogn;
         $operatore-> Email = $email;
@@ -158,15 +156,15 @@ class Utente3Controller extends Controller
         $operatore-> Genere = $gen;
         $operatore-> Livello = $liv;
         $operatore-> NomeUtente = $usern;
-        $operatore-> Password = $psw;
+        $operatore-> Password = $psw_hash;
         $operatore->save();
         return redirect('/listaOperatori');
     ;
 } 
     public function modificaOperatore($chiave)
     {
-        $record = Utente::where('NomeUtente', $chiave)->first();; // Recupera il record dal database
-        $chiavev=$chiave;
+        $record = Utente::where('id', $chiave)->first();; // Recupera il record dal database
+        
     // Passa il record alla view utilizzando il metodo with
     return view('forms.modificaOperatore')
         ->with('record', $record);
@@ -175,8 +173,8 @@ class Utente3Controller extends Controller
     }
     
     public function salvaOperatore(Request $request,$chiave)
-    {   $usern_vecchio=$chiave;
-        $oper=Utente::where('NomeUtente',$usern_vecchio)->first();
+    {   
+        $oper=Utente::where('id',$chiave)->firstorfail();
         $attributi=[
             'Nome' => 'required|string|max:255',
             'cognome' => 'required|string|max:255',
@@ -233,6 +231,7 @@ class Utente3Controller extends Controller
         $liv=2;
         $usern=request('NomeUtente');
         $psw=request('Password');
+        $psw_hash=Hash::make($psw);
         $oper->Nome = $nome;
         $oper->cognome = $cogn;
         $oper-> Email = $email;
@@ -240,7 +239,7 @@ class Utente3Controller extends Controller
         $oper-> Genere = $gen;
         $oper-> Livello = $liv;
         $oper-> NomeUtente = $usern;
-        $oper-> Password = $psw;
+        $oper-> Password = $psw_hash;
         $oper->save();
         return redirect('/listaOperatori');
     }
@@ -256,15 +255,19 @@ class Utente3Controller extends Controller
     {
         $attributi=[
             'NomePromo' => 'required|string|max:255',
-            'Azienda',
+            'Azienda' => [
+                'required',
+                Rule::exists('azienda', 'Nome'),
+            ],
             'DescrizioneSconto' => 'required|string|max:255',
-            'PercentualeSconto' => 'required|double',
+            'PercentualeSconto' => 'required|numeric',
             'Scadenza' => 'required|date'
         ];
         $messaggi=[
             'NomePromo.required' => 'Il Nome promozione è obbligatorio',
             'NomePromo.string' => 'Il Nome promozione deve essere una stringa',
             'NomePromo.max' => 'Il Nome promozione supera i 255 caratteri',
+            'Azienda.exists'=>'Un\' Azienda deve esistere nel database',
             'DescrizioneSconto.required' => 'ls descrizione sconto è obbligatoria',
             'DescrizioneSconto.string' => 'Non hai inserito la descrizione sconto nel formato tradzionale',
             'DescrizioneSconto.max' => 'la descrizione sconto supera i 255 caratteri',
@@ -283,8 +286,9 @@ class Utente3Controller extends Controller
         $desc=request('DescrizioneSconto');
         $perc=request('PercentualeSconto');
         $scad=request('Scadenza');
-        $promozione->Nome = $nomePro;
-        $promozione->Azienda = $azi;
+        $azi_completo=Azienda::where('Nome',$azi)->firstorfail();
+        $promozione->NomePromo = $nomePro;
+        $promozione->Azienda = $azi_completo->id;
         $promozione->DescrizioneSconto = $desc;
         $promozione->PercentualeSconto = $perc;
         $promozione->Scadenza = $scad;

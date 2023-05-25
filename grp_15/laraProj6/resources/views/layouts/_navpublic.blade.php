@@ -18,8 +18,8 @@
         <li><a href="{{ route('showPromozione') }}" title="Gestisci promozioni del sito">Gestione Promozioni</a></li>
     @endif
     @if(auth()->user()->Livello == 3)
-        <li><a href="{{ route('showOperatore') }}" title="Gestisci clienti sito">Gestione Clienti</a></li>
-        <li><a href="{{ route('showCliente') }}" title="Gestisci staff sito">Gestione Staff</a></li>
+        <li><a href="{{ route('showCliente') }}" title="Gestisci clienti sito">Gestione Clienti</a></li>
+        <li><a href="{{ route('showOperatore') }}" title="Gestisci staff sito">Gestione Staff</a></li>
         <li><a href="{{ route('gestioneAziende') }}" title="Gestisci aziende del sito">Gestione Aziende</a></li>
         <li><a href="{{ route('showOperatore') }}" title="Statistiche sito">Statistiche</a></li>
     @endif

@@ -23,19 +23,19 @@
               
                   
                   <div class="Bottone_edit">
-                    <a href="{{route('modificaAzienda',['aziende'=>$azienda->Nome])}}" 
+                    <a href="{{route('modificaAzienda',['aziende'=>$azienda->id])}}" 
                         onclick="event.preventDefault(); document.getElementById('modifica-form-{{$azienda->Nome}}').submit();" >Modifica azienda
                     </a>
-                    <form id="modifica-form-{{$azienda->Nome}}" action="{{ route('modificaAzienda', ['aziende' => $azienda->Nome]) }}" method="GET" style="display: none;">
+                    <form id="modifica-form-{{$azienda->Nome}}" action="{{ route('modificaAzienda', ['aziende' => $azienda->id]) }}" method="GET" style="display: none;">
                     </form>
                   </div>
                   
                   <div class="Bottone_elimina">
-                    <a href="{{ route('eliminaAzienda', ['aziende' => $azienda->Nome]) }}"
+                    <a href="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}"
                         onclick="event.preventDefault(); document.getElementById('elimina-form-{{$azienda->Nome}}').submit();">
                         Elimina azienda
                     </a>
-                    <form id="elimina-form-{{$azienda->Nome}}" action="{{ route('eliminaAzienda', ['aziende' => $azienda->Nome]) }}" method="POST" style="display: none;">
+                    <form id="elimina-form-{{$azienda->Nome}}" action="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}" method="POST" style="display: none;">
                         @csrf
                         @method('DELETE')
                     </form>

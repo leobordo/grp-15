@@ -24,6 +24,9 @@ Route::get('/who',[PublicController::class, 'showWho'])
 
 Route::get('/promotions', 'PromotionController@showPromotions')->name('promotions'); /* rotta per la visualizzazione delle promozioni */
 
+Route::get('/listaPromozioni/aggiungiPromozione', [Utente3Controller::class, 'showFormPromozione'])
+        ->name('aggiungipromozione');
+
 Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
         ->name('showOperatore');
 
@@ -96,10 +99,7 @@ Route::get('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'showF
         ->name('aggiungioperatore');
 
 Route::get('/listaClienti/aggiungiCliente',[Utente3Controller::class, 'showFormCliente'])
-        ->name('aggiungicliente');
-
-Route::get('/listaPromozioni/aggiungiPromozione',[Utente3Controller::class, 'showFormPromozione'])
-        ->name('aggiungipromozione');
+        ->name('aggiungicliente');    
 
 Route::post('/listaOperatori/aggiungiOperatore/redirecting',[Utente3Controller::class, 'aggiungiOperatore'])
         ->name('aggiungioperatore2');

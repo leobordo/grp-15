@@ -7,7 +7,8 @@
     @isset($promozioni)
     <ul>
         @foreach($promozioni as $promozione)
-                <li><a href="{{ route('promozione', [$promozione->NomePromo]) }}">Promozione: {{ $promozione ->NomePromo }}</a></li> 
+                
+                <li><a href="{{ route('promozione', [$promozione->id]) }}">Promozione: {{ $promozione ->NomePromo }}</a></li> 
                 <!-- passa il valore NomePromo alla funzione indicata nella route nominata operatore -->
         @endforeach
     </ul>

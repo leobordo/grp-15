@@ -22,10 +22,10 @@
 
 <br>
 <div class="Bottone_elimina">
-    <a href="{{ route('deleteoperatore' ,[$Operatoree->NomeUtente]) }}">Elimina operatore</a>
+    <a href="{{ route('deleteoperatore' ,[$Operatoree->id]) }}">Elimina operatore</a>
 </div>
 <div class="Bottone_edit">
-    <a href="{{ route('modificaoperatore', [$Operatoree->NomeUtente]) }}">Modifica operatore</a>
+    <a href="{{ route('modificaoperatore', [$Operatoree->id]) }}">Modifica operatore</a>
 </div>
 <br>
 <br>

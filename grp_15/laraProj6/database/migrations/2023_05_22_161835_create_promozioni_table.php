@@ -14,9 +14,10 @@ class CreatePromozioniTable extends Migration
     public function up()
     {
         Schema::create('promozioni', function (Blueprint $table) {
-            $table->string('NomePromo')->primary();
-            $table->string('Azienda');
-            $table->foreign('Azienda')->references('Nome')->on('azienda')->onDelete('cascade');
+            $table->id();
+            $table->string('NomePromo');
+            $table->unsignedBigInteger('Azienda');
+            $table->foreign('Azienda')->references('id')->on('azienda')->onDelete('cascade');
             $table->string('DescrizioneSconto');
             $table->float('PercentualeSconto');
             $table->date('Scadenza');
