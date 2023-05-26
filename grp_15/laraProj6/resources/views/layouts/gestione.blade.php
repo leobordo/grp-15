@@ -10,7 +10,10 @@
                 @include('layouts/_navpublic')
             </nav>
         <div class="GestioneClienti">
+            <div class="main-content">
                 @yield('content')
+            </div>
+                
             <div class="footer">
                 @include('layouts/_footer')
             </div>

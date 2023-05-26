@@ -104,7 +104,10 @@
   text-align: center;
   width: 100%;
   position: relative;
-  
+  min-height: 600px;
+}
+.main-content{
+  min-height: 500px;
 }
 
 /*colora il pallino e la scritta insieme*/
@@ -360,6 +363,7 @@
   margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+  height: 200px;
   }
 .footer p{
   color: #d9d9d9;
