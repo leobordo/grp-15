@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
         <title> @yield('title','Home')</title>
     </head>
-    <body>
+    <body class="body">
             <nav class="navbar">
                 @include('layouts/_navpublic')
             </nav>
