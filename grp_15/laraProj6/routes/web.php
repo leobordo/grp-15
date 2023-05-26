@@ -79,8 +79,10 @@ Route::get('/',[PublicController::class, 'showHome'])
 
 Route::get('/ChiSiamo',[PublicController::class, 'showWho'])
 ->name('who');
+Route::get('/promoPublic/{chiave}',[PublicController::class, 'getPromozionePublic'])
+        ->name('promozione2');
 
-Route::get('/cerca', [PublicController::class, 'showRisultatiPromo'])
+Route::post('/cerca', [PublicController::class, 'showRisultatiPromo'])
         ->name('showRisultatiPromo');        
 
 Route::get('/faq', [PublicController::class, 'showFaq'])

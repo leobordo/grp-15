@@ -11,7 +11,7 @@
     @isset($results)
     <ul>
         @foreach ($results as $result)
-            <li><a href="{{ route('cliente', [$result->NomeUtente])  }}">Clienti:{{ $result->NomeUtente }}</a></li>
+            <li><a href="{{ route('cliente', [$result->id])  }}">Clienti:{{ $result->NomeUtente }}</a></li>
         @endforeach
     </ul>
     @endisset
