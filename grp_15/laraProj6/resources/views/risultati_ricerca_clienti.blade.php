@@ -3,7 +3,8 @@
 @section('title','RISULTATI RICERCA')
 
 @section('content')
-<form class="CercaUtenti-form"  action={{ route('showRisultatiCl') }} method='GET'>
+<form class="CercaUtenti-form"  action={{ route('showRisultatiCl') }} method='POST'>
+    @csrf
     <input type="text" placeholder="Cerca cliente" name='CercaUtenti-input2' class="CercaUtenti-input">
     <button type="submit" class="CercaUtenti-bottone">Cerca</button>
   </form>

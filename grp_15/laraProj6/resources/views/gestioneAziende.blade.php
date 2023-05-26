@@ -10,10 +10,14 @@
     <body>
         @section('content')
         <div class="GestioneClienti">
-            <form class="CercaUtenti-form">
-                <input type="text" placeholder="Cerca azienda" class="CercaUtenti-input">
+            <form class="CercaUtenti-form" action={{ route('showRisultatiAz') }} method='POST'>
+                @csrf
+                <input type="text" placeholder="Cerca azienda" name="CercaAziende-input" class="CercaAziende-input">
                 <button type="submit" class="CercaUtenti-bottone">Cerca</button>
               </form>
+                @if(session('err'))
+                {{session('err')}}
+                @endif
             <h1>LISTA AZIENDE</h1>
            <div>
             @if (count($aziende) > 0)

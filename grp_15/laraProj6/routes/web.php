@@ -42,10 +42,12 @@ Route::middleware(['livello:3'])->group(function (){
         ->name('showOperatore');
         Route::get('/listaClienti', [Utente3Controller::class, 'showClienti'])
         ->name('showCliente');
-        Route::get('/listaOperatori/cerca', [PublicController::class, 'showRisultatiOp'])
+        Route::post('/listaOperatori/cerca', [PublicController::class, 'showRisultatiOp'])
         ->name('showRisultatiOp');
-        Route::get('/listaClienti/cerca', [PublicController::class, 'showRisultatiCl'])
+        Route::post('/listaClienti/cerca', [PublicController::class, 'showRisultatiCl'])
         ->name('showRisultatiCl');
+        Route::post('/aziende/cerca', [PublicController::class, 'showRisultatiAz'])
+        ->name('showRisultatiAz');
         Route::get('/listaOperatori/{chiave}', [Utente3Controller::class, 'getOperatore'])
         ->name('operatore');
         Route::get('/listaClienti/{chiave}', [Utente3Controller::class, 'getCliente'])

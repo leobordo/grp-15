@@ -27,7 +27,7 @@ class AziendeController extends Controller
         
         //validazione dei dati inseriti
         $request->validate([
-        'nome' => 'required',
+        'nome' => 'required|unique:Aziende',
         'tipologia' => 'required',
         'localizzazione' => 'required',
         'ragioneSociale' => 'required',
@@ -70,7 +70,7 @@ class AziendeController extends Controller
  
     public function update(Request $request, $azienda){
         $request->validate([
-            'nome' => 'required',
+            'nome' => 'required|unique:Azienda',
             'tipologia' => 'required',
             'localizzazione' => 'required',
             'ragioneSociale' => 'required',

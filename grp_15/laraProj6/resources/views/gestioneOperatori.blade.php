@@ -3,10 +3,14 @@
 @section('title','Gestione Operatori')
 
 @section('content')
-    <form class="CercaUtenti-form"  action={{ route('showRisultatiOp') }} method='GET'>
+    <form class="CercaUtenti-form"  action={{ route('showRisultatiOp') }} method='POST'>
+        @csrf
         <input type="text" placeholder="Cerca operatore" name='CercaUtenti-input' class="CercaUtenti-input">
         <button type="submit" class="CercaUtenti-bottone">Cerca</button>
       </form>
+        @if(session('err'))
+        {{session('err')}}
+        @endif
     <h1>LISTA OPERATORI</h1>
     @isset($operatori)
     <ul>

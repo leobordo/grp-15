@@ -17,16 +17,31 @@ class PublicController extends Controller
 
 public function showRisultatiCl(Request $request)
 {
-    $cercato ='%'. $request->input('CercaUtenti-input2').'%';
+    $cercato = $request->input('CercaUtenti-input2');
     
     // Esegui la query per cercare i dati corrispondenti al testo di ricerca nella tua tabella
     $results = DB::table('utente')
-                ->where('NomeUtente', 'LIKE',  $cercato )
+                ->where('NomeUtente', '=',  $cercato )
                 ->where('Livello','=','1')
                 ->get();
     
+    if(count($results)==0) return redirect('/listaClienti')->with('err','Nessun risultato!');
     // Passa i risultati alla vista per visualizzarli
     return view('risultati_ricerca_clienti', ['results' => $results]);
+}
+public function showRisultatiAz(Request $request)
+{
+    $cercato =$request->input('CercaAziende-input');
+    
+    // Esegui la query per cercare i dati corrispondenti al testo di ricerca nella tua tabella
+    $results = DB::table('azienda')
+                ->where('Nome', '=',  $cercato )
+                ->get();
+                
+                
+    if(count($results)==0) return redirect('/aziende')->with('err','Nessun risultato!');
+    // Passa i risultati alla vista per visualizzarli
+    return view('risultati_ricerca_aziende', ['results' => $results]);
 }
 public function getPromozionePublic($chiave){
     $pr=Promozione::where('id', $chiave)->first();       
@@ -88,14 +103,14 @@ public function showRisultatiPromo(Request $request)
 
 public function showRisultatiOp(Request $request)
 {
-    $cercato ='%'. $request->input('CercaUtenti-input').'%';
+    $cercato =$request->input('CercaUtenti-input');
     
     // Esegui la query per cercare i dati corrispondenti al testo di ricerca nella tua tabella
     $results = DB::table('utente')
-                ->where('NomeUtente', 'LIKE',  $cercato )
+                ->where('NomeUtente', '=',  $cercato )
                 ->where('Livello','=','2')
                 ->get();
-    
+    if(count($results)==0) return redirect('/listaOperatori')->with('err','Nessun risultato!');
     // Passa i risultati alla vista per visualizzarli
     return view('risultati_ricerca_operatori', ['results' => $results]);
 }
