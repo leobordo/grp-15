@@ -1,12 +1,12 @@
-@extends('layouts.aziende')
+@extends('layouts.gestione')
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        @section('titolo','creare un azienda')
+        @section('title','creare un azienda')
          <link rel="stylesheet" href="{{ url('css/style.css')}}"> 
     </head>
     <body>
-        @section('contenuto')
+        @section('content')
        
         <div class="GestioneClienti">
                <div>

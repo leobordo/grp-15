@@ -1,12 +1,12 @@
-@extends('layouts.aziende')
+@extends('layouts.gestione')
 <!DOCTYPE html>
 <html lang="it">
     <head>
-        @section('titolo','azienda')
+        @section('title',$azienda['Nome'])
          <link rel="stylesheet" href="{{ url('css/style.css')}}"> 
     </head>
     <body>
-        @section('contenuto')
+        @section('content')
         <div class="GestioneClienti">
                <br>
                <br>
@@ -32,7 +32,7 @@
                   
                   <div class="Bottone_elimina">
                     <a href="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}"
-                        onclick="event.preventDefault(); document.getElementById('elimina-form-{{$azienda->Nome}}').submit(); return confermaEliminazioneAz()">
+                        onclick="event.preventDefault(); document.getElementById('elimina-form-{{$azienda->Nome}}').submit();">
                         Elimina azienda
                     </a>
                     <form id="elimina-form-{{$azienda->Nome}}" action="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}" method="POST" style="display: none;">
@@ -40,13 +40,7 @@
                         @method('DELETE')
                     </form>
                 </div>
-                <script>
-                    function confermaEliminazioneAz() {
-                    var nomeSito = "My little coupony";
-                    var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare l\'azienda?');
-                    return conferma;
-                    }
-                    </script>
+                
         @endsection
 </body>
 </html>

@@ -1,14 +1,14 @@
-@extends('layouts.aziende')
+@extends('layouts.gestione')
 <!DOCTYPE html>
 <html lang="it">
-    <head title="Gestione Aziende">
+    <head title="title">
         @section('titolo','gestione aziende')
          <link rel="stylesheet" href="{{ url('css/style.css')}}"> 
     </head>
 
     
     <body>
-        @section('contenuto')
+        @section('content')
         <div class="GestioneClienti">
             <form class="CercaUtenti-form">
                 <input type="text" placeholder="Cerca azienda" class="CercaUtenti-input">
