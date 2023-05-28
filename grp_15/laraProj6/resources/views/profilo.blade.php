@@ -5,6 +5,17 @@
 @section('content')
 <br>
 <h1>Il mio profilo</h1>
+@if(session('err'))
+<div id="error-message">{{ session('err') }}</div>
+<script>
+    setTimeout(function() {
+        var errorMessage = document.getElementById('error-message');
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+    }, 3000);
+</script>
+@endif
 <br>
 <br>
 <br>
@@ -22,19 +33,11 @@
 <p>{{ $Profiloo->Genere }}</p>
 
 <br>
-<div class="Bottone_elimina">
-    <a href="{{ route('deleteprofilo', [$Profiloo->NomeUtente]) }}" onclick="return confermaEliminazionePr()">Elimina Profilo</a>
-</div>
+
 <div class="Bottone_edit">
     <a href="{{ route('modificaprofilo', [$Profiloo->id]) }}">Modifica profilo</a>
 </div>
 <br>
 <br>
-<script>
-       function confermaEliminazionePr() {
-    var nomeSito = "My little coupony";
-    var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare il tuo account?');
-    return conferma;
-}
-</script>
+
 @endsection

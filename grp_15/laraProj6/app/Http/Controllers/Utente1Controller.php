@@ -10,6 +10,8 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\View;
+
 class Utente1Controller extends Controller 
 {
     public function __construct()
@@ -18,7 +20,8 @@ class Utente1Controller extends Controller
 }
 
     public function getProfilo($chiave)
-    {
+    {   
+        if(auth()->user()->id==$chiave){
         $pr=Utente::where('id', $chiave)->first();
         /*
             vedi sopra
@@ -28,6 +31,12 @@ class Utente1Controller extends Controller
         /*
             vedi sopra
         */
+        }
+        else {
+            $redirectUrl='/';
+            $message='Accesso negato, autorizzazione mancante. Verrai reindirizzato alla home tra 5 secondi...';
+            return response(View::make('errors.Error403', compact('redirectUrl', 'message')));
+        }
     }
     public function modificaProfilo($chiave)
     {
@@ -111,9 +120,5 @@ class Utente1Controller extends Controller
         // se tengo return redirect('/ilMioProfilo/{chiave}'); mi dà errore
     }
 
-    public function deleteProfilo($chiave)
-    {
-        Utente::where('id', $chiave)->delete();
-        return redirect('/');
-    }
+    
 }

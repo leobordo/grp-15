@@ -5,25 +5,19 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
-
+        
         <form method="POST" action="{{ route('password.update') }}">
             @csrf
+            <div class="mt-4">
+                <x-input-label for="vecchia_password" :value="__('Vecchia Password')" />
 
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                <x-text-input id="vecchia_password" class="block mt-1 w-full" type="password" name="vecchia_password" required />
 
-            <!-- Email Address -->
-            <div>
-                <x-input-label for="email" :value="__('Email')" />
-
-                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-
-                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <x-input-error :messages="$errors->get('vecchia_password')" class="mt-2" />
             </div>
-
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Password')" />
+                <x-input-label for="password" :value="__('Nuova Password')" />
 
                 <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required />
 
@@ -32,7 +26,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-input-label for="password_confirmation" :value="__('Conferma Password')" />
 
                 <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                     type="password"

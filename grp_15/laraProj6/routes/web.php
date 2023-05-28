@@ -24,8 +24,7 @@ Route::middleware(['livello:1'])->group(function (){
         ->name('modificaprofilo');
         Route::post('/ilMioProfilo/{chiave}/modificaProfilo/salva',[Utente1Controller::class, 'salvaProfilo'])
         ->name('salvaProfilo');
-        Route::get('/ilMioProfilo/{chiave}/delete', [Utente1Controller::class, 'deleteProfilo'])
-        ->name('deleteprofilo');
+        
         
 });
 

@@ -7,6 +7,8 @@
     </head>
     <body>
         @section('content')
+        
+        
         <div class="GestioneClienti">
                <br>
                <br>
@@ -29,17 +31,20 @@
                     <form id="modifica-form-{{$azienda->Nome}}" action="{{ route('modificaAzienda', ['aziende' => $azienda->id]) }}" method="GET" style="display: none;">
                     </form>
                   </div>
-                  
                   <div class="Bottone_elimina">
-                    <a href="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}"
-                        onclick="event.preventDefault(); document.getElementById('elimina-form-{{$azienda->Nome}}').submit();">
-                        Elimina azienda
-                    </a>
-                    <form id="elimina-form-{{$azienda->Nome}}" action="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}" method="POST" style="display: none;">
+                    <form id="elimina-form-{{$azienda->id}}" action="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}" method="POST">
                         @csrf
                         @method('DELETE')
+                        <button type="submit" onclick="return confermaElimina()">Elimina Azienda</button>
                     </form>
                 </div>
+                <script>
+                    function confermaElimina() {
+                     var nomeSito = "My little coupony";
+                     var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare l\' azienda?');
+                     return conferma;
+                     }
+             </script>
                 
         @endsection
 </body>

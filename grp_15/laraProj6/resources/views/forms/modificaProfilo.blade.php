@@ -49,9 +49,6 @@ $(function () {
         {{ Form::label('NomeUtente','Nome utente')}}
         {{ Form::text('NomeUtente',$record->NomeUtente)}}
 
-        {{ Form::label('Password','Password')}}
-        {{ Form::text('Password',$record->Password)}}
-
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
     <div class="errori">
         <ul>
@@ -66,5 +63,10 @@ $(function () {
         {{ Form::submit('Salva modifiche', ['class' => 'Bottone_salva']) }}
 
         {{Form::close()}}
-        <!-- mancano i controlli degli errori $messaggi -->
+        
+        <form action={{route('password.reset')}} method="GET">
+            <input type="submit" value="Vuoi cambiare password?">
+        </form>
+        
+        <!-- mancano i controlli degli errori $messaggi  -->
 @endsection

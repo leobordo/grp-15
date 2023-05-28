@@ -318,6 +318,15 @@
   text-decoration: none;
   color:inherit;
 }
+.Bottone_elimina button{
+  text-decoration: none;
+  color:inherit;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
 .Bottone_edit{
   text-align: right;
   margin-top: 5px;
