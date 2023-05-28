@@ -5,6 +5,7 @@ use App\Http\Controllers\AziendeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Utente3Controller;
+use App\Http\Controllers\Utente1Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,18 @@ use App\Http\Controllers\Utente3Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['livello:1'])->group(function (){
+        Route::get('/ilMioProfilo/{chiave}', [Utente1Controller::class, 'getProfilo'])
+        ->name('profilo');
+        Route::get('/ilMioProfilo/{chiave}/modificaProfilo',[Utente1Controller::class, 'modificaProfilo'])
+        ->name('modificaprofilo');
+        Route::post('/ilMioProfilo/{chiave}/modificaProfilo/salva',[Utente1Controller::class, 'salvaProfilo'])
+        ->name('salvaProfilo');
+        Route::get('/ilMioProfilo/{chiave}/delete', [Utente1Controller::class, 'deleteProfilo'])
+        ->name('deleteprofilo');
+        
+});
+
 Route::middleware(['livello:2'])->group(function (){
 
         Route::get('/listaPromozioni/aggiungiPromozione', [Utente3Controller::class, 'showFormPromozione'])

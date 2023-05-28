@@ -4,7 +4,7 @@
 
 @section('content')
 <br>
-<h1>CLIENTE</h1>
+<h1>{{ $Clientee->NomeUtente }}</h1>
 <br>
 <br>
 <br>
