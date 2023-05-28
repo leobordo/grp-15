@@ -64,7 +64,7 @@ Route::middleware(['livello:3'])->group(function (){
         ->name('modificaoperatore');
         Route::post('/listaOperatori/{chiave}/modificaOperatore/salva',[Utente3Controller::class, 'salvaOperatore'])
         ->name('salvamodifiche');
-        Route::resource('aziende',AziendeController::class)
+Route::resource('aziende',AziendeController::class)
         ->names([
                 'index' => 'gestioneAziende',
                 'show' => 'showAzienda',
@@ -92,7 +92,9 @@ Route::get('/faq', [PublicController::class, 'showFaq'])
 
 Route::get('/Promozioni/{chiave}', [Utente3Controller::class, 'getPromozione'])
         ->name('promozione_guest');
-      
+
+Route::get('/aziendaPublic/{chiave}', [PublicController::class, 'getAziendaPublic'])
+        ->name('azienda2');  
 
         /*ROTTE BREEZE
 Route::get('/', function () {

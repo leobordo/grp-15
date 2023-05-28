@@ -124,10 +124,17 @@ public function showRisultatiOp(Request $request)
     }
     public function showHome()
 {
+    
     $pr=Promozione::all();
     return view("welcome",["promozioni"=>$pr]);
    
 }
+public function getAziendaPublic($chiave)
+{
+    $az=Azienda::where('id', $chiave)->firstorfail();
+    return view('aziendaPublic', ['azienda'=>$az]);
+}
+
 
     
 }
