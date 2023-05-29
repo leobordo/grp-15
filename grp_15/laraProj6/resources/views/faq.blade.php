@@ -4,15 +4,33 @@
 
 @section('content')
         <script>
-            function mostraNascondiRisposta(numero) {
+            function mostraNascondiRisposta(id) {
                 
-                var risposta = document.getElementById("risposta"+numero);
+                var risposta = document.getElementById(id);
                 if (risposta.style.display === "none") {
                     risposta.style.display = "block";
                 } else {
                     risposta.style.display = "none";
                 }
             }
+            function apriPopUp() {
+            var popup = document.getElementById("popupFaq");
+            popup.style.display = "block";
+            }
+            function annullaPopUp() {
+            var popup = document.getElementById("popupFaq");
+            popup.style.display = "none";
+            }
+            function creaFaq(){
+                var domanda = document.getElementById("inputDomanda").value;
+                var risposta = document.getElementById("inputRisposta").value;
+
+
+                var popup = document.getElementById("popupFaq");
+                popup.style.display = "none";
+            }
+
+            
         </script>
         <div class="ContenitoreFaqCompleto">
             <div class="ContenitoreLegenda">
@@ -22,46 +40,52 @@
                 <a href="#">argomento 3</a>
             </div>
             <div class="ContenitoreFaq">
-                
-                    <div onclick="mostraNascondiRisposta(1)">
-                        <h2 id="domanda1" class="domanda">Domanda 1</h2>
-                        <h3 id="risposta1" class="risposta" style="display: none;"> Risposta 1</h3>
-                    </div>
 
-                    <div onclick="mostraNascondiRisposta(2)">
-                        <h2 id="domanda2" class="domanda" >Domanda 2</h2>
-                        <h3 id="risposta2" class="risposta" style="display: none;">Risposta 2 ma se fosse una risposta molto più lunga della domanda come si vedrebbe? Si ma ancora molto più lunga a tal punto da vedere quando e come andrebbe a capo</h3>
-                    </div>
-
-                    <div onclick="mostraNascondiRisposta(3)">
-                        <h2 id="domanda3" class="domanda">Domanda 3</h2>
-                        <h3 id="risposta3" class="risposta" style="display: none;">Risposta 3</h3>
-                    </div>
-
-                    <div onclick="mostraNascondiRisposta(4)">
-                        <h2 id="domanda4" class="domanda">Domanda 4</h2>
-                        <h3 id="risposta4" class="risposta" style="display: none;">Risposta 4</h3>
-                    </div>
-                    
-                    <div onclick="mostraNascondiRisposta(5)">
-                        <h2 id="domanda5" class="domanda">Domanda 5</h2>
-                        <h3 id="risposta5" class="risposta" style="display: none;">Risposta 5</h3>
-                    </div>
-                    
-                    <div onclick="mostraNascondiRisposta(6)">
-                        <h2 id="domanda6" class="domanda">Domanda 6</h2>
-                        <h3 id="risposta6" class="risposta" style="display: none;">Risposta 6</h3>
-                    </div>
-                    
-                    <div onclick="mostraNascondiRisposta(7)">
-                        <h2 id="domanda7" class="domanda">Domanda 7</h2>
-                        <h3 id="risposta7" class="risposta" style="display: none;">Risposta 7</h3>
-                    </div>
-                    
-                    <div onclick="mostraNascondiRisposta(8)">
-                        <h2 id="domanda8" class="domanda">Domanda 8</h2>
-                        <h3 id="risposta8" class="risposta" style="display: none;">Risposta 8</h3>
-                    </div>
+                @foreach ($faqs as $faq)
+                <div onclick="mostraNascondiRisposta('{{$faq->id}}')">
+                    <h2 id="domanda1" class="domanda">{{$faq->Domanda}}</h2>
+                    <h3 id="{{$faq->id}}"class="risposta" style="display: none;"> {{$faq->Risposta}}</h3>
                 </div>
+                @auth
+                @if (auth()->user()->Livello == 3)
+                    <button id="btnAggiungiFaq" >modifica FAQ</button>
+                    <button id="btnAggiungiFaq" >elimina FAQ</button>
+                @endif
+
+            @endauth
+                @endforeach
+                
+                    
+            </div>
+            @auth
+                @if (auth()->user()->Livello == 3)
+                    <button id="btnAggiungiFaq" onclick="apriPopUp()">Aggiungi FAQ</button>
+                @endif
+
+            @endauth
+            <div id="popupFaq" class="popup" style="display: none;">
+                <h2>Nuova FAQ</h2>
+                <form id="formNuovaFaq">
+                    <div>
+                        <label for="inputDomanda">Domanda:</label>
+                    </div>
+                    <div>
+                        <input type="text" class="inputDomanda" required>
+                    </div>
+                    <div>
+                        <label for="inputRisposta">Risposta:</label>
+                    </div>
+                    <div>
+                        <textarea class="inputRisposta" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" onclick="creaFaq()">Invia</button>
+                        <button type="submit" onclick="annullaPopUp()">annulla</button>
+                    </div>
+                  
+
+                  
+                </form>
+              </div>
         </div>
 @endsection

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\Promozione;
+use App\Models\Faq;
 use App\Models\Coupon;
 use PHPUnit\Framework\Constraint\IsInstanceOf;
 
@@ -116,7 +117,8 @@ public function showRisultatiOp(Request $request)
 }
 
     public function showFaq(){
-        return view("faq");
+        $fq=Faq::all();
+        return view("faq",["faqs"=>$fq]);
     }
 
     public function showWho(){
@@ -126,9 +128,11 @@ public function showRisultatiOp(Request $request)
 {
     
     $pr=Promozione::all();
-    return view("welcome",["promozioni"=>$pr]);
+    $az=Azienda::all();
+    return view("welcome",["promozioni"=>$pr],["aziende"=>$az]);
    
 }
+
 public function getAziendaPublic($chiave)
 {
     $az=Azienda::where('id', $chiave)->firstorfail();

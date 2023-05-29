@@ -445,3 +445,49 @@ align-items: center;
 }
 
 
+
+.popup {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-color: rgb(255, 255, 255); /* Imposta un colore di sfondo traslucido */
+  padding: 20px;
+  border: 5px solid #000000;
+  z-index: 9999;
+  
+}
+
+.inputDomanda, .inputRisposta {
+  width: 100%;
+  height: 180px; /* Imposta l'altezza della casella di testo in base alle dimensioni del popup */
+}
+.promoHome{
+  
+  background-color: #c9c9c9;
+  height: 200px;
+  width: 600px;
+  
+  margin-bottom: 10px; /* Aggiungi un margine inferiore per separare gli oggetti verticalmente */
+  margin-top: 10px; /* Aggiungi un margine inferiore per separare gli oggetti verticalmente */
+  
+
+
+  
+}
+.conenitoreHome{
+  display: flex;
+  
+  justify-content: center; 
+
+}
+.contenitorePromo{
+  display: flex;
+  flex-direction: column; /* Imposta la direzione del layout a colonna */
+  justify-content: center; /* Centra orizzontalmente gli elementi */
+  align-items: center; /* Centra verticalmente gli elementi */
+  padding: 30px;
+
+}
