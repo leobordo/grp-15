@@ -491,3 +491,22 @@ align-items: center;
   padding: 30px;
 
 }
+.back-button {
+  display: inline-block;
+  float: left;
+  margin-left: 5px;
+  text-align: left;
+  padding: 10px 10px;
+  background-color: #f1f1f1;
+  border-radius: 100px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #ddd;
+}
+
+.back-button .arrow {
+  margin-right: 5px;
+  font-size: 14px;
+}
