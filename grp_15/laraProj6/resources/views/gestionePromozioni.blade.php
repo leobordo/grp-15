@@ -20,6 +20,7 @@
         @endforeach
     </ul>
     @endisset
+    <div class="Paginazione">{{ $promozioni->links('pagination.paginator') }}</div>
     <div class="Bottone_aggiungi">
         <a href="{{ route('aggiungipromozione') }}">Aggiungi promozione</a>
     </div>

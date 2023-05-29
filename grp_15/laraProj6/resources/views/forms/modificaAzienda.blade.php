@@ -9,8 +9,9 @@
         @section('content')
        
         <div class="GestioneClienti">
-               <div>
-             <h1>modifica azienda</h1>
+            @include('layouts._backButton')
+            <div>
+             <h1>Modifica Azienda</h1>
             </div>
             <div>
                 <form action="{{ route('modificaAzienda2',['aziende' => $azienda->id]) }}" method="POST">

@@ -26,7 +26,7 @@ $(function () {
 @@endsection
 -->
 @section('content')
-    
+@include('layouts._backButton')
     <h1>MODIFICA PROMOZIONE</h1>
     <br>
     <br>

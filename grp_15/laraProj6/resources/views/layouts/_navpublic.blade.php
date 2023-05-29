@@ -5,7 +5,7 @@
       </div>
     </li>
   
-    <li><a href="{{ url()->previous() }}" class="forward-button" title="Home">Back</a></li>
+    
     
     <li><a href="{{ route('home') }}" title="Home">Home</a></li>
     <li><a href="{{ route('who') }}" title="Conoscici meglio">Chi siamo</a></li>
@@ -25,15 +25,15 @@
         <li><a href="{{ route('showOperatore') }}" title="Statistiche sito">Statistiche</a></li>
       @endif
       
-      <li><a href="" title="Esci dall'account" class="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+      <li><a href="" title="Esci dall'account" class="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="display:flex; position: absolute; top: 0; right: 0; margin-top: 10px; margin-right:5px">Logout</a></li>
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           {{ csrf_field() }}
       </form>
     @endauth 
   
     @guest
-      <li><a href="{{ route('register') }}" title="Iscriviti se non lo hai fatto">Iscriviti</a></li>
-      <li><a href="{{ route('login') }}" title="Accedi al tuo account">Accedi</a></li>
+      <li><a href="{{ route('register') }}" title="Iscriviti se non lo hai fatto" style="display:flex; position: absolute; top: 0; right: 0; margin-top: 10px; margin-right:5px">Iscriviti</a></li>
+      <li><a href="{{ route('login') }}" title="Accedi al tuo account" style="display:flex; position: absolute; top: 0; right: 90px; margin-top: 10px; margin-right:5px">Accedi</a></li>
     @endguest
   </ul>
   

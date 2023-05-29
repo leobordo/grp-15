@@ -6,12 +6,14 @@ use App\Models\Azienda;
 use Illuminate\Http\Request;
 use App\Models\Company;
 
+
+
 class AziendeController extends Controller
 {
     public function index()
-    {
+    {   
         return view('gestioneAziende',[
-           'aziende'=>Azienda::all() 
+           'aziende'=>Azienda::paginate(5) 
         ]);
         //
     }

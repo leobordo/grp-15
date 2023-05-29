@@ -9,8 +9,16 @@
     <button type="submit" class="CercaUtenti-bottone">Cerca</button>
   </form>
   @if(session('err'))
-  {{session('err')}}
-  @endif
+                    <div id="error-message">{{ session('err') }}</div>
+                    <script>
+                        setTimeout(function() {
+                            var errorMessage = document.getElementById('error-message');
+                            if (errorMessage) {
+                                errorMessage.style.display = 'none';
+                            }
+                        }, 3000);
+                    </script>
+                @endif
     <h1>LISTA CLIENTI</h1>
     @isset($clienti)
     <ul>
@@ -19,6 +27,7 @@
         @endforeach
     </ul>
     @endisset
+    <div class="Paginazione">{{ $clienti->links('pagination.paginator') }}</div>
     <br>
     <br>   
 @endsection

@@ -12,6 +12,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Collection;
 
 class Utente3Controller extends Controller
 {
@@ -22,17 +23,17 @@ class Utente3Controller extends Controller
 
     public function showOperatori()
     {
-        $op=Utente::where('Livello','2')->get();
-        return view('gestioneOperatori',['operatori'=>$op]);
+        $op=Utente::where('Livello','2')->paginate(5);
+        return view('gestioneOperatori',['operatori'=>$op ]);
     }
     public function showClienti()
     {
-        $cl=Utente::where('Livello','1')->get();
+        $cl=Utente::where('Livello','1')->paginate(5);
         return view('gestioneClienti',['clienti'=>$cl]);
     }
     public function showPromozioni()
     {
-        $pr=Promozione::all();
+        $pr=Promozione::paginate(5);
         return view('gestionePromozioni',['promozioni'=>$pr]);
     }
     public function getOperatore($chiave)

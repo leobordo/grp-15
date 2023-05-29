@@ -21,7 +21,8 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $viewName='Registrazione';
+        return view('auth.register')->with('viewName',$viewName);
     }
 
     /**

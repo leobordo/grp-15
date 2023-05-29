@@ -16,7 +16,8 @@ class NewPasswordController extends Controller
 
     public function create()
     {
-        return view('auth.reset-password');
+        $viewName='Reset Password';
+        return view('auth.reset-password')->with('viewName',$viewName);
     }
 
     /**

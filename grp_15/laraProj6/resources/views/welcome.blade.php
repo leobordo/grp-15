@@ -34,10 +34,9 @@ Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con 
                       </div>
                       @endif
                     @endforeach  
-                    
                     @endforeach
                     </div>
-
+                  <div class="Paginazione">{{ $aziende->links('pagination.paginator') }}</div>
                   </div>
                   
                                                

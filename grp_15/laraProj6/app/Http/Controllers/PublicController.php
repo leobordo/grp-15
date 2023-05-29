@@ -128,7 +128,7 @@ public function showRisultatiOp(Request $request)
 {
     
     $pr=Promozione::all();
-    $az=Azienda::all();
+    $az=Azienda::paginate(2);
     return view("welcome",["promozioni"=>$pr],["aziende"=>$az]);
    
 }

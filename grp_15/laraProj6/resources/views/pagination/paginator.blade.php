@@ -1,7 +1,7 @@
 @if ($paginator->lastPage() != 1)
-<div id="pagination">
-    {{ $paginator->firstItem() }} - {{ $paginator->lastItem() }} di {{ $paginator->total() }} ---
-
+<div id="pagination" style="display: inline-block">
+    
+    <div>
     <!-- Link alla prima pagina -->
     @if (!$paginator->onFirstPage())
         <a href="{{ $paginator->url(1) }}">Inizio</a> |
@@ -29,5 +29,9 @@
     @else
         Fine
     @endif
+    </div>
+    <div>
+    {{ $paginator->firstItem() }} - {{ $paginator->lastItem() }} di {{ $paginator->total() }}
+    </div>
 </div>
 @endif

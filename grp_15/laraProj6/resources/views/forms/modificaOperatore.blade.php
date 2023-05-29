@@ -26,6 +26,7 @@ $(function () {
 @@endsection
 -->
 @section('content')
+@include('layouts._backButton')   
     <h1>MODIFICA OPERATORE</h1>
     <br>
     <br>

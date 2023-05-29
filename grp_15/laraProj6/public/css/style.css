@@ -100,6 +100,7 @@
 .navbar ul li a:hover {
   background-color: #3e3e3e;
 }
+
 .GestioneClienti {
   text-align: center;
   width: 100%;
@@ -500,6 +501,7 @@ align-items: center;
   background-color: #f1f1f1;
   border-radius: 100px;
   transition: background-color 0.3s;
+  
 }
 
 .back-button:hover {
@@ -509,4 +511,7 @@ align-items: center;
 .back-button .arrow {
   margin-right: 5px;
   font-size: 14px;
+}
+.Paginazione{
+  
 }
