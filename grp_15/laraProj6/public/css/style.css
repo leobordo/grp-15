@@ -115,7 +115,7 @@
 .GestioneClienti ul{
   text-align: left;
   margin: 0 auto;
-  width: 200px;
+  width: 300px;
   margin-bottom: 301px;
 }
 .GestioneClienti ul li{
@@ -511,7 +511,4 @@ align-items: center;
 .back-button .arrow {
   margin-right: 5px;
   font-size: 14px;
-}
-.Paginazione{
-  
 }

@@ -27,6 +27,7 @@ $(function () {
 -->
 @section('content')
 @include('layouts._backButton')   
+    <div>
     <h1>MODIFICA OPERATORE</h1>
     <br>
     <br>
@@ -47,25 +48,23 @@ $(function () {
         {{ Form::label('Genere', 'Genere') }}
         {{ Form::select('Genere',['Maschio' => 'Maschio', 'Femmina' => 'Femmina', 'Altro' => 'Altro'], $record->Genere) }}
 
-        {{ Form::label('NomeUtente','Nome utente')}}
-        {{ Form::text('NomeUtente',$record->NomeUtente)}}
-
         {{ Form::label('Password','Password')}}
-        {{ Form::text('Password',$record->Password)}}
+        {{ Form::text('Password','',['placeholder' => 'Se vuoto la psw non cambia','style'=>'display:block; margin-bottom:10px; margin-left:auto; margin-right:auto'])}}
 
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
-    <div class="errori">
-        <ul>
+    <div >
+        <ul style="margin-bottom: 0px;">
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>- {{ $error }}</li>
             @endforeach
         </ul>
     </div>
+    
 @endif
 
 
         {{ Form::submit('Salva modifiche', ['class' => 'Bottone_salva']) }}
-
         {{Form::close()}}
         <!-- mancano i controlli degli errori $messaggi -->
+    </div>
 @endsection

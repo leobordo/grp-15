@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\View;
 class LivelloAutorizzazioneMiddleware
 {
 
-    public function handle($request, Closure $next, $livelloAutorizzazione)
+    public function handle($request, Closure $next, ...$livelloAutorizzazione) //... sostanzialmente fa il cast di $livelloAutorizzazione come un array
     {
         $user = Auth::user();
-
-        if ($user && $user->Livello >= $livelloAutorizzazione) {
+        
+        if ($user && in_array($user->Livello,$livelloAutorizzazione)) {
             return $next($request);
         }
 

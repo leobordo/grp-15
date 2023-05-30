@@ -51,8 +51,8 @@ $(function () {
 
         
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
-    <div class="errori">
-        <ul>
+    <div>
+        <ul style="margin-bottom:0px">>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach

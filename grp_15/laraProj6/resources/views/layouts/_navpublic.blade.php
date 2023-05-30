@@ -12,7 +12,7 @@
     <li><a href="{{ route('faq') }}" title="FAQ sul sito">FAQ</a></li>
   
     @auth
-      @if(auth()->user()->Livello == 1)
+      @if(auth()->user()->Livello == 1 || auth()->user()->Livello == 2)
       <li><a href="{{ route('profilo',[auth()->user()->id]) }}" title="Gestisci il tuo profiloo">Gestione Profilo</a>
       @endif
       @if(auth()->user()->Livello == 2)

@@ -17,7 +17,7 @@ use App\Http\Controllers\Utente1Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['livello:1'])->group(function (){
+Route::middleware(['livello:1,2'])->group(function (){
         Route::get('/ilMioProfilo/{chiave}', [Utente1Controller::class, 'getProfilo'])
         ->name('profilo');
         Route::get('/ilMioProfilo/{chiave}/modificaProfilo',[Utente1Controller::class, 'modificaProfilo'])
@@ -27,7 +27,6 @@ Route::middleware(['livello:1'])->group(function (){
         
         
 });
-
 Route::middleware(['livello:2'])->group(function (){
 
         Route::get('/listaPromozioni/aggiungiPromozione', [Utente3Controller::class, 'showFormPromozione'])

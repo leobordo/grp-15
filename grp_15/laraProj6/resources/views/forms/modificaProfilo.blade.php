@@ -46,14 +46,12 @@ $(function () {
         {{ Form::label('Genere', 'Genere') }}
         {{ Form::select('Genere',['Maschio' => 'Maschio', 'Femmina' => 'Femmina', 'Altro' => 'Altro'], $record->Genere) }}
 
-        {{ Form::label('NomeUtente','Nome utente')}}
-        {{ Form::text('NomeUtente',$record->NomeUtente)}}
 
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
-    <div class="errori">
-        <ul>
+    <div>
+        <ul style="margin-bottom:0px">
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li>- {{ $error }}</li>
             @endforeach
         </ul>
     </div>
