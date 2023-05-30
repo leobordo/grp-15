@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Azienda;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use App\Models\Promozione;
 use App\Models\Faq;
 use App\Models\Coupon;
+use Illuminate\Support\Facades\View;
 use PHPUnit\Framework\Constraint\IsInstanceOf;
 
 
@@ -45,13 +48,21 @@ public function showRisultatiAz(Request $request)
     return view('risultati_ricerca_aziende', ['results' => $results]);
 }
 public function getPromozionePublic($chiave){
-    $pr=Promozione::where('id', $chiave)->first();       
+    $pr=Promozione::where('id', $chiave)->first();
+    if ($pr->Scadenza >= date('Y-m-d') || auth()->user()->Livello==2 ) {
         return view('promozione')
                     ->with('promozione', $pr);
+    } else {
+        $redirectUrl='/';
+            $message='Accesso negato, promo scaduta. Verrai reindirizzato alla home tra 5 secondi...';
+            return response(View::make('errors.Error403', compact('redirectUrl', 'message')));
+    }
 }
 public function showRisultatiPromo(Request $request)
 {
-    
+    if(auth()->user()->Livello==2) {
+        $currentDate = new DateTime('0001-01-01');}
+    else $currentDate = Carbon::now()->toDateString();
     $az_input=$request->input('CercaPromo-az');
     $az=Azienda::where('Nome',$az_input)->first();
     
@@ -80,13 +91,15 @@ public function showRisultatiPromo(Request $request)
         $cercato_descr='%';
         $results = DB::table('promozioni')
                         ->where('Azienda', 'LIKE', $az_id) 
-                        ->where('DescrizioneSconto', 'LIKE', $cercato_descr)->get();
+                        ->where('DescrizioneSconto', 'LIKE', $cercato_descr)
+                        ->where('Scadenza','>=',$currentDate )->get();
                 
         return view('risultati_ricerca_promozioni', ['results' => $results]);
     }
 
     $results = DB::table('promozioni')
-                        ->where('Azienda', 'LIKE', $az_id) 
+                        ->where('Azienda', 'LIKE', $az_id)
+                        ->where('Scadenza','>=',$currentDate )
                         ->where(function ($query) use ($cercato_descr) {
                                 $termini = explode(' ', $cercato_descr);
                                 foreach ($termini as $termine) {
@@ -126,11 +139,9 @@ public function showRisultatiOp(Request $request)
     }
     public function showHome()
 {
-    
     $pr=Promozione::all();
-    $az=Azienda::paginate(2);
+    $az=Azienda::paginate(3);
     return view("welcome",["promozioni"=>$pr],["aziende"=>$az]);
-   
 }
 
 public function getAziendaPublic($chiave)

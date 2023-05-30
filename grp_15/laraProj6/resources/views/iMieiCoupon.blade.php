@@ -10,7 +10,7 @@
                 @if ($coupon->Utente === auth()->user()->id)
                     <br>
                     <br>
-                    <li><a href="{{ route('coupon', [$coupon->id]) }}">Coupon: {{ $coupon->CodiceCoupon }}</a></li>
+                    <li><a href="{{ route('coupon', [$coupon->id]) }}" target="_blank">Coupon: {{ $coupon->CodiceCoupon }}</a></li>
                 @endif
             @endforeach
         </ul>

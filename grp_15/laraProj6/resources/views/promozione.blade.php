@@ -1,10 +1,18 @@
-
-
 @extends('layouts.gestione')
 
 @section('title','Promozione')
 
 @section('content')
+<script>
+    function openLink(event, url) {
+        event.preventDefault(); // Impedisce il comportamento predefinito del click sul link
+        window.open(url, '_blank'); // Apre il link in una nuova finestra o scheda
+
+        setTimeout(function() {
+            location.reload(); // Aggiorna la pagina corrente
+        }, 1000); // Ritardo di 1 secondo (puoi regolare il valore a tuo piacimento)
+    } //possibile in AJAX?????
+</script>
         <h1>
            
             {{$promozione->NomePromo}}
@@ -30,13 +38,25 @@
         </p>
         <br>
         @isset(auth()->user()->Livello)<!-- deve controllare se l'utente è autenticato e se ha il permesso di usare i bottoni -->
+        @if(auth()->user()->Livello==1)
+        @if(!auth()->user()->coupons()->where('Promozione', $promozione->id)->exists())
+        <div class="Bottone_aggiungi">
+            <a href="{{ route('getCoupon',['chiave' => $promozione->id]) }}"
+                 onclick="openLink(event, '{{ route('getCoupon',['chiave' => $promozione->id]) }}')">Genera coupon</a>
+        </div>
+        @else <div class="Coupon_generato"><a href="{{route('iMieiCoupon')}}">Hai già generato un coupon per questa promo</a></div>
+        @endif
+        @endif
         @if(auth()->user()->Livello == 2)
         <div class="Bottone_elimina">
             <a href="{{ route('deletepromo' ,[$promozione->id]) }}" onclick="return confermaEliminazionePr()">Elimina promozione</a>
         </div>
+        
+        @if(strtotime($promozione->Scadenza) >= strtotime(date('Y-m-d')))
         <div class="Bottone_edit">
             <a href="{{ route('modificapromo', [$promozione->id]) }}">Modifica promozione</a>
         </div>
+        @endif
         @endif
         @endisset
         <br>

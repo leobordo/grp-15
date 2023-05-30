@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Azienda;
 Use App\Models\Utente;
 use App\Models\Coupon;
 use App\Models\Promozione;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Facades\View;
@@ -101,9 +99,15 @@ class Utente1Controller extends Controller
         // se tengo return redirect('/ilMioProfilo/{chiave}'); mi dà errore
     }
 
-    public function showCoupon(Request $request) {
-        $coupon = Coupon::find($request->chiave);
-    
+    public function showCoupon($request) {
+        $coupon = Coupon::where('id',$request)->get()->first();
+        //Verifica che il coupon esiste
+        if($coupon==null) {
+            $redirectUrl='/';
+            $message='Accesso negato, coupon inesistente. Verrai reindirizzato alla home tra 5 secondi...';
+                return response(View::make('errors.Error403', compact('redirectUrl', 'message')));
+        }
+       
         // Verifica se l'utente corrente corrisponde all'utente del coupon
         if ($coupon->Utente == auth()->user()->id) {
             return view("coupon", ['coupon' => $coupon]);
@@ -118,6 +122,23 @@ class Utente1Controller extends Controller
     {
         $co=Coupon::all();
         return view('iMieiCoupon',['coupons'=>$co]);
+    }
+    public function getCoupon($chiave)
+    {
+        
+        $pr=Promozione::where('id',$chiave)->firstorfail();
+        $coupon=new Coupon();
+        $coupon->Utente=auth()->user()->id;
+        $coupon->Promozione=$pr->id;
+        $coupon->Data=date('Y-m-d');
+        $coupon->Ora=date('H:i:s');
+        $randomCode = substr(str_replace(['/', '+', '='], '', base64_encode(random_bytes(8))), 0, 8);
+        $coupon->CodiceCoupon=$randomCode;
+        $coupon->save();
+        
+        return view('coupon',['coupon'=>$coupon]);
+        
+
     }
 
 /*    public function showCoupon($chiave)

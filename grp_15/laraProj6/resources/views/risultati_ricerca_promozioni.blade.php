@@ -13,9 +13,7 @@
     @isset($results)
     <ul>
         @foreach ($results as $result)
-            <li><a href="{{ route('promozione2', [$result->id])  }}"> Promozione:{{ $result->NomePromo }}</a></li>
-            
-            
+            <li><a href="{{ route('promozione2', [$result->id])  }}"> Promozione:{{ $result->NomePromo }}</a></li> 
         @endforeach
     </ul>
     

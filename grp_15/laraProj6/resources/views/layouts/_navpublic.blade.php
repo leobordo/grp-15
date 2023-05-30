@@ -14,6 +14,8 @@
     @auth
       @if(auth()->user()->Livello == 1 || auth()->user()->Livello == 2)
       <li><a href="{{ route('profilo',[auth()->user()->id]) }}" title="Gestisci il tuo profiloo">Gestione Profilo</a></li>
+      @endif
+      @if(auth()->user()->Livello == 1)
       <li><a href="{{ route('iMieiCoupon',[auth()->user()->id]) }}" title="Visualizza i tuoi coupon">I miei coupon</a></li>
       @endif
       @if(auth()->user()->Livello == 2)

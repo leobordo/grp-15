@@ -17,6 +17,14 @@ use App\Http\Controllers\Utente1Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['livello:1,'])->group(function (){
+        Route::get('/iMieiCoupon',[Utente1Controller::class, 'iMieiCoupon'])
+        ->name('iMieiCoupon');
+        Route::get('/coupon/{chiave}/show', [Utente1Controller::class, 'showCoupon'])
+        ->name('coupon');
+        Route::get('/coupon/{chiave}', [Utente1Controller::class, 'getCoupon'])
+        ->name('getCoupon');
+});
 Route::middleware(['livello:1,2'])->group(function (){
         Route::get('/ilMioProfilo/{chiave}', [Utente1Controller::class, 'getProfilo'])
         ->name('profilo');
@@ -24,10 +32,7 @@ Route::middleware(['livello:1,2'])->group(function (){
         ->name('modificaprofilo');
         Route::post('/ilMioProfilo/{chiave}/modificaProfilo/salva',[Utente1Controller::class, 'salvaProfilo'])
         ->name('salvaProfilo');
-        Route::get('/iMieiCoupon',[Utente1Controller::class, 'iMieiCoupon'])
-        ->name('iMieiCoupon');
-        Route::get('/coupon/{chiave}', [Utente1Controller::class, 'showCoupon'])
-        ->name('coupon');
+        
         
 });
 Route::middleware(['livello:2'])->group(function (){

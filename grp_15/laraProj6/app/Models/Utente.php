@@ -31,7 +31,11 @@ class Utente extends Authenticatable
     protected $table = 'utente';
     public function numeroCoupon()
 {
-    return $this->hasMany(Coupon::class)->count();
+    return $this->hasMany(Coupon::class,'Utente')->count();
+}
+public function coupons()
+{
+    return $this->hasMany(Coupon::class,'Utente');
 }
 public function getAuthPassword()
 {

@@ -1,6 +1,3 @@
-<?php $promozione = \App\Models\Promozione::find($coupon->Promozione) ?>
-<?php $azienda = \App\Models\Azienda::find($promozione->Azienda) ?>
-<?php $utente = \App\Models\Utente::find($coupon->Utente) ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_','-',app()->getLocale()) }}">
     <head>
@@ -18,33 +15,33 @@
         <br>
         <p>Promozione</p>
         <h2>
-            {{ $promozione->NomePromo }}
+            {{ \App\Models\Promozione::find($coupon->Promozione)->NomePromo }}
         </h2>
         <br>
         <p>Descrizione sconto</p>
         <h3>
-            {{  $promozione->DescrizioneSconto }}
+            {{  \App\Models\Promozione::find($coupon->Promozione)->DescrizioneSconto }}
         </h3>
         <br>
-        @if ($promozione->PercentualeSconto>=0)
+        @if (\App\Models\Promozione::find($coupon->Promozione)->PercentualeSconto>=0)
             <p>Percentuale sconto</p>
-            <h3> Sconto del {{  $promozione->PercentualeSconto   }}%</h3>
+            <h3> Sconto del {{  \App\Models\Promozione::find($coupon->Promozione)->PercentualeSconto   }}%</h3>
             @else
         @endif
         <br>
         <p>Scadenza</p>
         <h2>
-            {{  $promozione->Scadenza    }}
+            {{  \App\Models\Promozione::find($coupon->Promozione)->Scadenza    }}
         </h2>
         <br>
         <p>Azienda</p>
         <h2>
-            {{ $azienda->Nome}}
+            {{ \App\Models\Azienda::find(\App\Models\Promozione::find($coupon->Promozione)->Azienda)->Nome}}
         </h2>
         <br>
         <p>Nome Utente</p>
         <h2>
-            {{ $utente->NomeUtente}}
+            {{ \App\Models\Utente::find($coupon->Utente)->NomeUtente}}
         </h2>
         <br>
         <p>Data e ora</p>

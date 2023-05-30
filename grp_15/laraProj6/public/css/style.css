@@ -512,3 +512,11 @@ align-items: center;
   margin-right: 5px;
   font-size: 14px;
 }
+.Coupon_generato a{
+  text-align: center;
+  margin-top: 5px;
+  position: sticky;
+  bottom: 20px;
+  color:red;
+  text-decoration:underline
+}
