@@ -24,7 +24,10 @@ Route::middleware(['livello:1,2'])->group(function (){
         ->name('modificaprofilo');
         Route::post('/ilMioProfilo/{chiave}/modificaProfilo/salva',[Utente1Controller::class, 'salvaProfilo'])
         ->name('salvaProfilo');
-        
+        Route::get('/iMieiCoupon',[Utente1Controller::class, 'iMieiCoupon'])
+        ->name('iMieiCoupon');
+        Route::get('/coupon/{chiave}', [Utente1Controller::class, 'showCoupon'])
+        ->name('coupon');
         
 });
 Route::middleware(['livello:2'])->group(function (){

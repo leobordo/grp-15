@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 Use App\Models\Utente;
+use App\Models\Coupon;
+use App\Models\Promozione;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -99,5 +101,37 @@ class Utente1Controller extends Controller
         // se tengo return redirect('/ilMioProfilo/{chiave}'); mi dà errore
     }
 
+    public function showCoupon(Request $request) {
+        $coupon = Coupon::find($request->chiave);
+    
+        // Verifica se l'utente corrente corrisponde all'utente del coupon
+        if ($coupon->Utente == auth()->user()->id) {
+            return view("coupon", ['coupon' => $coupon]);
+        } else {
+            $redirectUrl='/';
+                $message='Accesso negato, autorizzazione mancante. Verrai reindirizzato alla home tra 5 secondi...';
+                return response(View::make('errors.Error403', compact('redirectUrl', 'message')));
+        }
+    }
+
+    public function iMieiCoupon()
+    {
+        $co=Coupon::all();
+        return view('iMieiCoupon',['coupons'=>$co]);
+    }
+
+/*    public function showCoupon($chiave)
+    {   
+        if(auth()->user()->id==$chiave){
+        $co=Utente::where('id', $chiave)->first();
+        return view('coupon')
+                    ->with('Couponn', $co);
+        }
+        else {
+                $redirectUrl='/';
+                $message='Accesso negato, autorizzazione mancante. Verrai reindirizzato alla home tra 5 secondi...';
+                return response(View::make('errors.Error403', compact('redirectUrl', 'message')));
+        }
+    }*/
     
 }
