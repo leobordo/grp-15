@@ -6,15 +6,22 @@
     <script>
         setTimeout(function() {
             window.location.href = '{{ $redirectUrl }}';
-        }, 5000);//ritorna alla $redirectUrl dopo 5000ms=5sec
+        }, 50000000);//ritorna alla $redirectUrl dopo 5000ms=5sec
     </script>
 </head>
-<body style="text-align:center; color:red">
+<body style="text-align: center; color: red;">
     <br>
     <br>
-    <h1 >ERROR:403  ACCESSO NEGATO</h1>
+    <h1>ERROR: 403 ACCESSO NEGATO</h1>
     <br>
-    <p>{{ $message }}</p>
-    <img src="images\immagine_errore.jpg" height="200px" width="200px" style="position: fixed; top:60px; left:100px">
+    <div style="display: flex; align-items: center; justify-content: flex-start;">
+        
+        <img src="..\images\immagine_errore.jpg" height="200px" width="200px" style="display: inline-block; margin-right: 100px; margin-left:50px">
+        <div style="text-align: center; float: right; margin-left:100px">
+            {{ $message }}
+        </div>
+    </div>
 </body>
+
+
 </html>
