@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Collection;
+use App\Models\Faq;
 
 class Utente3Controller extends Controller
 {
@@ -106,6 +107,47 @@ class Utente3Controller extends Controller
          ha il valore $chiave
         */
     }
+
+    public function aggiungiFaq(){
+       
+        // $sql = "INSERT INTO Faq (Argomento, Domanda, Risposta) VALUES ('$arg', '$dom','$risp')";
+        $arg=request('inputArgomento');
+        $dom=request('inputDomanda');
+        $risp=request('inputRisposta');
+ 
+        $faq=new Faq();
+        $faq->Argomento=$arg;
+        $faq->Domanda=$dom;
+        $faq->Risposta=$risp;
+        $faq->save();
+        return redirect('/faq');
+ 
+     }
+     public function modificaFaq() {
+         $arg = request('inputArgomentoM');
+         
+         $dom = request('inputDomandaM');
+         $risp = request('inputRispostaM');
+         $id= request('name_id');
+        
+         $faq = Faq::find($id);
+         $faq->Argomento = $arg;
+         $faq->Domanda = $dom;
+         $faq->Risposta = $risp;
+         $faq->save();
+     
+         return redirect('/faq');
+     }
+ 
+ public function eliminaFaq($chiave)
+     {
+         Faq::where('id', $chiave)->delete();
+         return redirect('/faq');
+         /*
+          elimina la tupla della tabella Utentelivello2 dove la chiave NomeUtente
+          ha il valore $chiave
+         */
+     }
     public function showFormOperatore(){
         return view('forms.aggiungiOperatore');
     }
