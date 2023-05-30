@@ -66,7 +66,7 @@
                     <h3 id="{{$faq->id}}"class="risposta" style="display: none;"> {{$faq->Risposta}}</h3>
                 </div>
                 @auth
-                @if (auth()->user()->Livello == 3)
+                @if (Gate::allows('isAdmin',auth()->user()))
                     <button id="btnmodFaq" onclick="apriPopUpMod('{{$faq->id}}','{{$faq->Argomento}}','{{$faq->Domanda}}','{{$faq->Risposta}}')">modifica FAQ</button>
                     
                     <a href="{{ route('eliminafaq', [$faq->id]) }}" >Elimina FAQ</a>
@@ -79,14 +79,15 @@
                     
             </div>
             @auth
-                @if (auth()->user()->Livello == 3)
+                @if (Gate::allows('isAdmin',auth()->user()))
                     <button id="btnAggiungiFaq" onclick="apriPopUp()">Aggiungi FAQ</button>
                 @endif
 
             @endauth
             <div id="popupFaq" class="popup" style="display: none;">
                 <h2>Nuova FAQ</h2>
-                <form id="formNuovaFaq" action="{{route('aggiungifaq')}}"  >
+                <form id="formNuovaFaq" action="{{route('aggiungifaq')}}" method="POST" >
+                    @csrf
                     <div>
                         <label for="inputArgomento">argomento:</label>
                     </div>

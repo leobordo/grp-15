@@ -84,7 +84,7 @@ Route::middleware(['livello:3'])->group(function (){
         Route::post('/listaOperatori/{chiave}/modificaOperatore/salva',[Utente3Controller::class, 'salvaOperatore'])
         ->name('salvamodifiche');
         //faq
-        Route::get('/faq/aggiungi', [Utente3Controller::class, 'aggiungiFaq'])
+        Route::post('/faq/aggiungi', [Utente3Controller::class, 'aggiungiFaq'])
         ->name('aggiungifaq');
         Route::get('/faq/modifica', [Utente3Controller::class, 'modificaFaq'])
         ->name('modificafaq');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Azienda;
 use Illuminate\Http\Request;
 use App\Models\Company;
+use Illuminate\Validation\Rule;
 
 
 
@@ -71,8 +72,12 @@ class AziendeController extends Controller
 
  
     public function update(Request $request, $azienda){
+    
         $request->validate([
-            'nome' => 'required|unique:Azienda',
+            'nome' => [
+                'required',
+                Rule::unique('Azienda')->ignore($azienda),
+            ],
             'tipologia' => 'required',
             'localizzazione' => 'required',
             'ragioneSociale' => 'required',
@@ -87,7 +92,6 @@ class AziendeController extends Controller
            $to_update->Descrizione = $request->input('descrizione');
            $to_update->save();
            
-        
            return redirect()->route('gestioneAziende');
     
            /*

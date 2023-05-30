@@ -26,10 +26,8 @@
                   
                   <div class="Bottone_edit">
                     <a href="{{route('modificaAzienda',['aziende'=>$azienda->id])}}" 
-                        onclick="event.preventDefault(); document.getElementById('modifica-form-{{$azienda->Nome}}').submit();" >Modifica azienda
+                         >Modifica azienda
                     </a>
-                    <form id="modifica-form-{{$azienda->Nome}}" action="{{ route('modificaAzienda', ['aziende' => $azienda->id]) }}" method="GET" style="display: none;">
-                    </form>
                   </div>
                   <div class="Bottone_elimina">
                     <form id="elimina-form-{{$azienda->id}}" action="{{ route('eliminaAzienda', ['aziende' => $azienda->id]) }}" method="POST">

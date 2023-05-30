@@ -38,7 +38,7 @@
         </p>
         <br>
         @isset(auth()->user()->Livello)<!-- deve controllare se l'utente è autenticato e se ha il permesso di usare i bottoni -->
-        @if(auth()->user()->Livello==1)
+        @if(Gate::allows('isCliente',auth()->user()))
         @if(!auth()->user()->coupons()->where('Promozione', $promozione->id)->exists())
         <div class="Bottone_aggiungi">
             <a href="{{ route('getCoupon',['chiave' => $promozione->id]) }}"
@@ -47,7 +47,7 @@
         @else <div class="Coupon_generato"><a href="{{route('iMieiCoupon')}}">Hai già generato un coupon per questa promo</a></div>
         @endif
         @endif
-        @if(auth()->user()->Livello == 2)
+        @if(Gate::allows('isOperatore',auth()->user()))
         <div class="Bottone_elimina">
             <a href="{{ route('deletepromo' ,[$promozione->id]) }}" onclick="return confermaEliminazionePr()">Elimina promozione</a>
         </div>

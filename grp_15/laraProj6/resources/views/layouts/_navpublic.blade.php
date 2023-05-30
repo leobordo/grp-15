@@ -12,16 +12,16 @@
     <li><a href="{{ route('faq') }}" title="FAQ sul sito">FAQ</a></li>
   
     @auth
-      @if(auth()->user()->Livello == 1 || auth()->user()->Livello == 2)
+      @if(Gate::allows('isCliente',auth()->user()) || Gate::allows('isOperatore',auth()->user()))
       <li><a href="{{ route('profilo',[auth()->user()->id]) }}" title="Gestisci il tuo profiloo">Gestione Profilo</a></li>
       @endif
-      @if(auth()->user()->Livello == 1)
+      @if(Gate::allows('isCliente',auth()->user()))
       <li><a href="{{ route('iMieiCoupon',[auth()->user()->id]) }}" title="Visualizza i tuoi coupon">I miei coupon</a></li>
       @endif
-      @if(auth()->user()->Livello == 2)
+      @if(Gate::allows('isOperatore',auth()->user()))
         <li><a href="{{ route('showPromozione') }}" title="Gestisci promozioni del sito">Gestione Promozioni</a></li>
       @endif
-      @if(auth()->user()->Livello == 3)
+      @if(Gate::allows('isAdmin',auth()->user()))
         <li><a href="{{ route('showCliente') }}" title="Gestisci clienti sito">Gestione Clienti</a></li>
         <li><a href="{{ route('showOperatore') }}" title="Gestisci staff sito">Gestione Staff</a></li>
         <li><a href="{{ route('gestioneAziende') }}" title="Gestisci aziende del sito">Gestione Aziende</a></li>
