@@ -304,7 +304,7 @@ class Utente3Controller extends Controller
                 Rule::exists('azienda', 'Nome'),
             ],
             'DescrizioneSconto' => 'required|string|max:255',
-            'PercentualeSconto' => 'required|numeric',
+            'PercentualeSconto' => 'nullable|numeric',
             'Scadenza' => 'required|date'
         ];
         $messaggi=[
@@ -315,7 +315,6 @@ class Utente3Controller extends Controller
             'DescrizioneSconto.required' => 'ls descrizione sconto è obbligatoria',
             'DescrizioneSconto.string' => 'Non hai inserito la descrizione sconto nel formato tradzionale',
             'DescrizioneSconto.max' => 'la descrizione sconto supera i 255 caratteri',
-            'PercentualeSconto.required' => 'La percentuale sconto è obbligatoria',
             'PercentualeSconto.double' => 'La percentuale sconto deve essere un float',
             'Scadenza.required' => 'La scadenza è obbligatoria',
         ];
@@ -333,7 +332,7 @@ class Utente3Controller extends Controller
         $promo->NomePromo = $nomePro;
         $promo->Azienda = $azi_completo->id;
         $promo->DescrizioneSconto = $desc;
-        $promo->PercentualeSconto = $perc;
+        if($perc!=null) $promo->PercentualeSconto = $perc;
         $promo->Scadenza = $scad;
         $promo->save();
         return redirect('/listaPromozioni');
@@ -356,7 +355,7 @@ class Utente3Controller extends Controller
                 Rule::exists('azienda', 'Nome'),
             ],
             'DescrizioneSconto' => 'required|string|max:255',
-            'PercentualeSconto' => 'required|numeric',
+            'PercentualeSconto' => 'nullable|numeric',
             'Scadenza' => 'required|date'
         ];
         $messaggi=[
@@ -367,7 +366,6 @@ class Utente3Controller extends Controller
             'DescrizioneSconto.required' => 'ls descrizione sconto è obbligatoria',
             'DescrizioneSconto.string' => 'Non hai inserito la descrizione sconto nel formato tradzionale',
             'DescrizioneSconto.max' => 'la descrizione sconto supera i 255 caratteri',
-            'PercentualeSconto.required' => 'La percentuale sconto è obbligatoria',
             'PercentualeSconto.double' => 'La percentuale sconto deve essere un float',
             'Scadenza.required' => 'La scadenza è obbligatoria',
         ];
@@ -386,7 +384,7 @@ class Utente3Controller extends Controller
         $promozione->NomePromo = $nomePro;
         $promozione->Azienda = $azi_completo->id;
         $promozione->DescrizioneSconto = $desc;
-        $promozione->PercentualeSconto = $perc;
+        if($perc!=null) $promozione->PercentualeSconto = $perc;
         $promozione->Scadenza = $scad;
         $promozione->save();
         return redirect('/listaPromozioni');

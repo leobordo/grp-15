@@ -19,6 +19,7 @@ class Coupon extends Model
  {
     return $this->belongsTo(Promozione::class, 'Promozione');
  }
+ 
 
 
 }

@@ -30,7 +30,9 @@
         </h3>
         <br>
         <h4>
+            @if($promozione->hasPercentuale())
             Percentuale sconto: {{$promozione->PercentualeSconto}}%
+            @endif
         </h4>
         <br>
         <p>

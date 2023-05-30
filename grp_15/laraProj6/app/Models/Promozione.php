@@ -15,6 +15,9 @@ class Promozione extends Model
 {
     return $this->belongsTo(Azienda::class, 'Azienda');
 }
-
+public function hasPercentuale()
+ {
+    return $this->PercentualeSconto!=null;
+ }
 
 }

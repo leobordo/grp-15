@@ -38,8 +38,10 @@ Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con 
                         <li><a href="{{ route('promozione2', [$promozione->id]) }}">
                           <h2>promo: {{ $promozione->NomePromo }}</h2>
                       </a></li>
-                      {{$promozione->Azienda}}
+                      <p>Azienda:{{$azienda->Nome}}</p>
+                      @if($promozione->hasPercentuale())
                       <p>Sconti del {{$promozione->PercentualeSconto}}%</p>
+                      @endif
                       </div>
                       @endif
                     @endforeach  

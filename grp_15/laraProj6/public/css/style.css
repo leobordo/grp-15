@@ -493,7 +493,6 @@ align-items: center;
 
 }
 .back-button {
-  display: inline-block;
   float: left;
   margin-left: 5px;
   text-align: left;
@@ -519,4 +518,7 @@ align-items: center;
   bottom: 20px;
   color:red;
   text-decoration:underline
+}
+.errori ul{
+  margin-bottom: 0;
 }
