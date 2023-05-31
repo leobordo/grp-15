@@ -35,6 +35,7 @@ class AziendeController extends Controller
         'localizzazione' => 'required',
         'ragioneSociale' => 'required',
         'descrizione'=>'required',
+        'immagine'=>'mimes:jpeg,png,jpg|max:2048|nullable'
         ]);
 
         $azienda= new Azienda();
@@ -43,6 +44,16 @@ class AziendeController extends Controller
         $azienda->localizzazione = strip_tags($request->input('localizzazione'));
         $azienda->ragioneSociale = strip_tags($request->input('ragioneSociale'));
         $azienda->descrizione = strip_tags($request->input('descrizione'));
+
+        if ($request->hasFile('immagine')) {
+            $file = $request->file('immagine');
+            $fileName = $file->getClientOriginalName();
+
+            $file->move(public_path().'/images', $fileName);
+    
+            // Salva il percorso dell'immagine nel database
+            $azienda->immagine = $fileName;
+        }
         
         $azienda->save();
         

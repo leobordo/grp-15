@@ -30,8 +30,10 @@ Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con 
                   <div class="contenitoreHome">
                     <div class="contenitorePromo">
                       @foreach($aziende as $azienda)
-                      <h2>{{ $azienda->Nome }}</h2>
-
+                      <div style="display: inline-block;">
+                      <h2 style="float: left;">{{ $azienda->Nome }}</h2>
+<img src="./images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="50px" style="display: inline-block; margin-left: 10px;">  
+                      </div>
                       @foreach ($promozioni as $promozione)
                       @if ($promozione->Azienda == $azienda->id && strtotime($promozione->Scadenza) >=strtotime(date('Y-m-d')))
                       <div class="promoHome">

@@ -9,11 +9,11 @@
         @section('content')
        
         <div class="GestioneClienti">
-               <div>
-             <h1>creare a nuova azienda</h1>
+            <div>
+                <h1>creare a nuova azienda</h1>
             </div>
             <div>
-                <form action="{{route('aggiungiAzienda2')}}" method="POST"> 
+                <form action="{{route('aggiungiAzienda2')}}" method="POST" enctype="multipart/form-data"> 
                     @csrf
                     <label for="nome">Nome:</label> 
                     <input  id="nome" name="nome" value="{{old('nome')}}" type="text"><br>
@@ -30,35 +30,40 @@
                         <option value="start_up">Start-Up</option>
                     </select>
                     @error('tipologia')
-                    {{$message}}
-                @enderror
+                        {{$message}}
+                    @enderror
                     <br>
                     
                     <label for="localizzazione">Localizzazione:</label>
                     <input type="text" id="localizzazione" value="{{old('localizzazione')}}" name="localizzazione"><br>
                     @error('localizzazione')
-                    {{$message}}
-                @enderror
+                        {{$message}}
+                    @enderror
                     <label for="ragioneSociale">Ragione Sociale:</label>
                     <input type="text" id="ragioneSociale" value="{{old('ragioneSociale')}}" name="ragioneSociale"><br>
                     @error('ragioneSociale')
-                    {{$message}}
-                @enderror
+                        {{$message}}
+                    @enderror
                     <label for="descrizione">Descrizione:</label>
                     <textarea id="descrizione" value="{{old('descrizione')}}" name="descrizione"></textarea><br>
                     @error('descrizione')
-                    {{$message}}
-                @enderror
+                        {{$message}}
+                    @enderror
+                    <label for="immagine">Immagine:</label>
+                    <input type="file" id="immagine" name="immagine"><br>
+                    @error('immagine')
+                        {{$message}}
+                    @enderror
                     <input type="submit" value="Crea Azienda">
-                    </form>
+                </form>
             </div>
             
            
 
            
-                     <br>
-                     <br>
+            <br>
+            <br>
         </div>
         @endsection
-</body>
+    </body>
 </html>
