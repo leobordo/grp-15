@@ -35,3 +35,17 @@
     </div>
 </div>
 @endif
+@php
+    $currentPage = $paginator->currentPage();
+    $lastPage = $paginator->lastPage();
+
+    // Verifica se il numero di pagina è valido
+    if ($currentPage > $lastPage) {
+        // Ottieni l'URL della pagina finale
+        $lastPageUrl = $paginator->url($lastPage);
+
+        // Reindirizza all'URL della home
+        header("Location: $lastPageUrl", true, 302);
+        exit();
+    }
+@endphp

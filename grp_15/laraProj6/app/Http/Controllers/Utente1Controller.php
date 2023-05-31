@@ -135,7 +135,6 @@ class Utente1Controller extends Controller
         $randomCode = substr(str_replace(['/', '+', '='], '', base64_encode(random_bytes(8))), 0, 8);
         $coupon->CodiceCoupon=$randomCode;
         $coupon->save();
-        
         return view('coupon',['coupon'=>$coupon]);
         
 
