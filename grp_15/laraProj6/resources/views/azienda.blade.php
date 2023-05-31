@@ -20,6 +20,7 @@
                     <tr><td>Localizzazione</td><td>{{$azienda['Localizzazione']}}</td></tr>
                     <tr><td>RagioneSociale</td><td>{{$azienda['RagioneSociale']}}</td></tr>
                     <tr><td>Descrizione</td><td>{{$azienda['Descrizione']}}</td></tr>
+                    <tr><td>Logo</td><td><img src="../images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="50px" style="display: inline-block; margin-left: 10px;"></td></tr>
                 </table>
               
               

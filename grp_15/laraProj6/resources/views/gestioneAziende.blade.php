@@ -1,7 +1,7 @@
 @extends('layouts.gestione')
 <!DOCTYPE html>
 <html lang="it">
-    <head title="title">
+    <head title="Gestione Aziende">
         @section('titolo','gestione aziende')
          <link rel="stylesheet" href="{{ url('css/style.css')}}"> 
     </head>
@@ -32,7 +32,13 @@
             @if (count($aziende) > 0)
             <ul>   
             @foreach ($aziende as $azienda)
-            <li><a href="{{route('showAzienda', ['aziende'=> $azienda['id']]) }}">Azienda:{{$azienda['Nome']}}</a></li>
+            <li>
+                <a href="{{route('showAzienda', ['aziende'=> $azienda['id']]) }}" style="float: left;">
+                    Azienda: {{$azienda['Nome']}}
+                    <img src="./images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="20px" style="display: inline-block; margin-left: 10px;">
+                </a>
+            </li>
+            <br>
             @endforeach
         </ul>
         @else 
