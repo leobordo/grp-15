@@ -27,6 +27,12 @@ class Utente3Controller extends Controller
         $op=Utente::where('Livello','2')->paginate(5);
         return view('gestioneOperatori',['operatori'=>$op ]);
     }
+    public function showStats()
+    {
+        $cli=Utente::where('Livello','1')->get();
+        $promo=Promozione::all();
+        return view('statistiche',['promozioni'=>$promo],['clienti'=>$cli]);
+    }
     public function showClienti()
     {
         $cl=Utente::where('Livello','1')->paginate(5);

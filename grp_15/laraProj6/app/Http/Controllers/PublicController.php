@@ -60,7 +60,7 @@ public function getPromozionePublic($chiave){
 }
 public function showRisultatiPromo(Request $request)
 {
-    if(auth()->user()->Livello==2) {
+    if(auth()->check() && auth()->user()->Livello==2) {
         $currentDate = new DateTime('0001-01-01');}
     else $currentDate = Carbon::now()->toDateString();
     $az_input=$request->input('CercaPromo-az');

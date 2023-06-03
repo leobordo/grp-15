@@ -25,7 +25,7 @@
         <li><a href="{{ route('showCliente') }}" title="Gestisci clienti sito">Gestione Clienti</a></li>
         <li><a href="{{ route('showOperatore') }}" title="Gestisci staff sito">Gestione Staff</a></li>
         <li><a href="{{ route('gestioneAziende') }}" title="Gestisci aziende del sito">Gestione Aziende</a></li>
-        <li><a href="{{ route('showOperatore') }}" title="Statistiche sito">Statistiche</a></li>
+        <li><a href="{{ route('showStatistica') }}" title="Statistiche sito">Statistiche</a></li>
       @endif
       
       <li><a href="" title="Esci dall'account" class="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="display:flex; position: absolute; top: 0; right: 0; margin-top: 10px; margin-right:5px">Logout</a></li>

@@ -59,6 +59,8 @@ Route::middleware(['livello:3'])->group(function (){
 
         Route::get('/listaOperatori', [Utente3Controller::class, 'showOperatori'])
         ->name('showOperatore');
+        Route::get('/statistiche', [Utente3Controller::class, 'showStats'])//statistiche
+        ->name('showStatistica');
         Route::get('/listaClienti', [Utente3Controller::class, 'showClienti'])
         ->name('showCliente');
         Route::post('/listaOperatori/cerca', [PublicController::class, 'showRisultatiOp'])
