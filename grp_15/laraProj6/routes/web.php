@@ -2,8 +2,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AziendeController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\Utente3Controller;
 use App\Http\Controllers\Utente1Controller;
 

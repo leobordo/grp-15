@@ -28,7 +28,4 @@ class LivelloAutorizzazioneMiddleware
         //    passando i valori di $redirectUrl e $message
         //    compact crea un array associativo con le keys e i valori sono quelli delle variabli con lo stesso nome delle keys 
     }
-
-    
-   
 }
