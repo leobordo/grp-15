@@ -191,11 +191,26 @@ function apriPopUpClienti(id)
             elemento.style.display = "none";
         }
     }
-function mostraAltrePromo() {
-        var altrePromo = document.getElementById("altrePromo");
-        var pulsante = document.getElementById("pulsanteAltrePromo");
-        altrePromo.style.display = "block";
-        pulsante.style.display = "none";
+function mostraAltrePromo(id) {
+    
+        
+        var altrePromo = document.getElementById("altrePromo"+id);
+        
+        var pulsante = document.getElementById("pulsanteAltrePromo"+id);
+        
+        
+        if(altrePromo.style.display == "block")
+        {
+            altrePromo.style.display = "none";
+            pulsante.textContent = "Mostra altre promo";
+        }
+        else
+        {
+            altrePromo.style.display = "block";
+            pulsante.innerText = "Mostra meno";
+        }
+        
+        
       }
 
 

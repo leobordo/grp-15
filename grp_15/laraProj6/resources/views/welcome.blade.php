@@ -31,20 +31,24 @@ Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con 
   <div class="contenitoreHome">
     @foreach($aziende as $azienda)
       <div class="contenitorePromo">
-        <div style="display: inline-block;">
-          <h2 style="float: left;">{{ $azienda->Nome }}</h2>
-          <img src="./images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="50px" style="display: inline-block; margin-left: 10px;">  
+        <div style="">
+          <h2 style="display:inline-block">{{ $azienda->Nome }}</h2>
+          <img src="./images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" style="display: inline-block;   margin-left:20px;height:auto; width:60px">  
         </div>
         @php
-          $count = 0; // Contatore per tenere traccia delle promozioni visualizzate
+          $count = 1; // Contatore per tenere traccia delle promozioni visualizzate
         @endphp
+        <div>
+
+        
         @foreach ($promozioni as $promozione)
           @if ($promozione->Azienda == $azienda->id && strtotime($promozione->Scadenza) >=strtotime(date('Y-m-d')))
-            @php
-              $count++; // Incrementa il contatore
-            @endphp
-            @if ($count <= 3)
-            <div class="promoHome">
+            
+            @if ($count <= 6)
+              @php
+                $count++; // Incrementa il contatore
+              @endphp
+              <div class="promoHome">
               <li>
                 <a href="{{ route('promozione2', [$promozione->id]) }}">
                 <h2>promo: {{ $promozione->NomePromo }}</h2>
@@ -54,35 +58,56 @@ Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con 
               @if($promozione->hasPercentuale())
                 <p>Sconti del {{$promozione->PercentualeSconto}}%</p>
               @endif
+              
+              </div>
+              @else
+              @break
+            
+           
+
             @endif
-            </div>
           @endif
+
         @endforeach
-        <div id="altrePromo" style="display: none;"> <!-- Div per le altre promozioni, inizialmente nascosto -->
-          @foreach ($promozioni as $promozione)
-            @if ($promozione->Azienda == $azienda->id && strtotime($promozione->Scadenza) >=strtotime(date('Y-m-d')))
-              @if ($count > 3) <!-- Mostra solo le promozioni oltre le prime tre -->
-              <div class="promoHome">  <!-- se togliete la classe si vede centrale ma perde il colore di sfondo ecc -->
+        </div>
+        <div id="altrePromo{{$azienda->id}}"  style="display:none;">
+          
+          
+          @foreach($promozioni as $promozione)
+              @if ($promozione->Azienda == $azienda->id && strtotime($promozione->Scadenza) >=strtotime(date('Y-m-d')))
+             
+              @if ($count > 12)
+                
+                <div class="promoHome" >
                 <li>
                   <a href="{{ route('promozione2', [$promozione->id]) }}">
-                    <h2>promo: {{ $promozione->NomePromo }}</h2>
+                  <h2>promo: {{ $promozione->NomePromo }}</h2>
                   </a>
                 </li>
                 <p>Azienda: {{$azienda->Nome}}</p>
                 @if($promozione->hasPercentuale())
                   <p>Sconti del {{$promozione->PercentualeSconto}}%</p>
                 @endif
-                @php
-                  $count++; // Incrementa il contatore
-                @endphp
-              </div>
+                
+                </div>
+                
+              
+            
+
               @endif
+              @php
+                  $count++; // Incrementa il contatore
+              @endphp
             @endif
+
           @endforeach
+
         </div>
-        @if ($count > 3)
-          <button onclick="mostraAltrePromo()">Visualizza altre promo</button>
+        
+        @if($count>12)
+        <button id="pulsanteAltrePromo{{$azienda->id}}" onclick="mostraAltrePromo({{$azienda->id}})">Mostra altre promo</button>
         @endif
+        
       </div>
     @endforeach
     <div class="Paginazione">

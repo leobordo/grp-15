@@ -465,9 +465,10 @@ align-items: center;
 }
 .promoHome{
   
-  background-color: #c9c9c9;
+  background-color: #a4a4a4;
   height: 200px;
-  width: 600px;
+  width: 450px;
+  display: inline-block;
   
   margin-bottom: 10px; /* Aggiungi un margine inferiore per separare gli oggetti verticalmente */
   margin-top: 10px; /* Aggiungi un margine inferiore per separare gli oggetti verticalmente */
