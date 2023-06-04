@@ -31,8 +31,8 @@ Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con 
   <div class="contenitoreHome">
     @foreach($aziende as $azienda)
       <div class="contenitorePromo">
-        <div style="">
-          <h2 style="display:inline-block">{{ $azienda->Nome }}</h2>
+        <div>
+          <a class="azienda_ancora" href={{route('azienda2',$azienda->id)}} style="display:inline-block">{{ $azienda->Nome }}</a>
           <img src="./images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" style="display: inline-block;   margin-left:20px;height:auto; width:60px">  
         </div>
         @php

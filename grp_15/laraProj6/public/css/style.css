@@ -552,3 +552,15 @@ align-items: center;
     padding: 0 250px; /* Aggiunto padding per distanza dai bordi */
     background-color: #ffffff;
 }
+.azienda_ancora
+{
+  text-decoration: none;
+  color: #000000;
+  font-size: larger;
+  font-weight: 1000;
+}
+.azienda_ancora:hover
+{
+  font-size: x-large;
+
+}

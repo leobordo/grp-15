@@ -25,7 +25,7 @@
                 </table>
               
               
-                  
+                  @if(Gate::allows('isAdmin',auth()->user()))
                   <div class="Bottone_edit">
                     <a href="{{route('modificaAzienda',['aziende'=>$azienda->id])}}" 
                          >Modifica azienda
@@ -38,6 +38,7 @@
                         <button type="submit" onclick="return confermaElimina()">Elimina Azienda</button>
                     </form>
                 </div>
+                @endif
         @endsection
 </body>
 </html>
