@@ -3,6 +3,7 @@
 
 @section('title','home')
 @section('content')
+<script src="{{ asset('js/functions.js') }}"></script>
 <form class="CercaUtenti-form"  action={{ route('showRisultatiPromo') }} method='POST'>
   @csrf
   <input type="text" placeholder="Cerca tra le aziende" name='CercaPromo-az' class="CercaPromo-az">
@@ -20,14 +21,6 @@
       }, 3000);
   </script>
 @endif
-<script>
-  function mostraAltrePromo() {
-    var altrePromo = document.getElementById("altrePromo");
-    var pulsante = document.getElementById("pulsanteAltrePromo");
-    altrePromo.style.display = "block";
-    pulsante.style.display = "none";
-  }
-</script>
 <!-- controlla se la variabile err è stata impostata nella sessione precedente.
   perchè con il metodo with la variabile di sessione è disponibile solo nella richiesta successiva alla redirect.
   Dunque usiamo session('') per avere subito il valore di err.

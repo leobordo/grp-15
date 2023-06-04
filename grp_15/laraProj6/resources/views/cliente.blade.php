@@ -3,6 +3,7 @@
 @section('title', 'Cliente')
 
 @section('content')
+<script src="{{ asset('js/functions.js') }}"></script>
 <br>
 <h1>{{ $Clientee->NomeUtente }}</h1>
 <br>
@@ -26,11 +27,4 @@
 </div>
 <br>
 <br>
-<script>
-       function confermaEliminazioneCl() {
-    var nomeSito = "My little coupony";
-    var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare il cliente?');
-    return conferma;
-}
-</script>
 @endsection

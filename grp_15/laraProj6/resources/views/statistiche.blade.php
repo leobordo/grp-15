@@ -3,55 +3,10 @@
 
 @section('title','statistiche')
 @section('content')
-    <div>
+<script src="{{ asset('js/functions.js') }}"></script>    
+<div>
         <h2> NUMERO COUPON TOTALI: {{ \App\Models\Coupon::all()->count() }}</h2>
     </div>
-
-    <script>
-        function scrollToElementPromo() {
-                    var element = document.getElementById("ricercaPromoStat").value;
-                    var scrollbar=document.getElementById(element);
-                    
-                    alert(element);
-                    if (element) {
-                    scrollbar.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-                function scrollToElementCliente() {
-                    var element = document.getElementById("ricercaClientiStat").value;
-                    var scrollbar=document.getElementById(element);
-                    
-                    alert(element);
-                    if (element) {
-                    scrollbar.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-
-
-
-                function apriPopUp(id)
-                {
-                    var elemento = document.getElementById(id);
-                    
-                    if (elemento.style.display === "none") {
-                    elemento.style.display = "inline-block";
-                } else {
-                    elemento.style.display = "none";
-                }
-            }
-            function apriPopUpClienti(id)
-                {
-                    var elemento = document.getElementById("s"+id);
-                    
-                    if (elemento.style.display === "none") {
-                    elemento.style.display = "inline-block";
-                } else {
-                    elemento.style.display = "none";
-                }
-            }
-
-                
-      </script>
     <div class="gruppoCercaStats">
         <div class="CercaUtenti-form" >
             <input type="text" id="ricercaPromoStat" placeholder="Cerca promozione"class="CercaUtenti-input">

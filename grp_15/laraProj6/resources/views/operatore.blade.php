@@ -3,6 +3,7 @@
 @section('title', 'Operatore')
 
 @section('content')
+<script src="{{ asset('js/functions.js') }}"></script>
 <br>
 <h1>OPERATORE</h1>
 <br>
@@ -29,11 +30,4 @@
 </div>
 <br>
 <br>
-<script>
-   function confermaEliminazioneOp() {
-    var nomeSito = "My little coupony";
-    var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare l\'operatore?');
-    return conferma;
-}
-</script>
 @endsection

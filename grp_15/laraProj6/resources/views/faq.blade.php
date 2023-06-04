@@ -3,54 +3,7 @@
 @section('title','FAQ')
 
 @section('content')
-        <script>
-            function mostraNascondiRisposta(id) {
-                
-                var risposta = document.getElementById(id);
-                if (risposta.style.display === "none") {
-                    risposta.style.display = "block";
-                } else {
-                    risposta.style.display = "none";
-                }
-            }
-            function apriPopUp() {
-            var popup = document.getElementById("popupFaq");
-            popup.style.display = "block";
-            }
-            function apriPopUpMod(id,arg,dom,risp) {
-                var idMod = id;
-                var idArg =arg;
-                var idDom= dom;
-                var idRisp=risp
-                
-                
-                var hiddenField = document.getElementById("name_id");
-                
-                hiddenField.value = idMod;
-                var argomento = document.getElementById("argo");
-                argomento.value= idArg;
-                var domanda = document.getElementById("domanda");
-                domanda.value = idDom;
-                var risposta = document.getElementById("risposta");
-                risposta.value=idRisp
-               
-                
-                
-
-                var popup = document.getElementById("popupFaqMod");
-                popup.style.display = "block";
-            }
-            function annullaPopUp() {
-            var popup = document.getElementById("popupFaq");
-            popup.style.display = "none";
-            }
-            function annullaPopUpMod() {
-            var popup = document.getElementById("popupFaqMod");
-            popup.style.display = "none";
-            }
-            
-            
-        </script>
+<script src="{{ asset('js/functions.js') }}"></script>
         <div class="ContenitoreFaqCompleto">
             <div class="ContenitoreLegenda">
                 <h1>legenda</h1>
@@ -80,7 +33,7 @@
             </div>
             @auth
                 @if (Gate::allows('isAdmin',auth()->user()))
-                    <button id="btnAggiungiFaq" onclick="apriPopUp()">Aggiungi FAQ</button>
+                    <button id="btnAggiungiFaq" onclick="apriPopUpFaq()">Aggiungi FAQ</button>
                 @endif
 
             @endauth

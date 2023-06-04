@@ -3,16 +3,7 @@
 @section('title','Promozione')
 
 @section('content')
-<script>
-    function openLink(event, url) {
-        event.preventDefault(); // Impedisce il comportamento predefinito del click sul link
-        window.open(url, '_blank'); // Apre il link in una nuova finestra o scheda
-
-        setTimeout(function() {
-            location.reload(); // Aggiorna la pagina corrente
-        }, 1000); // Ritardo di 1 secondo (puoi regolare il valore a tuo piacimento)
-    } //possibile in AJAX?????
-</script>
+<script src="{{ asset('js/functions.js') }}"></script>
         <h1>
            
             {{$promozione->NomePromo}}
@@ -63,11 +54,4 @@
         @endisset
         <br>
         <br>
-        <script>
-               function confermaEliminazionePr() {
-                var nomeSito = "My little coupony";
-                var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare la promozione?');
-                return conferma;
-                }
-        </script>
 @endsection

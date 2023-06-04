@@ -4,6 +4,7 @@
     <head>
         @section('title',$azienda['Nome'])
          <link rel="stylesheet" href="{{ url('css/style.css')}}"> 
+         <script src="{{ asset('js/functions.js') }}"></script>
     </head>
     <body>
         @section('content')
@@ -37,14 +38,6 @@
                         <button type="submit" onclick="return confermaElimina()">Elimina Azienda</button>
                     </form>
                 </div>
-                <script>
-                    function confermaElimina() {
-                     var nomeSito = "My little coupony";
-                     var conferma = window.confirm(nomeSito + ' dice: Sei sicuro di voler eliminare l\' azienda?');
-                     return conferma;
-                     }
-             </script>
-                
         @endsection
 </body>
 </html>

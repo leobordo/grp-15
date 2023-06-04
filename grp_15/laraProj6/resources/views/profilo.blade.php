@@ -3,18 +3,11 @@
 @section('title', 'Il Mio Profilo')
 
 @section('content')
+<script src="{{ asset('js/functions.js') }}"></script>
 <br>
 <h1>Il mio profilo</h1>
 @if(session('err'))
 <div id="error-message">{{ session('err') }}</div>
-<script>
-    setTimeout(function() {
-        var errorMessage = document.getElementById('error-message');
-        if (errorMessage) {
-            errorMessage.style.display = 'none';
-        }
-    }, 3000);
-</script>
 @endif
 <br>
 <br>
