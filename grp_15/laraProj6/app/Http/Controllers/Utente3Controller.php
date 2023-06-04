@@ -24,7 +24,7 @@ class Utente3Controller extends Controller
 
     public function showOperatori()
     {
-        $op=Utente::where('Livello','2')->paginate(5);
+        $op=Utente::where('Livello','2')->paginate(10);
         return view('gestioneOperatori',['operatori'=>$op ]);
     }
     public function showStats()
@@ -35,12 +35,12 @@ class Utente3Controller extends Controller
     }
     public function showClienti()
     {
-        $cl=Utente::where('Livello','1')->paginate(5);
+        $cl=Utente::where('Livello','1')->paginate(10);
         return view('gestioneClienti',['clienti'=>$cl]);
     }
     public function showPromozioni()
     {
-        $pr=Promozione::paginate(5);
+        $pr=Promozione::paginate(10);
         return view('gestionePromozioni',['promozioni'=>$pr]);
     }
     public function getOperatore($chiave)
@@ -163,7 +163,7 @@ class Utente3Controller extends Controller
             'Nome' => 'required|string|max:255',
             'cognome' => 'required|string|max:255',
             'Email' => 'required|email|unique:Utente|max:255',
-            'Telefono' => 'required|string|max:20',
+            'Telefono' => 'required|numeric|digits:10',
             'Genere' => 'required|in:Maschio,Femmina,Altro',
             'Livello',
             'NomeUtente' => 'required|string|unique:Utente|max:255',
@@ -181,8 +181,8 @@ class Utente3Controller extends Controller
             'Email.max' => 'l\'email supera i 255 caratteri',
             'Email.unique' => 'l\'email inserita è già registrata',
             'Telefono.required' => 'Il Telefono è obbligatorio',
-            'Telefono.string' => 'Il Telefono deve essere una stringa',
-            'Telefono.max' => 'Il Nome supera i 20 caratteri',
+            'Telefono.numeric' => 'Il Telefono non può avere caratteri, ma solo numeri',
+            'Telefono.digits' => 'Il Telefono deve avere 10 cifre',
             'Genere.required' => 'Il Genere è obbligatorio',
             'NomeUtente.required' => 'Il Nomeutente è obbligatorio',
             'NomeUtente.string' => 'Il Nomeutente deve essere una stringa',
@@ -307,7 +307,7 @@ class Utente3Controller extends Controller
             'NomePromo' => 'required|string|max:255',
             'Azienda' => [
                 'required',
-                Rule::exists('azienda', 'Nome'),
+                Rule::exists('azienda', 'id'),
             ],
             'DescrizioneSconto' => 'required|string|max:255',
             'PercentualeSconto' => 'nullable|numeric',
@@ -334,9 +334,8 @@ class Utente3Controller extends Controller
         $desc=request('DescrizioneSconto');
         $perc=request('PercentualeSconto');
         $scad=request('Scadenza');
-        $azi_completo=Azienda::where('Nome',$azi)->firstorfail();
         $promo->NomePromo = $nomePro;
-        $promo->Azienda = $azi_completo->id;
+        $promo->Azienda = $azi;
         $promo->DescrizioneSconto = $desc;
         if($perc!=null) $promo->PercentualeSconto = $perc;
         $promo->Scadenza = $scad;
@@ -353,12 +352,13 @@ class Utente3Controller extends Controller
     }
 
     public function aggiungiPromozione(Request $request)
-    {
+    {   
+        
         $attributi=[
             'NomePromo' => 'required|string|max:255',
             'Azienda' => [
                 'required',
-                Rule::exists('azienda', 'Nome'),
+                Rule::exists('azienda', 'id'),
             ],
             'DescrizioneSconto' => 'required|string|max:255',
             'PercentualeSconto' => 'nullable|numeric',
@@ -386,9 +386,8 @@ class Utente3Controller extends Controller
         $desc=request('DescrizioneSconto');
         $perc=request('PercentualeSconto');
         $scad=request('Scadenza');
-        $azi_completo=Azienda::where('Nome',$azi)->firstorfail();
         $promozione->NomePromo = $nomePro;
-        $promozione->Azienda = $azi_completo->id;
+        $promozione->Azienda = $azi;
         $promozione->DescrizioneSconto = $desc;
         if($perc!=null) $promozione->PercentualeSconto = $perc;
         $promozione->Scadenza = $scad;

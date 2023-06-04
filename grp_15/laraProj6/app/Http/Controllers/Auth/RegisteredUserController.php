@@ -41,7 +41,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'Nome'=>['required', 'string', 'max:255'],
             'Cognome'=>['required', 'string', 'max:255'],
-            'Telefono'=>['required','string','max:20'],
+            'Telefono'=>['required','numeric','digits:10'],
             'Genere'=>['required','in:Maschio,Femmina,Altro']
         ]);
 

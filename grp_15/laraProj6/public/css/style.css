@@ -287,10 +287,8 @@
     margin-top: 5px;
   }
   .Form_modifica select{
-    padding-left: 5px;
-    padding-right: 5px;
-    display: block;
-    margin: 0 auto;
+    padding: 2px 2px;
+    height: 30px;
   }
   .Form_modifica select:hover{
     border: 2px solid black;

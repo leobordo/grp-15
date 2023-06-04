@@ -38,7 +38,7 @@ $(function () {
         {{ Form::text('NomePromo',$record->NomePromo)}} <!-- il primo param è il nome per associare il label(come for in html), il seconod param è il placeholder -->
         
         {{ Form::label('Azienda','Azienda')}}
-        {{ Form::text('Azienda',$record->azienda->Nome)}}
+        {{ Form::select('Azienda', \App\Models\Azienda::pluck('Nome','id', (\App\Models\Azienda::where('id',$record->Azienda)->first())->Nome))}}
         
         {{ Form::label('DescrizioneSconto','DescrizioneSconto')}}
         {{ Form::text('DescrizioneSconto',$record->DescrizioneSconto)}}

@@ -59,7 +59,7 @@ class Utente1Controller extends Controller
                 Rule::unique('utente')->ignore($pr->id),
                 'max:255',
             ],
-            'Telefono' => 'required|string|max:20',
+            'Telefono' => 'required|numeric|digits:10',
             'Genere' => 'required|in:Maschio,Femmina,Altro',
             
         ];
@@ -75,8 +75,8 @@ class Utente1Controller extends Controller
             'Email.max' => 'l\'email supera i 255 caratteri',
             'Email.unique' => 'l\'email inserita è già registrata',
             'Telefono.required' => 'Il Telefono è obbligatorio',
-            'Telefono.string' => 'Il Telefono deve essere una stringa',
-            'Telefono.max' => 'Il Nome supera i 20 caratteri',
+            'Telefono.numeric' => 'Il Telefono non può avere caratteri, ma solo numeri',
+            'Telefono.digits' => 'Il Telefono deve avere 10 cifre',
             'Genere.required' => 'Il Genere è obbligatorio',
         ];
         $validator = Validator::make($request->all(),$attributi,$messaggi);
