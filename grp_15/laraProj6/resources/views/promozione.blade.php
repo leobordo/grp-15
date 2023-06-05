@@ -4,30 +4,33 @@
 
 @section('content')
 <script src="{{ asset('js/functions.js') }}"></script>
-        <h1>
-           
+<br>
+    <div class="dati">
+        <p>Nome Promo:</p>
+        <p class="dato-specifico" style="font-size: x-large">
             {{$promozione->NomePromo}}
-        </h1>
+        </p>
         <br>
-        <h2>
-            Azienda: {{$promozione->azienda->Nome}}
-        </h2>
+        <p>Azienda:</p>
+        <p class="dato-specifico" style="font-size: x-large">
+            {{$promozione->azienda->Nome}}
+        </p>
         <br>
-        <h3>
-            Descrizione Sconto
-        </h3>
-        <h3>
+        <p>Descrizione Sconto</p>
+        <p class="dato-specifico" style="font-size: large">
             {{$promozione->DescrizioneSconto}}
-        </h3>
+        </p>
         <br>
-        <h4>
+        <p>Percentuale sconto:</p>
+        <p class="dato-specifico" style="font-size: x-large">
             @if($promozione->hasPercentuale())
-            Percentuale sconto: {{$promozione->PercentualeSconto}}%
+            {{$promozione->PercentualeSconto}}%
             @endif
-        </h4>
+        </p>
         <br>
-        <p>
-            Data di scadenza: {{$promozione->Scadenza}}
+        <p>Data di scadenza:</p>
+        <p class="dato-specifico" style="font-size: x-large">
+            {{$promozione->Scadenza}}
         </p>
         <br>
         @isset(auth()->user()->Livello)<!-- deve controllare se l'utente è autenticato e se ha il permesso di usare i bottoni -->
@@ -54,4 +57,6 @@
         @endisset
         <br>
         <br>
+        <br>
+    </div>
 @endsection

@@ -23,8 +23,11 @@
     @isset($clienti)
     <ul>
         @foreach($clienti as $cliente)
-                <li><a href="{{ route('cliente', [$cliente->id]) }}">Cliente: {{ $cliente->NomeUtente }}</a></li>
-                <br>
+                <li>
+                    <a href="{{ route('cliente', [$cliente->id]) }}" style="float: left;">
+                        <p style="display: inline-block;">Cliente:</p>    
+                        <p style="display: inline-block;" class="dato-specifico">{{ $cliente->NomeUtente }}</p>
+                    </a></li>
         @endforeach
     </ul>
     @endisset

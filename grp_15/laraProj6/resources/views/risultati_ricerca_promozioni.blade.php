@@ -13,10 +13,13 @@
     @isset($results)
     <ul>
         @foreach ($results as $result)
-            <li><a href="{{ route('promozione2', [$result->id])  }}"> Promozione:{{ $result->NomePromo }}</a></li> 
+            <li><a href="{{ route('promozione2', [$result->id])  }}" style="float: left;">
+            <p style="display: inline-block;">Promozione:</p>
+            <p style="display: inline-block;" class="dato-specifico">{{ $result->NomePromo }}</p>
+            </a></li> 
         @endforeach
     </ul>
-    
+
     @endisset
     
     <br>

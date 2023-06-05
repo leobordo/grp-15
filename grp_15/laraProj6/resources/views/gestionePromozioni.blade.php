@@ -15,11 +15,15 @@
     <ul>
         @foreach($promozioni as $promozione)
                 
-                <li><a href="{{ route('promozione', [$promozione->id]) }}">Promozione: {{ $promozione ->NomePromo }}</a></li> 
+                <li><a href="{{ route('promozione', [$promozione->id]) }}" style="float: left;">
+                    <p style="display: inline-block;">Promozione:</p>
+                    <p style="display: inline-block;" class="dato-specifico">{{ $promozione ->NomePromo }}</p>
+                </a></li> 
                 <!-- passa il valore NomePromo alla funzione indicata nella route nominata operatore -->
         @endforeach
     </ul>
     @endisset
+    <br>
     <div class="Paginazione">{{ $promozioni->links('pagination.paginator') }}</div>
     <a class="Bottone_aggiungi" href="{{ route('aggiungipromozione') }}">Aggiungi promozione</a>
     <br>

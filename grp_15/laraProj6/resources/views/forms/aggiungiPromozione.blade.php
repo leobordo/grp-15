@@ -37,7 +37,7 @@ $(function () {
         {{ Form::select('Azienda', \App\Models\Azienda::pluck('Nome','id'), null, ['placeholder'=>'Seleziona un\' azienda'])}}
 
         {{ Form::label('DescrizioneSconto','DescrizioneSconto')}}
-        {{ Form::text('DescrizioneSconto','')}}
+        {{ Form::textarea('DescrizioneSconto','')}}
 
         {{ Form::label('PercentualeSconto','PercentualeSconto')}}
         {{ Form::text('PercentualeSconto','')}}

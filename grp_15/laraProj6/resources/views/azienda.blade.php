@@ -16,12 +16,12 @@
 
               <div class="Azienda">
                 <table style="border-collapse: separate; border-spacing: 20px;">
-                    <tr><td>Nome</td><td>{{$azienda['Nome']}}</td></tr>
-                    <tr><td>Tipologia</td><td>{{$azienda['Tipologia']}}</td></tr>
-                    <tr><td>Localizzazione</td><td>{{$azienda['Localizzazione']}}</td></tr>
-                    <tr><td>RagioneSociale</td><td>{{$azienda['RagioneSociale']}}</td></tr>
-                    <tr><td>Descrizione</td><td>{{$azienda['Descrizione']}}</td></tr>
-                    <tr><td>Logo</td><td><img src="../images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="50px" style="display: inline-block; margin-left: 10px;"></td></tr>
+                    <tr><td>Nome</td><td class="dato-specifico">{{$azienda['Nome']}}</td></tr>
+                    <tr><td>Tipologia</td><td class="dato-specifico">{{$azienda['Tipologia']}}</td></tr>
+                    <tr><td>Localizzazione</td><td class="dato-specifico">{{$azienda['Localizzazione']}}</td></tr>
+                    <tr><td>RagioneSociale</td><td class="dato-specifico">{{$azienda['RagioneSociale']}}</td></tr>
+                    <tr><td>Descrizione</td><td class="dato-specifico">{{$azienda['Descrizione']}}</td></tr>
+                    <tr><td>Logo</td><td class="dato-specifico"><img src="../images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="50px" style="display: inline-block; margin-left: 10px;"></td></tr>
                 </table>
               
               

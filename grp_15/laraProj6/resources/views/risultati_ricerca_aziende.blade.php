@@ -12,7 +12,10 @@
     @isset($results)
     <ul>
         @foreach ($results as $result)
-            <li><a href="{{ route('showAzienda', [$result->id]) }}">Azienda:{{ $result->Nome }}</a></li>
+            <li><a href="{{ route('showAzienda', [$result->id]) }}" style="float: left;">
+                <p style="display: inline-block;">Azienda:</p>
+                <p style="display: inline-block;" class="dato-specifico">{{ $result->Nome }}</p>
+            </a></li>
         @endforeach
     </ul>
     @endisset

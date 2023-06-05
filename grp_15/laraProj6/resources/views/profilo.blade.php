@@ -10,21 +10,25 @@
 <div id="error-message">{{ session('err') }}</div>
 @endif
 <br>
-<br>
-<br>
-<p>Nome utente:</p>
-<p>{{ $Profiloo->NomeUtente }}</p>
-<p>Nome:</p>
-<p>{{ $Profiloo->Nome }}</p> <!-- tutto quello dentro le graffe significa che viene passato il valore dell'attr Nome di $Clientee -->
-<p>Cognome:</p>
-<p>{{ $Profiloo->cognome }}</p>
-<p>E-mail:</p>
-<p>{{ $Profiloo->Email }}</p>
-<p>Telefono:</p>
-<p>{{ $Profiloo->Telefono }}</p>
-<p>Genere:</p>
-<p>{{ $Profiloo->Genere }}</p>
-
+<div class="dati">
+    <p>Nome utente:</p>
+    <p class="dato-specifico">{{ $Profiloo->NomeUtente }}</p>
+    <br>
+    <p class="dato-specifico">Nome:</p>
+    <p>{{ $Profiloo->Nome }}</p> <!-- tutto quello dentro le graffe significa che viene passato il valore dell'attr Nome di $Clientee -->
+    <br>
+    <p>Cognome:</p>
+    <p class="dato-specifico">{{ $Profiloo->cognome }}</p>
+    <br>
+    <p>E-mail:</p>
+    <p class="dato-specifico">{{ $Profiloo->Email }}</p>
+    <br>
+    <p>Telefono:</p>
+    <p class="dato-specifico">{{ $Profiloo->Telefono }}</p>
+    <br>
+    <p>Genere:</p>
+    <p class="dato-specifico">{{ $Profiloo->Genere }}</p>
+</div>
 <br>
 
 <div class="Bottone_edit">

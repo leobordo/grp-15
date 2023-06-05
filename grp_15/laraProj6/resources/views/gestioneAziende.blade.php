@@ -34,7 +34,8 @@
             @foreach ($aziende as $azienda)
             <li>
                 <a href="{{route('showAzienda', ['aziende'=> $azienda['id']]) }}" style="float: left;">
-                    Azienda: {{$azienda['Nome']}}
+                    <p style="display: inline-block;">Azienda:</p>
+                    <p style="display: inline-block;" class="dato-specifico">{{$azienda['Nome']}}</p>
                     <img src="./images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="20px" style="display: inline-block; margin-left: 5px;">
                 </a>
             </li>
