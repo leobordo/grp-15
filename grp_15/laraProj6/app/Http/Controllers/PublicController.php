@@ -49,6 +49,11 @@ public function showRisultatiAz(Request $request)
 }
 public function getPromozionePublic($chiave){
     $pr=Promozione::where('id', $chiave)->first();
+    if ($pr==null) {
+        $redirectUrl='/';
+        $message='Promo non esistente. Verrai reindirizzato alla home tra 5 secondi...';
+        return response(View::make('errors.Error404', compact('redirectUrl', 'message')));
+    }
     if ($pr->Scadenza >= date('Y-m-d') || auth()->user()->Livello==2 ) {
         return view('promozione')
                     ->with('promozione', $pr);
@@ -146,7 +151,8 @@ public function showRisultatiOp(Request $request)
 
 public function getAziendaPublic($chiave)
 {
-    $az=Azienda::where('id', $chiave)->firstorfail();
+    $az=Azienda::where('id', $chiave)->firstOrFail();
+    
     return view('azienda', ['azienda'=>$az]);
 }
 

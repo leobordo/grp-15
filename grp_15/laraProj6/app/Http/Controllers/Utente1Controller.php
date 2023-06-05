@@ -40,7 +40,16 @@ class Utente1Controller extends Controller
     }
     public function modificaProfilo($chiave)
     {
-        $record = Utente::where('id', $chiave)->first();; // Recupera il record dal database
+        if(auth()->user()->id==$chiave){
+            $pr=Utente::where('id', $chiave)->first();
+
+            $record = Utente::where('id', $chiave)->first();; // Recupera il record dal database
+        }
+            else {
+            $redirectUrl='/';
+            $message='Accesso negato, autorizzazione mancante. Verrai reindirizzato alla home tra 5 secondi...';
+            return response(View::make('errors.Error403', compact('redirectUrl', 'message')));  //qua non si vede l'immagine ma c'è solo scritto "immagine_di_errore"
+        }
         
     // Passa il record alla view utilizzando il metodo with
     return view('forms.modificaProfilo')

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\View;
 use App\Models\Faq;
 
 class Utente3Controller extends Controller
@@ -45,7 +46,7 @@ class Utente3Controller extends Controller
     }
     public function getOperatore($chiave)
     {
-        $op=Utente::where('id', $chiave)->first();
+        $op=Utente::where('id', $chiave)->firstOrFail();
         /*
             where è un metodo di Eloquent, cerca l'attributo NomeUtente
             con il valore di $chiave(vedi gestioneOperatori.blade.php).
@@ -63,7 +64,7 @@ class Utente3Controller extends Controller
     }
     public function getCliente($chiave)
     {
-        $cl=Utente::where('id', $chiave)->first();
+        $cl=Utente::where('id', $chiave)->firstOrFail();
         /*
             vedi sopra
         */
@@ -75,7 +76,7 @@ class Utente3Controller extends Controller
     }
     public function getPromozione($chiave)
     {
-        $pr=Promozione::where('id', $chiave)->first();
+        $pr=Promozione::where('id', $chiave)->firstOrFail();
         /*
             where è un metodo di Eloquent, cerca l'attributo NomeUtente
             con il valore di $chiave(vedi gestioneOperatori.blade.php).
@@ -221,7 +222,7 @@ class Utente3Controller extends Controller
 } 
     public function modificaOperatore($chiave)
     {
-        $record = Utente::where('id', $chiave)->first();; // Recupera il record dal database
+        $record = Utente::where('id', $chiave)->firstOrFail();; // Recupera il record dal database
         
     // Passa il record alla view utilizzando il metodo with
     return view('forms.modificaOperatore')
@@ -291,7 +292,7 @@ class Utente3Controller extends Controller
     }
     public function modificaPromozione($chiave)
     {
-        $record = Promozione::where('id', $chiave)->first();; // Recupera il record dal database
+        $record = Promozione::where('id', $chiave)->firstOrFail();; // Recupera il record dal database
         
     // Passa il record alla view utilizzando il metodo with
     return view('forms.modificaPromozione')

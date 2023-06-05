@@ -15,7 +15,7 @@
                <br>
 
               <div class="Azienda">
-                <table style="border-collapse: separate; border-spacing: 22px;">
+                <table style="border-collapse: separate; border-spacing: 20px;">
                     <tr><td>Nome</td><td>{{$azienda['Nome']}}</td></tr>
                     <tr><td>Tipologia</td><td>{{$azienda['Tipologia']}}</td></tr>
                     <tr><td>Localizzazione</td><td>{{$azienda['Localizzazione']}}</td></tr>
