@@ -1,48 +1,48 @@
 <x-guest-layout>
-    @section('title', $viewName)
-   
+    @section('title', 'Cambia Password')
+    <link rel="stylesheet" href="{{ url('css/style.css')}}"> 
     <x-auth-card>
-        
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="./images/home.jpg" style="width: 50px; height: 50px">
             </a>
         </x-slot>
         
         <form method="POST" action="{{ route('password.update') }}">
             @csrf
             <div class="mt-4">
-                <x-input-label for="vecchia_password" :value="__('Vecchia Password')" />
+                <x-input-label for="vecchia_password" :value="__('Vecchia Password')" class="bold-label" />
 
-                <x-text-input id="vecchia_password" class="block mt-1 w-full" type="password" name="vecchia_password" required />
+                <x-text-input id="vecchia_password" class="input_login" type="password" name="vecchia_password" required />
 
                 <x-input-error :messages="$errors->get('vecchia_password')" class="mt-2" />
             </div>
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Nuova Password')" />
+                <x-input-label for="password" :value="__('Nuova Password')" class="bold-label"/>
 
-                <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required />
+                <x-text-input id="password" class="input_login" type="password" name="password" required />
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-input-label for="password_confirmation" :value="__('Conferma Password')" />
+                <x-input-label for="password_confirmation" :value="__('Conferma Password')" class="bold-label"/>
 
-                <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                <x-text-input id="password_confirmation" class="input_login"
                                     type="password"
                                     name="password_confirmation" required />
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-primary-button>
+            <div style="text-align: center">
+                <x-primary-button class=" Bottone_login"  >
                     {{ __('Reset Password') }}
                 </x-primary-button>
+                
             </div>
-        </form>
+        </form> 
     </x-auth-card>
 </x-guest-layout>
