@@ -46,7 +46,7 @@ class Utente3Controller extends Controller
     }
     public function getOperatore($chiave)
     {
-        $op=Utente::where('id', $chiave)->firstOrFail();
+        $op=Utente::where('id', $chiave)->first();
         /*
             where è un metodo di Eloquent, cerca l'attributo NomeUtente
             con il valore di $chiave(vedi gestioneOperatori.blade.php).
