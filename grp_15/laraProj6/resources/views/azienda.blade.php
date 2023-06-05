@@ -15,7 +15,7 @@
                <br>
 
               <div class="Azienda">
-                <table>
+                <table style="border-collapse: separate; border-spacing: 22px;">
                     <tr><td>Nome</td><td>{{$azienda['Nome']}}</td></tr>
                     <tr><td>Tipologia</td><td>{{$azienda['Tipologia']}}</td></tr>
                     <tr><td>Localizzazione</td><td>{{$azienda['Localizzazione']}}</td></tr>
@@ -39,6 +39,8 @@
                     </form>
                 </div>
                 @endif
+                <br>
+                <br>
         @endsection
 </body>
 </html>
