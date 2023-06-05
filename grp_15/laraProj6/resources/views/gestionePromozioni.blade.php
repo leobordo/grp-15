@@ -5,8 +5,8 @@
 @section('content')
 <form class="CercaUtenti-form"  action={{ route('showRisultatiPromo') }} method='POST'>
     @csrf
-    <input type="text" placeholder="Cerca tra le aziende" name='CercaPromo-az' class="CercaPromo-az">
-    <input type="text" placeholder="Cerca nella descrizione" name='CercaPromo-descr' class="CercaPromo-descr">
+    <input type="text" placeholder="Cerca tra le aziende" name='CercaPromo-az' class="CercaUtenti-input">
+    <input type="text" placeholder="Cerca nella descrizione" name='CercaPromo-descr' class="CercaUtenti-input">
     <button type="submit" class="CercaUtenti-bottone">Cerca</button>
   </form> 
   
@@ -21,9 +21,7 @@
     </ul>
     @endisset
     <div class="Paginazione">{{ $promozioni->links('pagination.paginator') }}</div>
-    <div class="Bottone_aggiungi">
-        <a href="{{ route('aggiungipromozione') }}">Aggiungi promozione</a>
-    </div>
+    <a class="Bottone_aggiungi" href="{{ route('aggiungipromozione') }}">Aggiungi promozione</a>
     <br>
     <br> 
 @endsection

@@ -4,6 +4,7 @@
 
 @section('content')
     <br>
+    <h1>I MIEI COUPON</h1>
     @isset($coupons)
         <ul>
             @foreach($coupons as $coupon)
@@ -15,4 +16,7 @@
             @endforeach
         </ul>
         @endisset
+        <div class="Paginazione">
+            {{ $coupons->links('pagination.paginator') }}
+          </div>
 @endsection

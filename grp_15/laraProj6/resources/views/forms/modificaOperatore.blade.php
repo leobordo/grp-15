@@ -49,21 +49,22 @@ $(function () {
         {{ Form::select('Genere',['Maschio' => 'Maschio', 'Femmina' => 'Femmina', 'Altro' => 'Altro'], $record->Genere) }}
 
         {{ Form::label('Password','Password')}}
-        {{ Form::text('Password','',['placeholder' => 'Se vuoto la psw non cambia','style'=>'display:block; margin-bottom:10px; margin-left:auto; margin-right:auto'])}}
+        {{ Form::text('Password','',['placeholder' => 'Se vuoto la psw non cambia'])}}
 
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
-    <div >
-        <ul style="margin-bottom: 0px;">
+        <br>
+        <br>
+        <div class="errori">
+        <ul>
             @foreach ($errors->all() as $error)
-                <li>- {{ $error }}</li>
+                <li style="color:red">- {{ $error }}</li>
             @endforeach
         </ul>
     </div>
-    
 @endif
 
 
-        {{ Form::submit('Salva modifiche', ['class' => 'Bottone_salva']) }}
+        {{ Form::submit('Salva modifiche', ['class' => 'Bottone_salva_2']) }}
         {{Form::close()}}
         <!-- mancano i controlli degli errori $messaggi -->
     </div>

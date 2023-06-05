@@ -8,17 +8,14 @@
     <body>
         @section('content')
        
-        <div class="GestioneClienti">
-            <div>
-                <h1>creare a nuova azienda</h1>
-            </div>
-            <div>
-                <form action="{{route('aggiungiAzienda2')}}" method="POST" enctype="multipart/form-data"> 
+            <h1>AGGIUNGI AZIENDA</h1>
+            
+                <form action="{{route('aggiungiAzienda2')}}" method="POST" enctype="multipart/form-data" class="Form_modifica"> 
                     @csrf
                     <label for="nome">Nome:</label> 
-                    <input  id="nome" name="nome" value="{{old('nome')}}" type="text"><br>
+                    <input  id="nome" name="nome" value="{{old('nome')}}" type="text">
                     @error('nome')
-                        {{$message}}
+                        <p style="color:red">{{$message}}<p>
                     @enderror
                     <label for="tipologia">Tipologia:</label>
                     <select id="tipologia" value="{{old('tipologia')}}" name="tipologia">
@@ -30,40 +27,36 @@
                         <option value="start_up">Start-Up</option>
                     </select>
                     @error('tipologia')
-                        {{$message}}
+                    <p style="color:red">{{$message}}<p>
                     @enderror
                     <br>
-                    
                     <label for="localizzazione">Localizzazione:</label>
-                    <input type="text" id="localizzazione" value="{{old('localizzazione')}}" name="localizzazione"><br>
+                    <input type="text" id="localizzazione" value="{{old('localizzazione')}}" name="localizzazione">
                     @error('localizzazione')
-                        {{$message}}
+                    <p style="color:red">{{$message}}<p>
                     @enderror
                     <label for="ragioneSociale">Ragione Sociale:</label>
-                    <input type="text" id="ragioneSociale" value="{{old('ragioneSociale')}}" name="ragioneSociale"><br>
+                    <input type="text" id="ragioneSociale" value="{{old('ragioneSociale')}}" name="ragioneSociale">
                     @error('ragioneSociale')
-                        {{$message}}
+                    <p style="color:red">{{$message}}<p>
                     @enderror
                     <label for="descrizione">Descrizione:</label>
-                    <textarea id="descrizione" value="{{old('descrizione')}}" name="descrizione"></textarea><br>
+                    <textarea id="descrizione" value="{{old('descrizione')}}" name="descrizione"></textarea>
                     @error('descrizione')
-                        {{$message}}
+                    <p style="color:red">{{$message}}<p>
                     @enderror
-                    <label for="immagine">Immagine:</label>
-                    <input type="file" id="immagine" name="immagine"><br>
+                    <div>
+                    <label for="immagine" style="display: inline-block">Immagine: </label><input type="file" id="immagine" name="immagine" style="display: inline-block">
+                    </div>
                     @error('immagine')
-                        {{$message}}
+                    <p style="color:red">{{$message}}<p>
                     @enderror
-                    <input type="submit" value="Crea Azienda">
+                    <br>
+                    <input type="submit" value="Salva azienda" class="Bottone_salva">
                 </form>
-            </div>
-            
-           
-
-           
+                       
             <br>
             <br>
-        </div>
         @endsection
     </body>
 </html>

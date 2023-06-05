@@ -24,6 +24,7 @@
     <ul>
         @foreach($clienti as $cliente)
                 <li><a href="{{ route('cliente', [$cliente->id]) }}">Cliente: {{ $cliente->NomeUtente }}</a></li>
+                <br>
         @endforeach
     </ul>
     @endisset

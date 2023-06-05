@@ -49,17 +49,19 @@ $(function () {
         
 
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
-    <div class="errori">
+        <br>
+        <br>
+        <div class="errori">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li style="color:red">- {{ $error }}</li>
             @endforeach
         </ul>
     </div>
 @endif
 
 
-        {{ Form::submit('Salva Promzione', ['class' => 'Bottone_salva']) }}
+        {{ Form::submit('Salva Promozione', ['class' => 'Bottone_salva_2']) }}
 
         {{Form::close()}}
         <!-- mancano i controlli degli errori $messaggi -->

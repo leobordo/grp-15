@@ -26,8 +26,10 @@ $(function () {
 @@endsection
 -->
 @section('content')
-    <h1>AGGIUNGI OPERATORE</h1>
-    <br>
+    
+<h1>AGGIUNGI OPERATORE</h1>
+    
+<br>
     <br>
     {{ Form::open(['route' => 'aggiungioperatore2', 'method' => 'POST', 'id' => 'Form_aggiungi_op', 'class' => 'Form_modifica']) }} <!--passa al metodo aggOp del controller Utente3, id è per JS  -->
         {{ Form::label('Nome', 'Nome') }}
@@ -52,18 +54,19 @@ $(function () {
         {{ Form::text('Password','')}}
 
         @if ($errors->any()) <!-- fare meglio??? ora visualizza tutti gli errori sotto -->
-    <div class="errori">
+        <br>
+        <br>
+        <div class="errori">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li style="color:red">- {{ $error }}</li>
             @endforeach
         </ul>
     </div>
 @endif
 
 
-        {{ Form::submit('Salva Operatore', ['class' => 'Bottone_salva']) }}
-
+        {{ Form::submit('Salva Operatore', ['class' => 'Bottone_salva_2']) }}
         {{Form::close()}}
         <!-- mancano i controlli degli errori $messaggi -->
 @endsection

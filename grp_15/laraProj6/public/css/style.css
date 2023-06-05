@@ -114,9 +114,11 @@
 /*colora il pallino e la scritta insieme*/
 .GestioneClienti ul{
   text-align: left;
-  margin: 0 auto;
-  width: 300px;
+  margin:0 auto;
+  width: -moz-fit-content; /*per firefox*/
+  width: fit-content;
   margin-bottom: 301px;
+  padding-inline-start: 0;
 }
 .GestioneClienti ul li{
  list-style-type: none;
@@ -159,15 +161,14 @@
   color: rgb(57, 192, 0);
   padding: 10px;
   border-radius: 10px;
-}
-.Bottone_aggiungi:hover{
-  background-color: rgb(45, 146, 2);
-  color:  rgb(38, 124, 1) ;
-}
-.Bottone_aggiungi a{
   text-decoration: none;
-  color:inherit;
 }
+
+.Bottone_aggiungi:hover {
+  background-color: rgb(45, 146, 2);
+  color: rgb(38, 124, 1);
+}
+
 .Bottone_genera {
   text-align: left;
   margin-top: 5px;
@@ -216,17 +217,26 @@
   margin-bottom: 5px;
 }
 
-.CercaUtenti-input {
-  padding: 5px;
-  font-size: 16px;
-  border-radius: 5px;
-}
+  .CercaUtenti-input {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s; /*indica quanto impiegano quei due a cambiare, SE CAMBIANO*/
+  }
+  
+  .CercaUtenti-input:hover {
+    transform: scale(1.05);/* scala del 105% l'elemento, lo zoomma*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /*aggiunge l'ombra, ombra con dimensione 10px e trasparenza del 30%*/
+   
+  }
+  
 
 .CercaUtenti-bottone {
   padding: 5px 10px;
   background-color: #f9f9f9;
   border-radius: 5px;
   cursor: pointer;
+  
 }
 .CercaUtenti-bottone:hover{
   background-color: #9e9b9b;
@@ -293,10 +303,18 @@
   .Form_modifica select:hover{
     border: 2px solid black;
   }
-  .Form_modifica input:hover{
+  .Form_modifica input:hover:not([type="file"])
+  {
     border: 2px solid black;
   }
-
+  .Form_modifica textarea{
+    padding: 2px;
+  }
+  .Form_modifica textarea:hover{
+    border: 2px solid black;
+    
+  }
+ 
 .Bottone_elimina{
   text-align: left;
   margin-top: 5px;
@@ -360,6 +378,21 @@
   border-radius: 10px;
 }
 .Bottone_salva:hover{
+  background-color:#3e3e3e;
+  color:  rgb(0, 0, 0) ;
+}
+.Bottone_salva_2{
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+  display:block;
+  position: sticky;
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_salva_2:hover{
   background-color:#3e3e3e;
   color:  rgb(0, 0, 0) ;
 }

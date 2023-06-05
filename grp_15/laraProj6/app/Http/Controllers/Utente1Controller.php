@@ -129,7 +129,7 @@ class Utente1Controller extends Controller
 
     public function iMieiCoupon()
     {
-        $co=Coupon::all();
+        $co=Coupon::paginate(5);
         return view('iMieiCoupon',['coupons'=>$co]);
     }
     public function getCoupon($chiave)

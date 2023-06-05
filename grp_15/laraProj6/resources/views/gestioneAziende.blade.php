@@ -13,7 +13,7 @@
             
             <form class="CercaUtenti-form" action={{ route('showRisultatiAz') }} method='POST'>
                 @csrf
-                <input type="text" placeholder="Cerca azienda" name="CercaAziende-input" class="CercaAziende-input">
+                <input type="text" placeholder="Cerca azienda" name="CercaAziende-input" class="CercaUtenti-input">
                 <button type="submit" class="CercaUtenti-bottone">Cerca</button>
               </form>
                 @if(session('err'))
@@ -35,9 +35,10 @@
             <li>
                 <a href="{{route('showAzienda', ['aziende'=> $azienda['id']]) }}" style="float: left;">
                     Azienda: {{$azienda['Nome']}}
-                    <img src="./images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="20px" style="display: inline-block; margin-left: 10px;">
+                    <img src="./images/{{$azienda->Immagine }}" alt="logo_di_{{ $azienda->Nome }}" height="20px" style="display: inline-block; margin-left: 5px;">
                 </a>
             </li>
+            <br>
             <br>
             @endforeach
         </ul>
@@ -46,9 +47,7 @@
         @endif
         
         <div class="Paginazione">{{ $aziende->links('pagination.paginator') }}</div>
-            <div class="Bottone_aggiungi" style="">
-                <a href='{{ route('aggiungiAzienda')}}'>Aggiungi azienda</a>
-            </div>
+        <a class="Bottone_aggiungi" href='{{ route('aggiungiAzienda')}}'>Aggiungi azienda</a>
         
         <br>
         <br>

@@ -25,13 +25,12 @@
         @foreach($operatori as $operatore)
                 <li><a href="{{ route('operatore', [$operatore->id]) }}">Operatore: {{ $operatore ->NomeUtente }}</a></li> 
                 <!-- passa il valore NoomeUtente alla funzione indicata nella route nominata operatore -->
+                <br>
         @endforeach
     </ul>
     @endisset
     <div class="Paginazione">{{ $operatori->links('pagination.paginator') }}</div>
-    <div class="Bottone_aggiungi">
-        <a href="{{ route('aggiungioperatore') }}">Aggiungi operatore</a>
-    </div>
+    <a class="Bottone_aggiungi" href="{{ route('aggiungioperatore') }}">Aggiungi operatore</a>
     <br>
     <br> 
 @endsection

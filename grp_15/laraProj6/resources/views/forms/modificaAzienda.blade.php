@@ -11,17 +11,18 @@
         <div class="GestioneClienti">
             @include('layouts._backButton')
             <div>
-             <h1>Modifica Azienda</h1>
+             <h1>MODIFICA AZIENDA</h1>
             </div>
             <div>
-                <form action="{{ route('modificaAzienda2',['aziende' => $azienda->id]) }}" method="POST">
+                <form action="{{ route('modificaAzienda2',['aziende' => $azienda->id]) }}" method="POST" class="Form_modifica">
                     @csrf
                     @method('PUT')
                     <label for="nome">Nome:</label> 
                     <input  id="nome" name="nome" value="{{$azienda->Nome}}" type="text"><br>
                     @error('nome')
-                        {{$message}}
+                    <p style="color:red">{{$message}}<p>
                     @enderror
+                    <br>
                     <label for="tipologia">Tipologia:</label>
                     <select id="tipologia" name="tipologia">
                         <option value="srl" {{ $azienda->Tipologia === 'srl' ? 'selected' : '' }}>SRL</option>
@@ -32,34 +33,33 @@
                         <option value="start_up" {{ $azienda->Tipologia === 'start_up' ? 'selected' : '' }}>Start-Up</option>
                     </select>
                     @error('tipologia')
-                    {{$message}}
+                    <p style="color:red">{{$message}}<p>
                 @enderror
                     <br>
-                    
+                    <br>
                     <label for="localizzazione">Localizzazione:</label>
                     <input type="text" id="localizzazione" name="localizzazione" value="{{$azienda->Localizzazione}}"><br>
 
                     @error('localizzazione')
-                    {{$message}}
+                    <p style="color:red">{{$message}}<p>
                 @enderror
+                <br>
                     <label for="ragioneSociale">Ragione Sociale:</label>
                     <input type="text" id="ragioneSociale" value="{{$azienda->RagioneSociale}}" name="ragioneSociale"><br>
                     @error('ragioneSociale')
-                    {{$message}}
+                    <p style="color:red">{{$message}}<p>
                 @enderror
+                <br>
                 <label for="descrizione">Descrizione:</label>
                 <textarea id="descrizione" name="descrizione">{{$azienda->Descrizione}}</textarea><br>
                 
                     @error('descrizione')
-                    {{$message}}
+                    <p style="color:red">{{$message}}<p>
                 @enderror
-                <input type="submit" value="Salva">
+                <br>
+                <input type="submit" value="Salva" class="Bottone_salva">
                     </form>
             </div>
-            
-           
-
-           
                      <br>
                      <br>
         </div>

@@ -25,7 +25,7 @@ class Utente3Controller extends Controller
 
     public function showOperatori()
     {
-        $op=Utente::where('Livello','2')->paginate(10);
+        $op=Utente::where('Livello','2')->paginate(5);
         return view('gestioneOperatori',['operatori'=>$op ]);
     }
     public function showStats()
@@ -36,7 +36,7 @@ class Utente3Controller extends Controller
     }
     public function showClienti()
     {
-        $cl=Utente::where('Livello','1')->paginate(10);
+        $cl=Utente::where('Livello','1')->paginate(5);
         return view('gestioneClienti',['clienti'=>$cl]);
     }
     public function showPromozioni()
@@ -319,11 +319,12 @@ class Utente3Controller extends Controller
             'NomePromo.string' => 'Il Nome promozione deve essere una stringa',
             'NomePromo.max' => 'Il Nome promozione supera i 255 caratteri',
             'Azienda.exists'=>'Un\' Azienda deve esistere nel database',
-            'DescrizioneSconto.required' => 'ls descrizione sconto è obbligatoria',
-            'DescrizioneSconto.string' => 'Non hai inserito la descrizione sconto nel formato tradzionale',
-            'DescrizioneSconto.max' => 'la descrizione sconto supera i 255 caratteri',
-            'PercentualeSconto.double' => 'La percentuale sconto deve essere un float',
-            'Scadenza.required' => 'La scadenza è obbligatoria',
+            'Azienda.required'=>'L\'Azienda è obbligatoria',
+            'DescrizioneSconto.required' => 'La Descrizione sconto è obbligatoria',
+            'DescrizioneSconto.string' => 'Non hai inserito la Descrizione sconto nel formato tradzionale',
+            'DescrizioneSconto.max' => 'La Descrizione sconto supera i 255 caratteri',
+            'PercentualeSconto.double' => 'La Percentuale sconto deve essere un float',
+            'Scadenza.required' => 'La Scadenza è obbligatoria',
         ];
         $validator = Validator::make($request->all(),$attributi,$messaggi);
     
@@ -370,11 +371,12 @@ class Utente3Controller extends Controller
             'NomePromo.string' => 'Il Nome promozione deve essere una stringa',
             'NomePromo.max' => 'Il Nome promozione supera i 255 caratteri',
             'Azienda.exists'=>'Un\' Azienda deve esistere nel database',
-            'DescrizioneSconto.required' => 'ls descrizione sconto è obbligatoria',
-            'DescrizioneSconto.string' => 'Non hai inserito la descrizione sconto nel formato tradzionale',
-            'DescrizioneSconto.max' => 'la descrizione sconto supera i 255 caratteri',
-            'PercentualeSconto.double' => 'La percentuale sconto deve essere un float',
-            'Scadenza.required' => 'La scadenza è obbligatoria',
+            'Azienda.required'=>'L\'Azienda è obbligatoria',
+            'DescrizioneSconto.required' => 'La Descrizione sconto è obbligatoria',
+            'DescrizioneSconto.string' => 'Non hai inserito la Descrizione sconto nel formato tradzionale',
+            'DescrizioneSconto.max' => 'La Descrizione sconto supera i 255 caratteri',
+            'PercentualeSconto.double' => 'La Percentuale sconto deve essere un float',
+            'Scadenza.required' => 'La Scadenza è obbligatoria',
         ];
         $validator = Validator::make($request->all(),$attributi,$messaggi);
     
