@@ -4,12 +4,16 @@
 @section('title','home')
 @section('content')
 <script src="{{ asset('js/functions.js') }}"></script>
+
 <form class="CercaUtenti-form"  action={{ route('showRisultatiPromo') }} method='POST'>
   @csrf
+  <a class="Ricerca_avanzata" href="{{ route('ricercaavanzata')}}">Ricerca avanzata</a>
   <input type="text" placeholder="Cerca tra le aziende" name='CercaPromo-az' class="CercaUtenti-input">
   <input type="text" placeholder="Cerca nella descrizione" name='CercaPromo-descr' class="CercaUtenti-input">
   <button type="submit" class="CercaUtenti-bottone">Cerca</button>
 </form>
+
+
 @if(session('err'))
   <div id="error-message">{{ session('err') }}</div>
   <script>
@@ -25,8 +29,7 @@
   perchè con il metodo with la variabile di sessione è disponibile solo nella richiesta successiva alla redirect.
   Dunque usiamo session('') per avere subito il valore di err.
 REMIND: una sessione è un metodo per salvare dati specifici dell'utente durante la navigazione.
-Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con il logout ad esempio, o chiudendo il browser.  --> 
-         
+Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con il logout ad esempio, o chiudendo il browser.  -->    
 <h2>Promozioni</h2>
   <div class="contenitoreHome">
     @foreach($aziende as $azienda)

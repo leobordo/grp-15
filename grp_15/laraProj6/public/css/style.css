@@ -767,6 +767,35 @@ align-items: center;
   width: 100%;
   padding: 10px;
   border-top: 2px solid ;
-  
-  
 }
+.no-font {
+  font-family: none;
+}
+
+.Messaggio_promo{
+  /* classe per il messaggio di non autorizzazione di un operatore in una promo */  
+  color: red;
+    text-decoration: underline;
+    
+}
+.Ricerca_avanzata
+  {
+    text-align: right;
+    margin-left: 5px;
+    margin-right: 20px;
+    font-size: 13.33px;
+    font-family: Arial;
+    float: right;
+    position: sticky;
+    text-decoration: none;
+    bottom: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 10px;
+    
+  }
+  .Ricerca_avanzata:hover{
+    background-color:#3e3e3e;
+    color:  rgb(0, 0, 0) ;
+  }
