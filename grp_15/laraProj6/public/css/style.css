@@ -469,9 +469,9 @@
   margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  height: 200px;
+  height: 400px;
   }
-.footer p{
+.footer p,h3{
   color: #d9d9d9;
   text-align: center;
 }
@@ -769,4 +769,8 @@ align-items: center;
   border-top: 2px solid ;
   
   
+}
+
+.navbarElement li a {
+  font-size: 1.4em; /* Ingrossa il testo del link nei tag <li> */
 }

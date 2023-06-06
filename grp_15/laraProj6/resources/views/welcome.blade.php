@@ -60,6 +60,7 @@ Con with non cambiamo sessione, nemmeno con la redirect. Si cambia sessione con 
               @if($promozione->hasPercentuale())
                 <p>Sconti del {{$promozione->PercentualeSconto}}%</p>
               @endif
+              <h5>scade il: {{ $promozione->Scadenza }}</h5>
               
               </div>
             </a>

@@ -1,10 +1,12 @@
-<ul>   
+<link rel="stylesheet" type="text/css" href="style.css">
+<ul class="navbarElement">   
     <li>
       <div class="homeButton">
-        <img class="icona"src="images\Icona web.svg" alt="logo" width="100" >
+        
+        <img class="icona"src="images\Icona web.svg" alt="logo" width="50" >
       </div>
     </li>
-  
+    
     
     
     <li><a href="{{ route('home') }}" title="Home">Home</a></li>
@@ -29,14 +31,14 @@
       @endif
       
       <li><a href="" title="Esci dall'account" class="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="display:flex; position: absolute; top: 0; right: 0; margin-top: 10px; margin-right:5px">Logout</a></li>
-      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none; ">
           {{ csrf_field() }}
       </form>
     @endauth 
   
     @guest
-      <li><a href="{{ route('register') }}" title="Iscriviti se non lo hai fatto" style="display:flex; position: absolute; top: 0; right: 0; margin-top: 10px; margin-right:5px">Iscriviti</a></li>
-      <li><a href="{{ route('login') }}" title="Accedi al tuo account" style="display:flex; position: absolute; top: 0; right: 90px; margin-top: 10px; margin-right:5px">Accedi</a></li>
+      <li><a href="{{ route('register') }}" title="Iscriviti se non lo hai fatto" style="display:flex; margin-left: 900px ">Iscriviti</a></li>
+      <li><a href="{{ route('login') }}" title="Accedi al tuo account" style="display:flex;">Accedi</a></li>
     @endguest
   </ul>
   
