@@ -100,6 +100,10 @@ Route::resource('aziende',AziendeController::class)
                 'update' => 'modificaAzienda2',
                 'destroy' => 'eliminaAzienda'
         ]);
+Route::get('/assegnaAziende/{oper}',[Utente3Controller::class, 'assegnaAziende'])
+        ->name('assegnaaziende');
+Route::post('/assegnaAziende/{oper}/redirecting',[Utente3Controller::class, 'assegnaAziende2'])
+        ->name('assegnaaziende2');
 });
 
 Route::get('/',[PublicController::class, 'showHome'])

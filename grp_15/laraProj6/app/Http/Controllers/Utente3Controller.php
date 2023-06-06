@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Assegnazione;
 use App\Models\Azienda;
 use App\Models\Catalog;
 use App\Models\UtenteLivello1;
@@ -295,6 +296,13 @@ class Utente3Controller extends Controller
     public function modificaPromozione($chiave)
     {
         $record = Promozione::where('id', $chiave)->firstOrFail();; // Recupera il record dal database
+        if(!( !(Assegnazione::where('Operatore', auth()->user()->id)->exists()) || 
+        Assegnazione::where('Operatore', auth()->user()->id)->where('Azienda',$record->Azienda)->exists()))
+        {
+            $redirectUrl='/';
+            $message='Accesso negato. Verrai reindirizzato alla home tra 5 secondi...';
+            return response(View::make('errors.Error403', compact('redirectUrl', 'message')));
+        }
         
     // Passa il record alla view utilizzando il metodo with
     return view('forms.modificaPromozione')
@@ -429,4 +437,34 @@ class Utente3Controller extends Controller
         return redirect('/listaPromozioni');
     ;
 } 
+    public function assegnaAziende($oper){
+        
+        $exists=Assegnazione::where('operatore',$oper)->exists();
+        if($exists){
+            return view('forms.assegnaAz_mod')->with('oper',$oper);
+        }
+        else return view('forms.assegnaAz')->with('oper',$oper);
+    }
+    public function assegnaAziende2($oper){
+        $operatore=Utente::where('id',$oper)->firstOrFail();
+        
+        foreach(Azienda::all() as $az)
+        {
+            $az_val=request('Nome_azienda'.$az->id);
+            if($az_val!=null){
+                if(!Assegnazione::where('Azienda',$az->id)->where('Operatore',$operatore->id)->exists())
+                {$assegn=new Assegnazione();
+                $assegn->Operatore=$operatore->id;
+                $assegn->Azienda=$az->id;
+                $assegn->save();
+                }
+            }
+            else {
+                Assegnazione::where('Azienda',$az->id)->where('Operatore',$operatore->id)->delete();
+            }
+        }
+        return redirect('/');
+    }
+    
+
 }

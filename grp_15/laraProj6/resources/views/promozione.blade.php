@@ -36,7 +36,7 @@
             </p>
             <br>
             @endif
-            
+
         <p>Data di scadenza:</p>
         <p class="dato-specifico" style="font-size: x-large">
             {{$promozione->Scadenza}}
@@ -52,16 +52,25 @@
         @else <div class="Coupon_generato"><a href="{{route('iMieiCoupon')}}">Hai già generato un coupon per questa promo</a></div>
         @endif
         @endif
-        @if(Gate::allows('isOperatore',auth()->user()))
+        @if(Gate::allows('isOperatore',auth()->user()) && ( !(\App\Models\Assegnazione::where('Operatore', auth()->user()->id)->exists()) || 
+         \App\Models\Assegnazione::where('Operatore', auth()->user()->id)->where('Azienda',$promozione->Azienda)->exists()))
         <div class="Bottone_elimina">
             <a href="{{ route('deletepromo' ,[$promozione->id]) }}" onclick="return confermaEliminazionePr()">Elimina promozione</a>
         </div>
-        
-        @if(strtotime($promozione->Scadenza) >= strtotime(date('Y-m-d')))
-        <div class="Bottone_edit">
-            <a href="{{ route('modificapromo', [$promozione->id]) }}">Modifica promozione</a>
-        </div>
-        @endif
+            @if(strtotime($promozione->Scadenza) >= strtotime(date('Y-m-d')))
+            
+            <div class="Bottone_edit">
+                <a href="{{ route('modificapromo', [$promozione->id]) }}">Modifica promozione</a>
+            </div>
+            @else
+                @if((Gate::allows('isOperatore',auth()->user())))
+                <div class="Coupon_generato" style="color: red">La promo è scaduta non puoi modificarla</div>
+                @endif
+            @endif
+        @else
+            @if((Gate::allows('isOperatore',auth()->user())))
+            <div class="Coupon_generato" style="color: red">Non hai l'autorizzazione a modificare la promozione</div>
+            @endif
         @endif
         @endisset
         <br>

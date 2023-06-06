@@ -31,6 +31,9 @@
 <div class="Bottone_elimina">
     <a href="{{ route('deleteoperatore' ,[$Operatoree->id]) }}" onclick=" return confermaEliminazioneOp()">Elimina operatore</a>
 </div>
+<div class="Bottone_aziende">
+    <a href="{{ route('assegnaaziende', [$Operatoree->id]) }}">Assegna aziende</a>
+</div>
 <div class="Bottone_edit">
     <a href="{{ route('modificaoperatore', [$Operatoree->id]) }}">Modifica operatore</a>
 </div>

@@ -34,7 +34,11 @@ $(function () {
         {{ Form::text('NomePromo','')}} <!-- il primo param è il nome per associare il label(come for in html), il seconod param è il placeholder -->
 
         {{ Form::label('Azienda','Azienda')}}
-        {{ Form::select('Azienda', \App\Models\Azienda::pluck('Nome','id'), null, ['placeholder'=>'Seleziona un\' azienda'])}}
+        {{ Form::select('Azienda', \App\Models\Azienda::whereIn('id', function ($query) {
+            $query->select('Azienda')
+                ->from('Assegnazione')
+                ->where('Operatore', auth()->user()->id);
+        })->pluck('Nome', 'id'),null, ['placeholder'=>'Seleziona un\' azienda'])}}
 
         {{ Form::label('DescrizioneSconto','DescrizioneSconto')}}
         {{ Form::textarea('DescrizioneSconto','')}}

@@ -329,6 +329,25 @@
     border: 2px solid black;
     
   }
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  
+  .checkbox-input {
+    margin-right: 5px;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  
  
 .Bottone_elimina{
   text-align: left;
@@ -370,6 +389,25 @@
   color: rgb(0, 0, 0);
   padding: 10px;
   border-radius: 10px;
+}
+.Bottone_aziende{
+  text-align: center;
+  margin-top: 5px;
+  float: right;
+  position: sticky;
+  bottom: 20px;
+  border: 2px solid rgb(13, 0, 255);
+  color: rgb(13, 0, 255);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_aziende:hover{
+  background-color:#585eff;
+  color:  rgb(13, 0, 255) ;
+}
+.Bottone_aziende a{
+  text-decoration: none;
+  color:inherit;
 }
 .pulsanteAltrePromo{
   text-align: center;

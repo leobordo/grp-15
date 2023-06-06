@@ -1,30 +1,6 @@
 @extends('layouts.gestione')
 
 @section('title', 'Aggiungi Operatore')
-
-<!-- @@section('scripts')
-
-@@parent
-<script src="{ asset('js/functions.js') }}" ></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-$(function () {
-    var actionUrl = " { route('newproduct.store') }}";
-    var formId = 'addproduct';
-    $(":input").on('blur', function (event) {
-        var formElementId = $(this).attr('id');
-        doElemValidation(formElementId, actionUrl, formId);
-    });
-    $("#addproduct").on('submit', function (event) {
-        event.preventDefault();
-        doFormValidation(actionUrl, formId);
-    });
-});
-</script>
-
-@@endsection
--->
 @section('content')
     
 <h1>AGGIUNGI OPERATORE</h1>
@@ -45,7 +21,7 @@ $(function () {
         {{ Form::text('Telefono','')}}
 
         {{ Form::label('Genere', 'Genere') }}
-        {{ Form::select('Genere',['Maschio' => 'Maschio', 'Femmina' => 'Femmina', 'Altro' => 'Altro'], '') }}
+        {{ Form::select('Genere',['Maschio' => 'Maschio', 'Femmina' => 'Femmina', 'Altro' => 'Altro'], '') }}       
 
         {{ Form::label('NomeUtente','Nome utente')}}
         {{ Form::text('NomeUtente','')}}
@@ -64,7 +40,6 @@ $(function () {
         </ul>
     </div>
 @endif
-
 
         {{ Form::submit('Salva Operatore', ['class' => 'Bottone_salva_2']) }}
         {{Form::close()}}

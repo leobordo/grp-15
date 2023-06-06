@@ -2,29 +2,6 @@
 
 @section('title', 'Modifica Operatore')
 
-<!-- @@section('scripts')
-
-@@parent
-<script src="{ asset('js/functions.js') }}" ></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-$(function () {
-    var actionUrl = " { route('newproduct.store') }}";
-    var formId = 'addproduct';
-    $(":input").on('blur', function (event) {
-        var formElementId = $(this).attr('id');
-        doElemValidation(formElementId, actionUrl, formId);
-    });
-    $("#addproduct").on('submit', function (event) {
-        event.preventDefault();
-        doFormValidation(actionUrl, formId);
-    });
-});
-</script>
-
-@@endsection
--->
 @section('content')
 @include('layouts._backButton')   
     <div>
