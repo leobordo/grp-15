@@ -125,6 +125,8 @@ Route::get('/Promozioni/{chiave}', [Utente3Controller::class, 'getPromozione'])
 
 Route::get('/aziendaPublic/{chiave}', [PublicController::class, 'getAziendaPublic'])
         ->name('azienda2');  
+Route::get('/cerca', [PublicController::class, 'showRicercaAvanzata'])
+        ->name('ricercaavanzata'); 
 
         /*ROTTE BREEZE
 Route::get('/', function () {

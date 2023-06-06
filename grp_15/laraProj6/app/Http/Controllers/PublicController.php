@@ -63,7 +63,7 @@ public function getPromozionePublic($chiave){
             return response(View::make('errors.Error403', compact('redirectUrl', 'message')));
     }
 }
-public function showRisultatiPromo(Request $request)
+/*public function showRisultatiPromo(Request $request)
 {
     if(auth()->check() && auth()->user()->Livello==2) {
         $currentDate = new DateTime('0001-01-01');}
@@ -84,13 +84,13 @@ public function showRisultatiPromo(Request $request)
     else $az_id=$az->id;
      
      
-    /*SPIEGAZIONE whereRaw:
+    SPIEGAZIONE whereRaw:
     *whereRaw permette di creare una query SQL scrivendola manualmente, a discapito ovviamente della sicurezza.
     *CONCAT(' ',DescrizioneSconto,' ') serve ad inserire all'inzio e alla fine degli spazi in modo tale da consentire una valutazione
     *termine per termine corretta. Con REGEXP stiamo chedendo a Sql di valutare ogni termine di DescrizioneSconto singolarmente con
     *quello che mettiamo dopo REGEXP. [[:<:]]  questi valori servono a limitare la "regular expression" che REGEXP userà nel confronto.
     *preg_quote($cercato_descr, '/') serve a quotare i caratteri speciali ed evitare che ci siano  problemi nella ricerca di termini con essi
-    */
+    
     // Esegui la query per cercare i dati corrispondenti al testo di ricerca nella tua tabella
     if($cercato_descr==null){ 
         $cercato_descr='%';
@@ -118,7 +118,79 @@ public function showRisultatiPromo(Request $request)
     
     if(count($results)!=0) return view('risultati_ricerca_promozioni', ['results' => $results]);
     else return redirect('/')->with('err', 'Nessun risultato!');
+}*/
+public function showRisultatiPromo(Request $request)
+{
+    if ($request->ajax()) {
+        $currentDate = new DateTime('0001-01-01');
+        $az_input = $request->input('CercaPromo-az');
+        $az = Azienda::where('Nome', $az_input)->first();
+        $cercato_descr = $request->input('CercaPromo-descr');
+
+        if ($cercato_descr == null && $az_input == null) {
+            return view('partials.risultati_ricerca_promozioni', ['results' => []])->with('err', 'Nessun risultato!');
+        }
+
+        if ($az_input == null) {
+            $az_id = '%';
+        } elseif ($az == null) {
+            return view('partials.risultati_ricerca_promozioni', ['results' => []])->with('err', 'Nessun risultato!');
+        } else {
+            $az_id = $az->id;
+        }
+
+        if ($cercato_descr == null) {
+            $cercato_descr = '%';
+        }
+
+        $results = DB::table('promozioni')
+            ->where('Azienda', 'LIKE', $az_id)
+            ->where('DescrizioneSconto', 'LIKE', $cercato_descr)
+            ->where('Scadenza', '>=', $currentDate)
+            ->get();
+
+        if (count($results) != 0) {
+            return view('partials.risultati_ricerca_promozioni', ['results' => $results])->render();
+        } else {
+            return view('partials.risultati_ricerca_promozioni', ['results' => []])->with('err', 'Nessun risultato!')->render();
+        }
+    } else {
+        $currentDate = new DateTime('0001-01-01');
+        $az_input = $request->input('CercaPromo-az');
+        $az = Azienda::where('Nome', $az_input)->first();
+        $cercato_descr = $request->input('CercaPromo-descr');
+
+        if ($cercato_descr == null && $az_input == null) {
+            return redirect('/')->with('err', 'Nessun risultato!');
+        }
+
+        if ($az_input == null) {
+            $az_id = '%';
+        } elseif ($az == null) {
+            return redirect('/')->with('err', 'Nessun Risultato! Se inserisci un\'azienda, questa deve essere registrata');
+        } else {
+            $az_id = $az->id;
+        }
+
+        if ($cercato_descr == null) {
+            $cercato_descr = '%';
+        }
+
+        $results = DB::table('promozioni')
+            ->where('Azienda', 'LIKE', $az_id)
+            ->where('DescrizioneSconto', 'LIKE', $cercato_descr)
+            ->where('Scadenza', '>=', $currentDate)
+            ->get();
+
+        if (count($results) != 0) {
+            return view('risultati_ricerca_promozioni', ['results' => $results]);
+        } else {
+            return redirect('/')->with('err', 'Nessun risultato!');
+        }
+    }
 }
+
+
 
 public function showRisultatiOp(Request $request)
 {
@@ -155,7 +227,10 @@ public function getAziendaPublic($chiave)
     
     return view('azienda', ['azienda'=>$az]);
 }
-
+public function showRicercaAvanzata()
+{
+    return view('risultati_ricerca_promozioni');
+}
 
     
 }

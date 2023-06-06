@@ -41,7 +41,7 @@ $(function () {
         {{ Form::select('Azienda', \App\Models\Azienda::pluck('Nome','id', (\App\Models\Azienda::where('id',$record->Azienda)->first())->Nome))}}
         
         {{ Form::label('DescrizioneSconto','DescrizioneSconto')}}
-        {{ Form::text('DescrizioneSconto',$record->DescrizioneSconto)}}
+        {{ Form::textarea('DescrizioneSconto',$record->DescrizioneSconto)}}
 
         {{ Form::label('Tipologia','Tipologia')}}
         {{ Form::select('Tipologia',['Sconto'=>'Sconto','2X1'=>'2X1','3X1'=>'3X1','3X2'=>'3X2','4X2'=>'4X2','4X3'=>'4X3'], $record->Tipologia)}}
