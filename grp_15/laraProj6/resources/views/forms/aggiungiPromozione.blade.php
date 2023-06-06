@@ -39,6 +39,9 @@ $(function () {
         {{ Form::label('DescrizioneSconto','DescrizioneSconto')}}
         {{ Form::textarea('DescrizioneSconto','')}}
 
+        {{ Form::label('Tipologia','Tipologia')}}
+        {{ Form::select('Tipologia',['Sconto'=>'Sconto','2X1'=>'2X1','3X1'=>'3X1','3X2'=>'3X2','4X2'=>'4X2','4X3'=>'4X3'], null, ['placeholder'=>'Seleziona una tipologia'])}}
+
         {{ Form::label('PercentualeSconto','PercentualeSconto')}}
         {{ Form::text('PercentualeSconto','')}}
         

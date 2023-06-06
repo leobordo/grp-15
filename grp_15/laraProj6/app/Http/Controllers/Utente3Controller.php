@@ -7,6 +7,7 @@ use App\Models\Catalog;
 use App\Models\UtenteLivello1;
 use App\Models\Utente;
 use App\Models\Promozione;
+use App\Rules\NullableIfRule;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Log;
@@ -312,7 +313,14 @@ class Utente3Controller extends Controller
                 Rule::exists('azienda', 'id'),
             ],
             'DescrizioneSconto' => 'required|string|max:255',
-            'PercentualeSconto' => 'nullable|numeric',
+            'Tipologia'=>'required',
+            'PercentualeSconto' => ['nullable',
+            'numeric',
+            'required_if:Tipologia,Sconto',
+            'min:0',
+            'max:100',
+            new NullableIfRule('Tipologia',['Sconto', null]),
+        ],
             'Scadenza' => 'required|date|date_format:Y-m-d'
         ];
         $messaggi=[
@@ -324,7 +332,11 @@ class Utente3Controller extends Controller
             'DescrizioneSconto.required' => 'La Descrizione sconto è obbligatoria',
             'DescrizioneSconto.string' => 'Non hai inserito la Descrizione sconto nel formato tradzionale',
             'DescrizioneSconto.max' => 'La Descrizione sconto supera i 255 caratteri',
-            'PercentualeSconto.double' => 'La Percentuale sconto deve essere un float',
+            'Tipologia.required'=>'Devi indicare una Tipologia di promozione',
+            'PercentualeSconto.numeric' => 'La Percentuale sconto deve essere un numero tra 0 e 100',
+            'PercentualeSconto.min' => 'La Percentuale sconto deve essere un numero tra 0 e 100',
+            'PercentualeSconto.max' => 'La Percentuale sconto deve essere un numero tra 0 e 100',
+            'PercentualeSconto.required_if' => 'La Percentuale sconto è obbligatoria con Tipologia:Sconto',
             'Scadenza.required' => 'La Scadenza è obbligatoria',
             'Scadenza.date_format'=>'La Scadenza deve avere il seguente formato dd-mm-yyyy'
         ];
@@ -336,11 +348,13 @@ class Utente3Controller extends Controller
         $nomePro=request('NomePromo');
         $azi=request('Azienda');
         $desc=request('DescrizioneSconto');
+        $tip=request('Tipologia');
         $perc=request('PercentualeSconto');
         $scad=request('Scadenza');
         $promo->NomePromo = $nomePro;
         $promo->Azienda = $azi;
         $promo->DescrizioneSconto = $desc;
+        $promo->Tipologia=$tip;
         if($perc!=null) $promo->PercentualeSconto = $perc;
         $promo->Scadenza = $scad;
         $promo->save();
@@ -365,7 +379,14 @@ class Utente3Controller extends Controller
                 Rule::exists('azienda', 'id'),
             ],
             'DescrizioneSconto' => 'required|string|max:255',
-            'PercentualeSconto' => 'nullable|numeric',
+            'Tipologia'=>'required',
+            'PercentualeSconto' => ['nullable',
+            'numeric',
+            'required_if:Tipologia,Sconto',
+            'min:0',
+            'max:100',
+            new NullableIfRule('Tipologia',['Sconto', null]),
+        ],
             'Scadenza' => 'required|date|date_format:Y-m-d'
         ];
         $messaggi=[
@@ -377,7 +398,12 @@ class Utente3Controller extends Controller
             'DescrizioneSconto.required' => 'La Descrizione sconto è obbligatoria',
             'DescrizioneSconto.string' => 'Non hai inserito la Descrizione sconto nel formato tradzionale',
             'DescrizioneSconto.max' => 'La Descrizione sconto supera i 255 caratteri',
-            'PercentualeSconto.double' => 'La Percentuale sconto deve essere un float',
+            'Tipologia.required'=>'Devi indicare una Tipologia di promozione', /*quando il valore del campo "Tipologia" non è "Sconto", la regola 
+                                                                                  di validazione richiederà che il campo in validazione sia null.*/ 
+            'PercentualeSconto.numeric' => 'La Percentuale sconto deve essere un numero tra 0 e 100',
+            'PercentualeSconto.min' => 'La Percentuale sconto deve essere un numero tra 0 e 100',
+            'PercentualeSconto.max' => 'La Percentuale sconto deve essere un numero tra 0 e 100',
+            'PercentualeSconto.required_if' => 'La Percentuale sconto è obbligatoria con Tipologia:Sconto',
             'Scadenza.required' => 'La Scadenza è obbligatoria',
             'Scadenza.date_format'=>'La Scadenza deve avere il seguente formato dd-mm-yyyy'
         ];
@@ -390,11 +416,13 @@ class Utente3Controller extends Controller
         $nomePro=request('NomePromo');
         $azi=request('Azienda');
         $desc=request('DescrizioneSconto');
+        $tip=request('Tipologia');
         $perc=request('PercentualeSconto');
         $scad=request('Scadenza');
         $promozione->NomePromo = $nomePro;
         $promozione->Azienda = $azi;
         $promozione->DescrizioneSconto = $desc;
+        $promozione->Tipologia=$tip;
         if($perc!=null) $promozione->PercentualeSconto = $perc;
         $promozione->Scadenza = $scad;
         $promozione->save();

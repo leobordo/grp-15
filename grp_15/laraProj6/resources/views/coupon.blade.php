@@ -23,6 +23,11 @@
             {{  \App\Models\Promozione::find($coupon->Promozione)->DescrizioneSconto }}
         </h3>
         <br>
+        <p>Tipologia</p>
+        <h3>
+            {{  \App\Models\Promozione::find($coupon->Promozione)->Tipologia }}
+        </h3>
+        <br>
         @if (\App\Models\Promozione::find($coupon->Promozione)->PercentualeSconto>=0)
             <p>Percentuale sconto</p>
             <h3> Sconto del {{  \App\Models\Promozione::find($coupon->Promozione)->PercentualeSconto   }}%</h3>

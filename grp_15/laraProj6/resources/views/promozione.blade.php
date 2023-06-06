@@ -21,13 +21,22 @@
             {{$promozione->DescrizioneSconto}}
         </p>
         <br>
-        <p>Percentuale sconto:</p>
-        <p class="dato-specifico" style="font-size: x-large">
-            @if($promozione->hasPercentuale())
-            {{$promozione->PercentualeSconto}}%
-            @endif
+
+        <p>Tipologia:</p>
+        <p class="dato-specifico" style="font-size: large">
+            {{$promozione->Tipologia}}
         </p>
         <br>
+        
+        
+            @if($promozione->hasPercentuale())
+            <p>Percentuale sconto:</p>
+            <p class="dato-specifico" style="font-size: x-large">
+                {{$promozione->PercentualeSconto}}%
+            </p>
+            <br>
+            @endif
+            
         <p>Data di scadenza:</p>
         <p class="dato-specifico" style="font-size: x-large">
             {{$promozione->Scadenza}}

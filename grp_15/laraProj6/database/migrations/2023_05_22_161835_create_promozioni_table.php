@@ -19,6 +19,7 @@ class CreatePromozioniTable extends Migration
             $table->unsignedBigInteger('Azienda');
             $table->foreign('Azienda')->references('id')->on('azienda')->onDelete('cascade');
             $table->string('DescrizioneSconto');
+            $table->string('Tipologia');
             $table->float('PercentualeSconto')->nullable();
             $table->date('Scadenza');
             $table->string('Immagine')->nullable();
