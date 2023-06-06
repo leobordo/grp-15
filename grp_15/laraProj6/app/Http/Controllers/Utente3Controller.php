@@ -76,6 +76,7 @@ class Utente3Controller extends Controller
     }
     public function getPromozione($chiave)
     {
+        
         $pr=Promozione::where('id', $chiave)->firstOrFail();
         /*
             where è un metodo di Eloquent, cerca l'attributo NomeUtente
@@ -156,6 +157,7 @@ class Utente3Controller extends Controller
          */
      }
     public function showFormOperatore(){
+        dd('ok');
         return view('forms.aggiungiOperatore');
     }
     public function aggiungiOperatore(Request $request)
@@ -312,7 +314,7 @@ class Utente3Controller extends Controller
             ],
             'DescrizioneSconto' => 'required|string|max:255',
             'PercentualeSconto' => 'nullable|numeric',
-            'Scadenza' => 'required|date'
+            'Scadenza' => 'required|date|date_format:Y-m-d'
         ];
         $messaggi=[
             'NomePromo.required' => 'Il Nome promozione è obbligatorio',
@@ -325,6 +327,7 @@ class Utente3Controller extends Controller
             'DescrizioneSconto.max' => 'La Descrizione sconto supera i 255 caratteri',
             'PercentualeSconto.double' => 'La Percentuale sconto deve essere un float',
             'Scadenza.required' => 'La Scadenza è obbligatoria',
+            'Scadenza.date_format'=>'La Scadenza deve avere il seguente formato dd-mm-yyyy'
         ];
         $validator = Validator::make($request->all(),$attributi,$messaggi);
     
@@ -364,7 +367,7 @@ class Utente3Controller extends Controller
             ],
             'DescrizioneSconto' => 'required|string|max:255',
             'PercentualeSconto' => 'nullable|numeric',
-            'Scadenza' => 'required|date'
+            'Scadenza' => 'required|date|date_format:Y-m-d'
         ];
         $messaggi=[
             'NomePromo.required' => 'Il Nome promozione è obbligatorio',
@@ -377,6 +380,7 @@ class Utente3Controller extends Controller
             'DescrizioneSconto.max' => 'La Descrizione sconto supera i 255 caratteri',
             'PercentualeSconto.double' => 'La Percentuale sconto deve essere un float',
             'Scadenza.required' => 'La Scadenza è obbligatoria',
+            'Scadenza.date_format'=>'La Scadenza deve avere il seguente formato dd-mm-yyyy'
         ];
         $validator = Validator::make($request->all(),$attributi,$messaggi);
     
