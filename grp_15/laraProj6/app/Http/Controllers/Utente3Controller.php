@@ -46,7 +46,7 @@ class Utente3Controller extends Controller
     }
     public function getOperatore($chiave)
     {
-        $op=Utente::where('id', $chiave)->first();
+        $op=Utente::where('id', $chiave)->where('Livello', '2')->firstOrFail();
         /*
             where è un metodo di Eloquent, cerca l'attributo NomeUtente
             con il valore di $chiave(vedi gestioneOperatori.blade.php).
@@ -64,7 +64,7 @@ class Utente3Controller extends Controller
     }
     public function getCliente($chiave)
     {
-        $cl=Utente::where('id', $chiave)->firstOrFail();
+        $cl=Utente::where('id', $chiave)->where('Livello','1')->firstOrFail();
         /*
             vedi sopra
         */
@@ -157,7 +157,6 @@ class Utente3Controller extends Controller
          */
      }
     public function showFormOperatore(){
-        dd('ok');
         return view('forms.aggiungiOperatore');
     }
     public function aggiungiOperatore(Request $request)

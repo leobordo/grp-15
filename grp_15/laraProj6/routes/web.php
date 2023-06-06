@@ -75,9 +75,9 @@ Route::middleware(['livello:3'])->group(function (){
         ->name('deleteoperatore');
         Route::get('/listaClienti/{chiave}/delete', [Utente3Controller::class, 'deleteCliente'])
         ->name('deletecliente');
-        Route::get('/listaOperatori/aggiungiOperatore',[Utente3Controller::class, 'showFormOperatore'])
+        Route::get('/aggiungiOperatore',[Utente3Controller::class, 'showFormOperatore'])
         ->name('aggiungioperatore');
-        Route::post('/listaOperatori/aggiungiOperatore/redirecting',[Utente3Controller::class, 'aggiungiOperatore'])
+        Route::post('aggiungiOperatore/redirecting',[Utente3Controller::class, 'aggiungiOperatore'])
         ->name('aggiungioperatore2');
         Route::get('/listaOperatori/{chiave}/modificaOperatore',[Utente3Controller::class, 'modificaOperatore'])
         ->name('modificaoperatore');
