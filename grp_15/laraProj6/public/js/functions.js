@@ -101,10 +101,20 @@ function mostraNascondiRisposta(id) {
         }
     }
 function apriPopUpFaq() {
+    var popupAperto = document.getElementById("popupFaqMod");
+    if (popupAperto.style.display == "block")
+    {
+        popupAperto.style.display="none";
+    }
     var popup = document.getElementById("popupFaq");
     popup.style.display = "block";
     }
 function apriPopUpMod(id,arg,dom,risp) {
+    var popupAperto = document.getElementById("popupFaq");
+    if (popupAperto.style.display == "block")
+    {
+        popupAperto.style.display="none";
+    }
         var idMod = id;
         var idArg =arg;
         var idDom= dom;

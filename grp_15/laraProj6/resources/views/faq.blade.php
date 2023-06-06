@@ -6,7 +6,7 @@
 <script src="{{ asset('js/functions.js') }}"></script>
         <div class="ContenitoreFaqCompleto">
             <div class="ContenitoreLegenda">
-                <h1>legenda</h1>
+                <h1>Argomenti</h1>
                 <a href="#">argomento 1</a>
                 <a href="#">argomento 2</a>
                 <a href="#">argomento 3</a>
@@ -20,9 +20,12 @@
                 </div>
                 @auth
                 @if (Gate::allows('isAdmin',auth()->user()))
-                    <button id="btnmodFaq" onclick="apriPopUpMod('{{$faq->id}}','{{$faq->Argomento}}','{{$faq->Domanda}}','{{$faq->Risposta}}')">modifica FAQ</button>
+                    <div>
+                        <button class="Bottone_edit" style=" height: 42px; width:106px"id="btnmodFaq" onclick="apriPopUpMod('{{$faq->id}}','{{$faq->Argomento}}','{{$faq->Domanda}}','{{$faq->Risposta}}')">Modifica FAQ</button>
+                        <a class="Bottone_elimina" style="text-decoration: none;" href="{{ route('eliminafaq', [$faq->id]) }}" >Elimina FAQ</a>
+
+                    </div>
                     
-                    <a href="{{ route('eliminafaq', [$faq->id]) }}" >Elimina FAQ</a>
                     
                 @endif
 
@@ -33,11 +36,11 @@
             </div>
             @auth
                 @if (Gate::allows('isAdmin',auth()->user()))
-                    <button id="btnAggiungiFaq" onclick="apriPopUpFaq()">Aggiungi FAQ</button>
+                    <button id="btnAggiungiFaq" class="Bottone_aggiungi"  onclick="apriPopUpFaq()">Aggiungi FAQ</button>
                 @endif
 
             @endauth
-            <div id="popupFaq" class="popup" style="display: none;">
+            <div id="popupFaq" class="popupFaq" style="display: none;">
                 <h2>Nuova FAQ</h2>
                 <form id="formNuovaFaq" action="{{route('aggiungifaq')}}" method="POST" >
                     @csrf
@@ -51,23 +54,23 @@
                         <label for="inputDomanda">Domanda:</label>
                     </div>
                     <div>
-                        <input type="text" class="inputDomanda" name="inputDomanda"required>
+                        <textarea  maxlength="254"style="resize: none;"  type="text" class="inputDomanda" name="inputDomanda"required></textarea>
                     </div>
                     <div>
                         <label for="inputRisposta">Risposta:</label>
                     </div>
                     <div>
-                        <textarea class="inputRisposta" name="inputRisposta"required></textarea>
+                        <textarea maxlength="254"style="resize: none;"  class="inputRisposta" name="inputRisposta"required></textarea>
                     </div>
                     <div>
-                        <button type="submit">Invia</button>
-                        <button type="reset" onclick="annullaPopUp()">annulla</button>
+                        <button  class="Bottone_aggiungi"type="submit">Invia</button>
+                        <button class="Bottone_edit"type="reset" onclick="annullaPopUp()">annulla</button>
                     </div>
                 </form>
                     
             </div>
 
-            <div id="popupFaqMod" class="popup" style="display: none;" >
+            <div id="popupFaqMod" class="popupFaq"  >
                 <h2>Modifica FAQ</h2>
                 <form id="formModificaFaq" action="{{route('modificafaq')}}">
                     
@@ -87,17 +90,17 @@
                         <label for="inputDomanda"> Domanda:</label>
                     </div>
                     <div>
-                        <input type="text" class="inputDomanda"  value="prova"id="domanda" name="inputDomandaM"required>
+                        <textarea maxlength="254"style="resize: none;" type="text" class="inputDomanda"  value="prova"id="domanda" name="inputDomandaM"required></textarea>
                     </div>
                     <div>
                         <label for="inputRisposta">Risposta:</label>
                     </div>
                     <div>
-                        <input type="text" class="inputRisposta" id="risposta" name="inputRispostaM"required>
+                        <textarea maxlength="254"style="resize: none;" type="text" class="inputRisposta" id="risposta" name="inputRispostaM"required></textarea>
                     </div>
                     <div>
-                        <button type="submit" id="submitMod">InviaMod</button>
-                        <button type="reset" onclick="annullaPopUpMod()">annulla</button>
+                        <button class="Bottone_aggiungi"type="submit" id="submitMod">InviaMod</button>
+                        <button class="Bottone_edit"type="reset" onclick="annullaPopUpMod()">annulla</button>
                     </div>
         
 

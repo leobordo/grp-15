@@ -6,6 +6,7 @@
   margin: 0;
 }
 
+
 .uppersection{
   border: solid 1px;
   display: flex;
@@ -170,6 +171,7 @@
   bottom: 20px;
   border: 2px solid rgb(57, 192, 0);
   color: rgb(57, 192, 0);
+  background-color: #f9f9f9;
   padding: 10px;
   border-radius: 10px;
   text-decoration: none;
@@ -228,7 +230,7 @@
   margin-bottom: 5px;
 }
 
-  .CercaUtenti-input {
+  .CercaUtenti-input{
     padding: 5px;
     font-size: 16px;
     border-radius: 5px;
@@ -240,6 +242,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /*aggiunge l'ombra, ombra con dimensione 10px e trasparenza del 30%*/
    
   }
+
+
   
 
 .CercaUtenti-bottone {
@@ -367,7 +371,19 @@
   padding: 10px;
   border-radius: 10px;
 }
+.pulsanteAltrePromo{
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 150px;
+  
+  bottom: 20px;
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
 
+}
 
 
 .Bottone_edit:hover{
@@ -448,18 +464,30 @@ align-items: center;
 flex-direction: column;
 }
 
+.popupFaq{
+  display: none;
+  width: 25%;
+  margin-right: 20px;
+  margin-left: 20px;
 
+}
 
 
 .ContenitoreFaqCompleto{
 display: flex;
-justify-content: center;
+min-height: 600px;
 align-items: center;
 }
 .ContenitoreLegenda{
 display: flex;
+
 justify-content: center;
+float: left;
+margin-left: 20px;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 align-items: center;
+padding: 20px;
+border-radius: 10px;
 flex-direction: column;
 }
 .ContenitoreFaq {
@@ -472,12 +500,20 @@ height: 500px; /* Imposta l'altezza del contenitore basata sulla dimensione vert
 overflow: auto; /* Aggiungi scorrimento automatico */
 overflow-x: hidden; /* Nasconde la barra di scorrimento orizzontale */
 padding: 20px;
+margin-left: 20px;
+margin-right: 20px;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+
 }
 .domanda {
 text-align: center;
 cursor: pointer;
 font-weight: bold;
-text-decoration: underline;
+transition: 0.2s;
+
+}
+.domanda:hover {
+  transform: scale(1.2);
 }
 
 .ContenitoreProfilo{
@@ -509,16 +545,27 @@ align-items: center;
 }
 .promoHome{
   
-  background-color: #a4a4a4;
+  background-color: #ffffff;
+
   height: 200px;
   width: 450px;
   display: inline-block;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  transition: 0.1s;
   
   margin-bottom: 10px; /* Aggiungi un margine inferiore per separare gli oggetti verticalmente */
   margin-top: 10px; /* Aggiungi un margine inferiore per separare gli oggetti verticalmente */
-  
+ 
+}
+.promoHome:hover{
+  transform: scale(1.1);
+  background-color: #fff1df;
+  box-shadow: 0 0 8px rgba(153, 120, 0, 0.5);
 
-
+}
+.promoHome  a{
+  text-decoration: none;
+  color: #000000;
   
 }
 .conenitoreHome{
@@ -677,4 +724,11 @@ align-items: center;
 }
 .bold-label {
   font-weight: bold;
+}
+.AziendaInHome{
+  width: 100%;
+  padding: 10px;
+  border-top: 2px solid ;
+  
+  
 }
