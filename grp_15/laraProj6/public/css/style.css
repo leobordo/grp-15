@@ -1,3 +1,7 @@
+.icona {
+  border-radius: 50%;
+  overflow: hidden;
+}
 .body {
   margin: 0;
 }

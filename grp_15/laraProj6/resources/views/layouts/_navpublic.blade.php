@@ -1,7 +1,7 @@
 <ul>   
     <li>
       <div class="homeButton">
-        <img src="ImMaGiNe LoGo" alt="logo" width="100" >
+        <img class="icona"src="images\Icona web.svg" alt="logo" width="100" >
       </div>
     </li>
   
