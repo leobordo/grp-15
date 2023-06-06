@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Azienda;
 
 class DatabaseSeeder extends Seeder {
 
@@ -55,9 +56,10 @@ class DatabaseSeeder extends Seeder {
 
         ]);
 
+
         DB::table('promozioni')->insert([
             ['NomePromo' => 'scarpeNike20%', 'Azienda' => '2', 'DescrizioneSconto' => 'Scarpe Nike al 20% di sconto solo per questo mese. Affrettati. Presenta il coupon in cassa per usufruire dello sconto.',
-            'Tipologia' => 'Sconto', 'PercentualeSconto' => '20.00', 'Scadenza' => '2023-06-31', 'Immagine' => NULL, 
+            'Tipologia' => 'Sconto', 'PercentualeSconto' => '20.00', 'Scadenza' => '2023-06-30', 'Immagine' => NULL, 
             'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")
             ],
 
@@ -66,7 +68,7 @@ class DatabaseSeeder extends Seeder {
             'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")
             ],
 
-            ['NomePromo' => 'JordaNBAFinals', 'Azienda' => '1', 'DescrizioneSconto' => 'Sconto del 25% su tutte le canotte NBA in vista delle finali NBA che stanno per iniziare. Offerta valida fino a pochi giorni dopo le NBA finals. Per usufruire del coupon inserire il codice coupon durante il pagamento nella sezione INSERISCI COUPON. Usufruibile solo sul sito https://www.nike.com/jordan',
+            ['NomePromo' => 'JordaNBAFinals', 'Azienda' => '1', 'DescrizioneSconto' => 'Sconto del 25% su tutte le canotte NBA valida fino a fine NBA finals. Per usufruire del coupon inserire il codice coupon durante il pagamento nella sezione INSERISCI COUPON. Usufruibile solo sul sito https://www.nike.com/jordan',
             'Tipologia' => 'Sconto', 'PercentualeSconto' => '25.00', 'Scadenza' => '2023-06-22', 'Immagine' => NULL, 
             'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")
             ],
