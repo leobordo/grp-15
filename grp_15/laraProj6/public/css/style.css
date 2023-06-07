@@ -774,3 +774,56 @@ align-items: center;
 .navbarElement li a {
   font-size: 1.4em; /* Ingrossa il testo del link nei tag <li> */
 }
+.GestioneOpAz
+{
+    text-align: left;
+    margin:0 auto;
+    width: -moz-fit-content; /*per firefox*/
+    width: fit-content;
+    height: 350px;
+    padding-inline-start: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.Ricerca_avanzata
+  {
+    text-align: right;
+    margin-left: 5px;
+    margin-right: 20px;
+    font-size: 13.33px;
+    font-family: Arial;
+    float: right;
+    position: sticky;
+    text-decoration: none;
+    bottom: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 10px;
+    
+  }
+ .Ricerca_avanzata:hover{
+    background-color:#3e3e3e;
+    color:  rgb(0, 0, 0) ;
+  }
+  #ui-id-1 {
+    /* Regole di formattazione della lista di suggerimenti */
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px;
+    list-style: none;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  
+  #ui-id-1 li {
+    /* Regole di formattazione per ogni suggerimento */
+    padding: 5px;
+  }
+  #ui-id-1 li:hover {
+    /* Regole di formattazione per il suggerimento al passaggio del mouse */
+    background-color: #e0e0e0;
+  }
