@@ -3,7 +3,7 @@
     <li>
       <div class="homeButton">
         
-        <img class="icona"src="images\Icona web.svg" alt="logo" width="50" >
+        <img class="icona"src="..\images\Icona web.svg" alt="logo" width="50" >
       </div>
     </li>
     
