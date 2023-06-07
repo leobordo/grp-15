@@ -1,7 +1,7 @@
 @if ($paginator->lastPage() != 1)
-<div id="pagination" style="display: inline-block">
-    
-    <div>
+<div id="pagination" style="display: inline-block; width:100%">
+
+    <div style="display: inline-block; margin-inline-start:0">
     <!-- Link alla prima pagina -->
     @if (!$paginator->onFirstPage())
         <a href="{{ $paginator->url(1) }}">Inizio</a> |
@@ -11,16 +11,17 @@
 
     <!-- Link alla pagina precedente -->
     @if ($paginator->currentPage() != 1)
-        <a href="{{ $paginator->previousPageUrl() }}">&lt; Precedente</a> |
+        <a href="{{ $paginator->previousPageUrl() }}"><img src="./images/freccia_sinistra.png" height="30px" width="30px"></img> </a> |
     @else
-        &lt; Precedente |
+    <img src="./images/freccia_sinistra.png" height="30px" width="30px"></img>  |
     @endif
-
+    </div>
+    <div style="margin-inline-end:0">
     <!-- Link alla pagina successiva -->
     @if ($paginator->hasMorePages())
-        <a href="{{ $paginator->nextPageUrl() }}">Successivo &gt;</a> |
+        <a href="{{ $paginator->nextPageUrl() }}"><img src="./images/freccia_destra.png" height="30px" width="30px"></img></a> |
     @else
-        Successivo &gt; |
+    <img src="./images/freccia_destra.png" height="30px" width="30px"></img> |
     @endif
 
     <!-- Link all'ultima pagina -->
@@ -33,6 +34,7 @@
     <div>
     {{ $paginator->firstItem() }} - {{ $paginator->lastItem() }} di {{ $paginator->total() }}
     </div>
+</div>
 </div>
 @endif
 @php

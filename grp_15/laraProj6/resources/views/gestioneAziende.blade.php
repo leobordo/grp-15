@@ -30,7 +30,7 @@
             <h1>LISTA AZIENDE</h1>
            <div>
             @if (count($aziende) > 0)
-            <ul>   
+            <ul class="GestioneOpAz">   
             @foreach ($aziende as $azienda)
             <li>
                 <a href="{{route('showAzienda', ['aziende'=> $azienda['id']]) }}" style="float: left;">
@@ -40,16 +40,13 @@
                 </a>
             </li>
             <br>
-            <br>
             @endforeach
         </ul>
         @else 
         <p>non ci sono aziende per mostrare</p>
         @endif
-        
-        <div class="Paginazione">{{ $aziende->links('pagination.paginator') }}</div>
-        <a class="Bottone_aggiungi" href='{{ route('aggiungiAzienda')}}'>Aggiungi azienda</a>
-        
+        <div class="Paginazione" style="display:inline-block">{{ $aziende->links('pagination.paginator') }}</div>
+        <a class="Bottone_aggiungi" style="display: inline-block" href='{{ route('aggiungiAzienda')}}'>Aggiungi azienda</a>
         <br>
         <br>
         

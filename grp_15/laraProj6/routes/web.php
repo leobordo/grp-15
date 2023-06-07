@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\SuggerimentiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AziendeController;
@@ -127,7 +128,11 @@ Route::get('/aziendaPublic/{chiave}', [PublicController::class, 'getAziendaPubli
         ->name('azienda2');  
 Route::get('/cerca', [PublicController::class, 'showRicercaAvanzata'])
         ->name('ricercaavanzata'); 
-
+///////////////////////////////////////
+Route::get('/suggerimenti',[SuggerimentiController::class, 'getSuggerimentiAz'])
+        ->name('getSuggerimenti')
+        ->middleware('ajax');
+//////////////////////////////////////
         /*ROTTE BREEZE
 Route::get('/', function () {
     return view('welcome');
