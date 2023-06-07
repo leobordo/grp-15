@@ -80,6 +80,29 @@ class DatabaseSeeder extends Seeder {
 
         ]);
 
+        DB::table('faq')->insert([
+            ['Argomento' => '2', 'Domanda' => 'Come posso generare un coupon?', 
+            'Risposta' => 'Basta cliccare su una promozione, e cliccare genera coupon.',
+            'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")
+            ],
+
+            ['Argomento' => '1', 'Domanda' => 'Dove posso contattarvi?', 
+            'Risposta' => 'Puoi contattarci nelle info presenti nella sezione “chi siamo”',
+            'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")
+            ],
+
+            ['Argomento' => '3', 'Domanda' => 'Come posso registrarmi sul sito?', 
+            'Risposta' => 'Clicca su iscriviti in alto a destra e inserisci i dati',
+            'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")
+            ],
+
+            ['Argomento' => '2', 'Domanda' => 'Quanti coupon posso generare?', 
+            'Risposta' => 'Puoi generare un solo coupon per promozione',
+            'created_at' => date("Y-m-d H:i:s"), 'updated_at' => date("Y-m-d H:i:s")
+            ],
+
+        ]);
+
 
     }
 
