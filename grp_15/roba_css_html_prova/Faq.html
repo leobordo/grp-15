@@ -1,91 +1,21 @@
-<!DOCTYPE html>
-<html lang="it">
-    <head title="FAQ">
-        <title>FAQ</title>
-        <link rel="stylesheet" href="style.css">
-        <script>
-            function mostraNascondiRisposta(numero) {
-                
-                var risposta = document.getElementById("risposta"+numero);
-                if (risposta.style.display === "none") {
-                    risposta.style.display = "block";
-                } else {
-                    risposta.style.display = "none";
-                }
-            }
-          </script>
-    </head>
-    <body>
-        <nav class="navbar">
-            <ul>    
-                <li>
-                    <div class="homeButton">
-                        <img src="nikeLogo.png" alt="logo" width="100" >
-                    </div>
-                </li>
-            <li><a href="#"></a></li>
-            <li><a href="#">chi siamo</a></li>
-            <li><a href="#">iscriviti</a></li>
-            <li><a href="#">accedi</a></li>
-            </ul>
-        </nav>
-        <div class="ContenitoreFaqCompleto">
-            <div class="ContenitoreLegenda">
-                <h1>legenda</h1>
-                <a href="#">argomento 1</a>
-                <a href="#">argomento 2</a>
-                <a href="#">argomento 3</a>
-            </div>
-            <div class="ContenitoreFaq">
-                
-                    <div onclick="mostraNascondiRisposta(1)">
-                        <h2 id="domanda1" class="domanda">Domanda 1</h2>
-                        <h3 id="risposta1" class="risposta" style="display: none;"> Risposta 1</h3>
-                    </div>
+<html>
+<head>
+    <title>Chi Siamo - Sito Coupon</title>
+  
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <h1>Chi Siamo</h1>
 
-                    <div onclick="mostraNascondiRisposta(2)">
-                        <h2 id="domanda2" class="domanda" >Domanda 2</h2>
-                        <h3 id="risposta2" class="risposta" style="display: none;">Risposta 2 ma se fosse una risposta molto più lunga della domanda come si vedrebbe? Si ma ancora molto più lunga a tal punto da vedere quando e come andrebbe a capo</h3>
-                    </div>
-
-                    <div onclick="mostraNascondiRisposta(3)">
-                        <h2 id="domanda3" class="domanda">Domanda 3</h2>
-                        <h3 id="risposta3" class="risposta" style="display: none;">Risposta 3</h3>
-                    </div>
-
-                    <div onclick="mostraNascondiRisposta(4)">
-                        <h2 id="domanda4" class="domanda">Domanda 4</h2>
-                        <h3 id="risposta4" class="risposta" style="display: none;">Risposta 4</h3>
-                    </div>
-                    
-                    <div onclick="mostraNascondiRisposta(5)">
-                        <h2 id="domanda5" class="domanda">Domanda 5</h2>
-                        <h3 id="risposta5" class="risposta" style="display: none;">Risposta 5</h3>
-                    </div>
-                    
-                    <div onclick="mostraNascondiRisposta(6)">
-                        <h2 id="domanda6" class="domanda">Domanda 6</h2>
-                        <h3 id="risposta6" class="risposta" style="display: none;">Risposta 6</h3>
-                    </div>
-                    
-                    <div onclick="mostraNascondiRisposta(7)">
-                        <h2 id="domanda7" class="domanda">Domanda 7</h2>
-                        <h3 id="risposta7" class="risposta" style="display: none;">Risposta 7</h3>
-                    </div>
-                    
-                    <div onclick="mostraNascondiRisposta(8)">
-                        <h2 id="domanda8" class="domanda">Domanda 8</h2>
-                        <h3 id="risposta8" class="risposta" style="display: none;">Risposta 8</h3>
-                    </div>
-                </div>
+        <p>Benvenuti nel nostro sito di coupon! Siamo un team appassionato che cerca costantemente offerte e sconti per aiutarti a risparmiare sui tuoi acquisti online e offline. La nostra missione è fornire ai nostri utenti le migliori opportunità di risparmio su una vasta gamma di prodotti e servizi.</p>
+    
+        <div class="contact-info" >
+            <h2>Contattaci</h2>
+            <p>Email: <a href="mailto:mariorossi@gmail.com">mariorossi@gmail.com</a></p>
+            <p>Telefono: 333-3898-976</p>
         </div>
-    <div>
-        <br>
-        <br>
-        <footer class="footer">
-            <p> contatti:</p>
-            <p> numero di telefono: 2194212535</p>
-        </footer>
+
     </div>
-    </body>
+   
+</body>
 </html>
