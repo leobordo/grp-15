@@ -1,0 +1,793 @@
+.icona {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 48px;
+}
+.body {
+  margin: 0;
+}
+
+
+.uppersection{
+  border: solid 1px;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+}
+.search-bar 
+{
+  display: flex;
+ 
+  
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+ 
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.containerCoupon {
+  display: flex;
+  justify-content: center;
+}
+.scrollCoupon{ 
+  width: 80%;
+}
+.scrollCoupon img{
+  width: 80%;
+  display: flex;
+  margin-bottom: 10px; /* Distanza tra le immagini */
+}
+.navbar {
+  background-color: #000000;
+  padding: 10px;
+  
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline-block;
+}
+
+.navbar ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #d9d9d9;
+}
+
+.navbar ul li a:hover {
+  background-color: #3e3e3e;
+}
+.dati {
+  line-height: 10px;
+}
+.dato-specifico {
+  font-weight: bold;
+}
+
+.GestioneClienti {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  min-height: 600px;
+}
+.main-content{
+  min-height: 500px;
+}
+
+/*colora il pallino e la scritta insieme*/
+.GestioneClienti ul{
+  text-align: left;
+  margin:0 auto;
+  width: -moz-fit-content; /*per firefox*/
+  width: fit-content;
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+}
+.GestioneClienti ul li{
+ list-style-type: none;
+ font-size: larger;
+   
+}
+.GestioneClienti ul li a{
+  text-decoration: none;
+  color: #000000 ;
+   
+}
+.GestioneClienti ul li a:hover{
+  text-decoration: none;
+  color: #ff0000 ;
+   
+}
+.GestioneClienti ul li a::before {
+  content: "\2022"; /* Carattere del pallino */
+  color: rgb(0, 0, 0); /* Colore del pallino */
+  display: inline-block;
+  width: 1em; /* Larghezza del pallino */
+  margin-right: 5px; /* Margine a destra del pallino */
+}
+.GestioneClienti ul li a:hover::before {
+  content: "\2022"; /* Carattere del pallino */
+  color: red; /* Colore del pallino al passaggio del mouse */
+  display: inline-block;
+  width: 1em; /* Larghezza del pallino */
+  margin-right: 5px; /* Margine a destra del pallino */
+}
+/*sezione del bottone aggiungi*/
+.Bottone_aggiungi {
+  text-align: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  float: left;
+  position: sticky;
+  bottom: 20px;
+  border: 2px solid rgb(57, 192, 0);
+  color: rgb(57, 192, 0);
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.Bottone_aggiungi:hover {
+  background-color: rgb(45, 146, 2);
+  color: rgb(38, 124, 1);
+}
+
+.Bottone_genera {
+  text-align: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  float: left;
+  position: sticky;
+  bottom: 20px;
+  border: 2px solid rgb(57, 192, 0);
+  color: rgb(57, 192, 0);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_genera:hover{
+  background-color: rgb(45, 146, 2);
+  color:  rgb(38, 124, 1) ;
+}
+.Bottone_genera a{
+  text-decoration: none;
+  color:inherit;
+}
+.Bottone_stampa {
+  text-align: right;
+  margin-top: 5px;
+  margin-left: 5px;
+  float: right;
+  position: sticky;
+  bottom: 20px;
+  border: 2px solid rgb(57, 192, 0);
+  color: rgb(57, 192, 0);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_stampa:hover{
+  background-color: rgb(45, 146, 2);
+  color:  rgb(38, 124, 1) ;
+}
+.Bottone_stampa a{
+  text-decoration: none;
+  color:inherit;
+}
+.CercaUtenti-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+  .CercaUtenti-input{
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s; /*indica quanto impiegano quei due a cambiare, SE CAMBIANO*/
+  }
+  
+  .CercaUtenti-input:hover {
+    transform: scale(1.05);/* scala del 105% l'elemento, lo zoomma*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /*aggiunge l'ombra, ombra con dimensione 10px e trasparenza del 30%*/
+   
+  }
+
+.CercaUtenti-bottone {
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+.CercaUtenti-bottone:hover{
+  background-color: #9e9b9b;
+}
+.Operatore {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+}
+.Operatore2 {
+  text-align: center;
+  width: 100%;
+  position: relative;
+
+}
+
+/*colora il pallino e la scritta insieme*/
+.Operatore table{
+  text-align: left;
+  margin: 0 auto;
+  width: 200px;
+  margin-bottom: 301px;
+  
+}
+.Operatore table tr{
+  border:3px;
+  font-size:x-large
+}
+.Operatore table tr td{
+  border-left: 2px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.Promozione {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+}
+.Coupon {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+}
+.Form_modifica{
+    margin-bottom: 10px;
+}
+
+  
+  .Form_modifica label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .Form_modifica select{
+    padding: 2px 2px;
+    height: 30px;
+  }
+  .Form_modifica select:hover{
+    border: 2px solid black;
+  }
+  .Form_modifica input:hover:not([type="file"])
+  {
+    border: 2px solid black;
+  }
+  .Form_modifica textarea{
+    padding: 2px;
+  }
+  .Form_modifica textarea:hover{
+    border: 2px solid black;
+    
+  }
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  
+  .checkbox-input {
+    margin-right: 5px;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  
+ 
+.Bottone_elimina{
+  text-align: left;
+  margin-top: 5px;
+  margin-left: 5px;
+  float: left;
+  position: sticky;
+  bottom: 20px;
+  border: 2px solid rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_elimina:hover{
+  background-color: rgb(196, 98, 98);
+  color:  rgb(190, 0, 0) ;
+}
+.Bottone_elimina a{
+  text-decoration: none;
+  color:inherit;
+}
+.Bottone_elimina button{
+  text-decoration: none;
+  color:inherit;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+.Bottone_edit{
+  text-align: right;
+  margin-top: 5px;
+  margin-left: 5px;
+  float: right;
+  position: sticky;
+  bottom: 20px;
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_aziende{
+  text-align: center;
+  margin-top: 5px;
+  float: right;
+  position: sticky;
+  bottom: 20px;
+  border: 2px solid rgb(13, 0, 255);
+  color: rgb(13, 0, 255);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_aziende:hover{
+  background-color:#585eff;
+  color:  rgb(13, 0, 255) ;
+}
+.Bottone_aziende a{
+  text-decoration: none;
+  color:inherit;
+}
+.pulsanteAltrePromo{
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 150px;
+  
+  bottom: 20px;
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+
+}
+.Bottone_edit:hover{
+  background-color:#3e3e3e;
+  color:  rgb(0, 0, 0) ;
+}
+.Bottone_edit a{
+  text-decoration: none;
+  color:inherit;
+}
+.Bottone_salva{
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 5px;
+  position: sticky;
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_salva:hover{
+  background-color:#3e3e3e;
+  color:  rgb(0, 0, 0) ;
+}
+.Bottone_salva_2{
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+  display:block;
+  position: sticky;
+  border: 2px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+}
+.Bottone_salva_2:hover{
+  background-color:#3e3e3e;
+  color:  rgb(0, 0, 0) ;
+}
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #3e3e3e;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 400px;
+  }
+
+.footer {
+  text-align: center;
+  color: #d9d9d9;
+}
+.ContenitoreAccesso{
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;   
+}
+.form-group{
+margin-bottom: 5px;
+
+}
+.bel{
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  
+}
+.sepLogin
+{
+display: flex;
+  
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.popupFaq{
+  display: none;
+  width: 25%;
+  margin-right: 20px;
+  margin-left: 20px;
+
+}
+.ContenitoreFaqCompleto{
+display: flex;
+min-height: 600px;
+align-items: center;
+}
+.ContenitoreLegenda{
+display: flex;
+
+justify-content: center;
+float: left;
+margin-left: 20px;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+align-items: center;
+padding: 20px;
+border-radius: 10px;
+flex-direction: column;
+}
+.ContenitoreFaq {
+display: flex;
+justify-content: stretch;
+align-items: center;
+flex-direction: column;
+width: 800px; /* Imposta la larghezza del contenitore */
+height: 500px; /* Imposta l'altezza del contenitore basata sulla dimensione verticale della finestra del browser */
+overflow: auto; /* Aggiungi scorrimento automatico */
+overflow-x: hidden; /* Nasconde la barra di scorrimento orizzontale */
+padding: 20px;
+margin-left: 20px;
+margin-right: 20px;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+
+}
+.domanda {
+text-align: center;
+cursor: pointer;
+font-weight: bold;
+transition: 0.2s;
+}
+
+.risposta {
+  color: darkslateblue;
+}
+
+.domanda:hover {
+  transform: scale(1.2);
+}
+.ContenitoreProfilo{
+
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.popup {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background-color: rgb(255, 255, 255); /* Imposta un colore di sfondo traslucido */
+  padding: 20px;
+  border: 5px solid #000000;
+  z-index: 9999;
+}
+
+.inputDomanda, .inputRisposta {
+  width: 100%;
+  height: 180px; /* Imposta l'altezza della casella di testo in base alle dimensioni del popup */
+}
+.promoHome{
+  
+  background-color: #ffffff;
+  margin: 2px;
+  height: 200px;
+  width: 450px;
+  display: inline-table;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  transition: 0.1s;
+  margin-bottom: 10px; /* Aggiungi un margine inferiore per separare gli oggetti verticalmente */
+  margin-top: 10px; /* Aggiungi un margine inferiore per separare gli oggetti verticalmente */
+ 
+}
+
+.promoHome  a{
+  text-decoration: none;
+  color: #000000;
+
+}
+.conenitoreHome{
+  display: flex;
+  justify-content: center; 
+}
+.contenitorePromo{
+  display: flex;
+  flex-direction: column; /* Imposta la direzione del layout a colonna */
+  justify-content: center; /* Centra orizzontalmente gli elementi */
+  align-items: center; /* Centra verticalmente gli elementi */
+  padding: 30px;
+
+}
+.back-button {
+  float: left;
+  margin-left: 5px;
+  text-align: left;
+  padding: 10px 10px;
+  background-color: #f1f1f1;
+  border-radius: 100px;
+  transition: background-color 0.3s;
+  
+}
+
+.back-button:hover {
+  background-color: #ddd;
+}
+
+.back-button .arrow {
+  margin-right: 5px;
+  font-size: 14px;
+}
+.Coupon_generato a{
+  text-align: center;
+  margin-top: 5px;
+  position: sticky;
+  bottom: 20px;
+  color:red;
+  text-decoration:underline
+}
+.errori ul{
+  margin-bottom: 0;
+}
+
+.gruppoStats {
+  display: flex;
+  height: 500px;
+  border: 5px solid black;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.scrollbar {
+  flex: 1;
+  text-align: center;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+
+.search-input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.gruppoCercaStats{
+  display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: space-between;
+    padding: 0 250px; /* Aggiunto padding per distanza dai bordi */
+    background-color: #ffffff;
+}
+.azienda_ancora
+{
+  text-decoration: none;
+  color: #000000;
+  font-size: larger;
+  font-weight: 1000;
+  transition: 0.1s;
+}
+
+/*parte login*/
+.input_login {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px; 
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.input_login:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+}
+
+.Bottone_login {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #999999; 
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.Bottone_Registrati:hover {
+  background-color: #808080; 
+}
+.Bottone_Registrati {
+  display: inline-block;
+  padding:10px 20px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #999999; 
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.Bottone_Registrati:hover {
+  background-color: #808080; 
+}
+
+.registrato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.registrato-link {
+  color: red;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+.bold-label {
+  font-weight: bold;
+}
+.AziendaInHome{
+  width: 100%;
+  padding: 10px;
+  border-top: 2px solid ; 
+}
+
+.navbarElement li a {
+  font-size: 1.3em; /* Ingrossa il testo del link nei tag <li> */
+}
+.GestioneOpAz
+{
+    text-align: left;
+    margin:0 auto;
+    width: -moz-fit-content; /*per firefox*/
+    width: fit-content;
+    height: 350px;
+    padding-inline-start: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.Ricerca_avanzata
+  {
+    text-align: right;
+    margin-left: 5px;
+    margin-right: 20px;
+    font-size: 13.33px;
+    font-family: Arial;
+    float: right;
+    position: sticky;
+    text-decoration: none;
+    bottom: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    border-radius: 10px;
+    
+  }
+ .Ricerca_avanzata:hover{
+    background-color:#3e3e3e;
+    color:  rgb(0, 0, 0) ;
+  }
+  #ui-id-1 {
+    /* Regole di formattazione della lista di suggerimenti */
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px;
+    list-style: none;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  
+  #ui-id-1 li {
+    /* Regole di formattazione per ogni suggerimento */
+    padding: 5px;
+  }
+  #ui-id-1 li:hover {
+    /* Regole di formattazione per il suggerimento al passaggio del mouse */
+    background-color: #e0e0e0;
+  }
+  #pagination a{
+    text-decoration: none;
+    transition: font-size 0.3s
+  }
+  #pagination a:hover{
+    font-size: larger;
+  }
+  #pagination a img{
+    transition: transform 0.3s
+  }
+  #pagination a img:hover{
+    transform: scale(1.50);
+  }
+  @keyframes color-change {
+    0% { color: orange; }
+    25% { color: orangered;}
+    50% { color: red; }
+    75% { color: purple; }
+    100% { color: blue; }
+  }
+  .color-changing-text {
+    animation: color-change 5s infinite;
+  }
+  

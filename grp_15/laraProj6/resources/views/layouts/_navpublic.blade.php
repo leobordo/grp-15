@@ -37,8 +37,8 @@
     @endauth 
   
     @guest
-      <li><a href="{{ route('register') }}" title="Iscriviti se non lo hai fatto" style="display:flex; margin-left: 900px ">Iscriviti</a></li>
-      <li><a href="{{ route('login') }}" title="Accedi al tuo account" style="display:flex;">Accedi</a></li>
+      <li><a href="{{ route('register') }}" title="Iscriviti se non lo hai fatto" style="display:flex; float: right; ">Iscriviti</a></li>
+      <li><a href="{{ route('login') }}" title="Accedi al tuo account" style="display:flex; float: right;">Accedi</a></li>
     @endguest
   </ul>
   

@@ -354,12 +354,14 @@ class Utente3Controller extends Controller
             return redirect()->back()->withErrors($validator)->withInput();//eventualmente ritorna al form con i messaggi di errore del validator e lascia nel form gli input
         }
         $nomePro=request('NomePromo');
+        $comp=0;
         $azi=request('Azienda');
         $desc=request('DescrizioneSconto');
         $tip=request('Tipologia');
         $perc=request('PercentualeSconto');
         $scad=request('Scadenza');
         $promo->NomePromo = $nomePro;
+        $promo->Composta = $comp;
         $promo->Azienda = $azi;
         $promo->DescrizioneSconto = $desc;
         $promo->Tipologia=$tip;
@@ -422,12 +424,14 @@ class Utente3Controller extends Controller
         }
         $promozione = new Promozione();
         $nomePro=request('NomePromo');
+        $comp=0;
         $azi=request('Azienda');
         $desc=request('DescrizioneSconto');
         $tip=request('Tipologia');
         $perc=request('PercentualeSconto');
         $scad=request('Scadenza');
         $promozione->NomePromo = $nomePro;
+        $promozione->Composta = $comp;
         $promozione->Azienda = $azi;
         $promozione->DescrizioneSconto = $desc;
         $promozione->Tipologia=$tip;

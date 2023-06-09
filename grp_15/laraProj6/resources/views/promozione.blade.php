@@ -17,7 +17,7 @@
         </p>
         <br>
         <p>Descrizione Sconto</p>
-        <p class="dato-specifico" style="font-size: large">
+        <p class="dato-specifico" style="font-size: large; line-height: 1.5;">
             {{$promozione->DescrizioneSconto}}
         </p>
         <br>
