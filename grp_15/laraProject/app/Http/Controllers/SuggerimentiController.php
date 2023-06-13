@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 class SuggerimentiController extends Controller
 {
+    
     public function getSuggerimentiAz(Request $request)
     {
+        
         $term = $request->input('term');
 
         // Esegui la query per recuperare i suggerimenti

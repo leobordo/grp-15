@@ -171,8 +171,8 @@ class Utente3Controller extends Controller
         }
         if(strlen(request('inputDomandaM'))>255) return redirect()->back()->with('errorDesc','Domanda troppo lunga')->withInput();
             if(strlen(request('inputRispostaM'))>255) return redirect()->back()->with('errorDesc','Risposta troppo lunga')->withInput();
-        $doma = request('inputDomandaM');
-         $rispo = request('inputRispostaM');
+        $dom  = request('inputDomandaM');
+         $risp = request('inputRispostaM');
          $id= request('name_id');
          
         

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
+
 <html>
 <head>
+    
     <meta charset="UTF-8">
     <title>403 Accesso negato</title>
+    
     <script>
         setTimeout(function() {
             window.location.href = '{{ route('home') }}';
         }, 5000);//ritorna alla $redirectUrl dopo 5000ms=5sec
     </script>
+    
 </head>
 <body style="text-align: center; color: red;">
     <br>

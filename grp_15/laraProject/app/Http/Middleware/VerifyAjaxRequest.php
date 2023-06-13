@@ -17,9 +17,12 @@ class VerifyAjaxRequest
      */
     public function handle($request, Closure $next)
 {
+    
     if (!$request->ajax()) {
+       
         $message='Accesso negato, autorizzazione mancante. Verrai reindirizzato alla home tra 5 secondi...';
-            return view('errors.Error403')->with('err',$message);
+        return response()->view('errors.Error403', ['err' => $message]);
+            
     }
 
     return $next($request);
